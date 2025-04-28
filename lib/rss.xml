@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Obsidian Vault]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib\media\favicon.png</url><title>Obsidian Vault</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Mon, 28 Apr 2025 12:35:30 GMT</lastBuildDate><atom:link href="lib\rss.xml" rel="self" type="application/rss+xml"/><pubDate>Mon, 28 Apr 2025 12:35:26 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[Drawing 2025-04-28 14.31.08]]></title><description><![CDATA[ 
+ ]]></description><link>excalidraw\drawing-2025-04-28-14.31.08.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Drawing 2025-04-28 14.31.08.excalidraw.md</guid><pubDate>Mon, 28 Apr 2025 06:31:08 GMT</pubDate></item><item><title><![CDATA[Drawing 2025-04-28 14.31.38]]></title><description><![CDATA[ 
+ ]]></description><link>excalidraw\drawing-2025-04-28-14.31.38.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Drawing 2025-04-28 14.31.38.excalidraw.md</guid><pubDate>Mon, 28 Apr 2025 06:33:59 GMT</pubDate></item><item><title><![CDATA[Drawing 2025-04-28 16.17.09]]></title><description><![CDATA[ 
+ ]]></description><link>excalidraw\drawing-2025-04-28-16.17.09.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Drawing 2025-04-28 16.17.09.excalidraw.md</guid><pubDate>Mon, 28 Apr 2025 08:19:21 GMT</pubDate></item><item><title><![CDATA[Apply (calculator)]]></title><description><![CDATA[<a class="tag" href="?query=tag:calc" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#calc</a> <a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".?query=tag:calc" class="tag" target="_blank" rel="noopener nofollow">#calc</a> <a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a>]]></description><link>math\apply-(calculator).html</link><guid isPermaLink="false">MATH/Apply (calculator).md</guid><pubDate>Mon, 28 Apr 2025 12:25:29 GMT</pubDate></item><item><title><![CDATA[Exponential Features]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> <a class="tag" href="?query=tag:graphing" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#graphing</a> 
+ <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <a href=".?query=tag:graphing" class="tag" target="_blank" rel="noopener nofollow">#graphing</a><br>
+These are the main key concepts to remember when graphing!<br><br>The domain of exponential functions is all real numbers, but the range is only  because of it's horizontal asymptote.<br><br>Exponential functions have a horizontal asymptote as  approaches  , and y approaches 0. This can be easily derived as  (because of negative exponent) will approach 0. <br>
+Exponential functions however, do NOT have a vertical asymptote
+<br><br>All exponential functions have the point  on their parent graph - this is easy to see, plug in  and we can see that for all exponential functions, their parent graph will have the  point. This point may be moved around by transformations, though.]]></description><link>math\exponential-features.html</link><guid isPermaLink="false">MATH/Exponential Features.md</guid><pubDate>Mon, 28 Apr 2025 12:28:55 GMT</pubDate></item><item><title><![CDATA[Exponential One to One]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <br>
+Exponential One to One is when
+]]></description><link>math\exponential-one-to-one.html</link><guid isPermaLink="false">MATH/Exponential One to One.md</guid><pubDate>Mon, 28 Apr 2025 12:29:11 GMT</pubDate></item><item><title><![CDATA[Exponential Properties]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>
+<br>Product Rule
+
+<br>
+
+
+<br>Quotient Rule
+
+<br>
+
+
+<br>Power of Power<br>
+- 
+
+Note that this rule only exists for when an entire power is raised to an exponent! It does NOT exist for 
+
+
+<br>Negative Exponents
+
+<br>
+
+
+<br>Fractional Exponents
+
+<br>
+
+
+]]></description><link>math\exponential-properties.html</link><guid isPermaLink="false">MATH/Exponential Properties.md</guid><pubDate>Mon, 28 Apr 2025 12:25:20 GMT</pubDate></item><item><title><![CDATA[Exponentials and Logs Overview]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> <a class="tag" href="?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> 
+ <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <a href=".?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a><br><br>
+<br><a data-href="Simplifying Exponentials" href="math\simplifying-exponentials.html" class="internal-link" target="_self" rel="noopener nofollow">Simplifying Exponentials</a>
+
+<br>Exponential Properties
+
+
+<br><a data-href="Graphing Exponentials" href="math\graphing-exponentials.html" class="internal-link" target="_self" rel="noopener nofollow">Graphing Exponentials</a>
+
+<br>Exponential Features
+
+
+<br><a data-href="Solving Exponentials" href="math\solving-exponentials.html" class="internal-link" target="_self" rel="noopener nofollow">Solving Exponentials</a>
+
+<br>U-sub
+<br>Logarithmic methods
+<br>Exponential One to One
+
+
+<br><a data-href="Apply (calculator)" href="math\apply-(calculator).html" class="internal-link" target="_self" rel="noopener nofollow">Apply (calculator)</a>
+
+<br>Exponentials and Logs formulas
+
+
+<br><a data-href="Terminology" href="math\terminology.html" class="internal-link" target="_self" rel="noopener nofollow">Terminology</a>
+<br><br>
+<br><a data-href="Simplifying Logarithms" href="math\simplifying-logarithms.html" class="internal-link" target="_self" rel="noopener nofollow">Simplifying Logarithms</a>
+
+<br>Logarithmic Properties
+
+
+<br><a data-href="Inverse Functions" href="Inverse Functions" class="internal-link" target="_self" rel="noopener nofollow">Inverse Functions</a>
+
+<br><a data-href="Function Composition" href="Function Composition" class="internal-link" target="_self" rel="noopener nofollow">Function Composition</a>
+
+
+<br><a data-href="Graphing Logs" href="Graphing Logs" class="internal-link" target="_self" rel="noopener nofollow">Graphing Logs</a>
+
+<br>Log Features
+<br>Graphing Inverses
+
+
+<br><a data-href="Solving Logs" href="math\solving-logs.html" class="internal-link" target="_self" rel="noopener nofollow">Solving Logs</a>
+
+<br>Logs One-to-One
+<br>Rewriting as Exponential
+
+
+<br><a data-href="Apply (calculator)" href="math\apply-(calculator).html" class="internal-link" target="_self" rel="noopener nofollow">Apply (calculator)</a>
+
+<br><a data-href="Exponentials and Logs formulas" href="Exponentials and Logs formulas" class="internal-link" target="_self" rel="noopener nofollow">Exponentials and Logs formulas</a>
+
+
+]]></description><link>math\exponentials-and-logs-overview.html</link><guid isPermaLink="false">MATH/Exponentials and Logs Overview.md</guid><pubDate>Mon, 28 Apr 2025 12:22:52 GMT</pubDate></item><item><title><![CDATA[Graphing Exponentials]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br><br>
+Every exponential function's parent graph is just , where a is the base. For example,<br>
+if  
+<br>All of the normal transformation rules apply. Make sure to convert functions into standard form!!!<br><br>Especially with factoring the exponent! You can also combine multiple exponential functions together via exponential rules if you have to.<br><br>Assume the exponential function is <br>
+One of the key concepts in graphing exponentials is if the function is an exponential growth or decay function, which greatly affects the shape of the graph.<br>Growth functions occur when , and these are the "typical" exponential functions, increasing more and more quickly as  grows. <br>Decay functions occur when , as if the base is fractional, as the exponent increases the value will decrease. These decay functions can be thought of as horizontal reflections as<br>
+<br>
+So a decay function is really just a growth function's reflection.<br>
+For reflections across the X-axis (), these are neither growth nor decay functions.
+<br><img style="max-width:400px; " class="excalidraw-svg excalidraw-embedded-img excalidraw-canvas-immersive" src=".\blob:\\c63177d1-fb22-459d-8f9a-ceba6850255d" filesource="Excalidraw/Drawing 2025-04-28 16.17.09.excalidraw.md" w="400" draggable="false" oncanvas="false"><br><br><br>The domain of exponential functions is all real numbers, but the range is only  because of it's horizontal asymptote.<br><br>Exponential functions have a horizontal asymptote as  approaches  , and y approaches 0. This can be easily derived as  (because of negative exponent) will approach 0. <br>
+Exponential functions however, do NOT have a vertical asymptote
+<br><br>All exponential functions have the point  on their parent graph - this is easy to see, plug in  and we can see that for all exponential functions, their parent graph will have the  point. This point may be moved around by transformations, though.]]></description><link>math\graphing-exponentials.html</link><guid isPermaLink="false">MATH/Graphing Exponentials.md</guid><pubDate>Mon, 28 Apr 2025 12:25:10 GMT</pubDate><enclosure url=".\blob:app:\\obsidian.md\c63177d1-fb22-459d-8f9a-ceba6850255d" length="0" type="false"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;.\blob:app:\\obsidian.md\c63177d1-fb22-459d-8f9a-ceba6850255d&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Logs One-to-One]]></title><description><![CDATA[<a class="tag" href="?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
+ <br><a href=".?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a>]]></description><link>math\logs-one-to-one.html</link><guid isPermaLink="false">MATH/Logs One-to-One.md</guid><pubDate>Mon, 28 Apr 2025 12:25:48 GMT</pubDate></item><item><title><![CDATA[Simplifying Exponentials]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>
+In order to simplify an exponential<br>
+<br>No negative exponents
+<br>All bases must be unique
+<br>No exponent should be raised to another exponent<br>
+We can achieve this via  <a data-href="Exponential Properties" href="math\exponential-properties.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential Properties</a>. 
+]]></description><link>math\simplifying-exponentials.html</link><guid isPermaLink="false">MATH/Simplifying Exponentials.md</guid><pubDate>Mon, 28 Apr 2025 12:28:31 GMT</pubDate></item><item><title><![CDATA[Simplifying Logarithms]]></title><description><![CDATA[<a class="tag" href="?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
+ <br><a href=".?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a>]]></description><link>math\simplifying-logarithms.html</link><guid isPermaLink="false">MATH/Simplifying Logarithms.md</guid><pubDate>Mon, 28 Apr 2025 12:25:53 GMT</pubDate></item><item><title><![CDATA[Solving Exponentials]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>
+Methods<br>
+<br><a data-href="U-sub" href="math\u-sub.html" class="internal-link" target="_self" rel="noopener nofollow">U-sub</a>
+
+<br>Useful when you get a quadratic looking exponentials, usually of the form 
+
+
+<br><a data-href="Exponential One to One" href="math\exponential-one-to-one.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential One to One</a>
+
+<br>The most general method, anytime you have two exponentials to the same base  you can set  and solve from there.
+
+
+<br><a data-href="Logarithmic methods" href="Logarithmic methods" class="internal-link" target="_self" rel="noopener nofollow">Logarithmic methods</a>
+
+<br>Useful when you can't solve cleanly into bases. You can use any log on an equation like  to isolate x -  and you can solve from there.
+
+
+]]></description><link>math\solving-exponentials.html</link><guid isPermaLink="false">MATH/Solving Exponentials.md</guid><pubDate>Mon, 28 Apr 2025 12:25:59 GMT</pubDate></item><item><title><![CDATA[Solving Logs]]></title><description><![CDATA[<a class="tag" href="?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
+ <br><a href=".?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a>]]></description><link>math\solving-logs.html</link><guid isPermaLink="false">MATH/Solving Logs.md</guid><pubDate>Mon, 28 Apr 2025 12:26:03 GMT</pubDate></item><item><title><![CDATA[Terminology]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br><br>The power is the entire expression (), and the exponent is only the value that determines how many times something is multiplied. () The base is the value that is being raised by an exponent (). <br><br>]]></description><link>math\terminology.html</link><guid isPermaLink="false">MATH/Terminology.md</guid><pubDate>Mon, 28 Apr 2025 12:26:16 GMT</pubDate></item><item><title><![CDATA[U-sub]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a>]]></description><link>math\u-sub.html</link><guid isPermaLink="false">MATH/U-sub.md</guid><pubDate>Mon, 28 Apr 2025 12:26:22 GMT</pubDate></item><item><title><![CDATA[index]]></title><description><![CDATA[ 
+ <br>Vault for everything:<br>
+<br><a data-href="Exponentials and Logs Overview" href="math\exponentials-and-logs-overview.html" class="internal-link" target="_self" rel="noopener nofollow">Exponentials and Logs Overview</a>
+]]></description><link>index.html</link><guid isPermaLink="false">index.md</guid><pubDate>Mon, 28 Apr 2025 12:34:54 GMT</pubDate></item></channel></rss>
