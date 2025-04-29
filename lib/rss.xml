@@ -1,71 +1,57 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Obsidian Vault]]></title><description><![CDATA[Obsidian digital garden]]></description><link>https://azraelix316.github.io/</link><image><url>.\https:\\azraelix316.github.io\lib\media\favicon.png</url><title>Obsidian Vault</title><link>https://azraelix316.github.io/</link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Mon, 28 Apr 2025 13:32:41 GMT</lastBuildDate><atom:link href=".\https:\\azraelix316.github.io\lib\rss.xml" rel="self" type="application/rss+xml"/><pubDate>Mon, 28 Apr 2025 13:32:36 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[Exponentials and Logs Overview]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> 
- <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <a href=".\https:\\azraelix316.github.io?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a><br><br>
-<br><a data-href="Simplifying Exponentials" href=".\https:\\azraelix316.github.io\math\simplifying-exponentials.html" class="internal-link" target="_self" rel="noopener nofollow">Simplifying Exponentials</a>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Obsidian Vault]]></title><description><![CDATA[Obsidian digital garden]]></description><link>https://azraelix316.github.io/</link><image><url>.\https:\\azraelix316.github.io\lib\media\favicon.png</url><title>Obsidian Vault</title><link>https://azraelix316.github.io/</link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Tue, 29 Apr 2025 13:15:43 GMT</lastBuildDate><atom:link href=".\https:\\azraelix316.github.io\lib\rss.xml" rel="self" type="application/rss+xml"/><pubDate>Tue, 29 Apr 2025 13:15:34 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[Apply (calculator)]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a><br>
+<br>
+Formulas
 
-<br>Exponential Properties
-
-
-<br><a data-href="Graphing Exponentials" href=".\https:\\azraelix316.github.io\math\graphing-exponentials.html" class="internal-link" target="_self" rel="noopener nofollow">Graphing Exponentials</a>
-
-<br>Exponential Features
-
-
-<br><a data-href="Solving Exponentials" href=".\https:\\azraelix316.github.io\math\solving-exponentials.html" class="internal-link" target="_self" rel="noopener nofollow">Solving Exponentials</a>
-
-<br>U-sub
-<br>Logarithmic methods
-<br>Exponential One to One
+<br>Compound interest
+<br>Half-life
+<br>Loudness
+<br>Earthquakes
 
 
-<br><a data-href="Apply (calculator)" href=".\https:\\azraelix316.github.io\math\apply-(calculator).html" class="internal-link" target="_self" rel="noopener nofollow">Apply (calculator)</a>
+<br>
+Where are the buttons
 
-<br>Exponentials and Logs formulas
-
-
-<br><a data-href="Terminology" href=".\https:\\azraelix316.github.io\math\terminology.html" class="internal-link" target="_self" rel="noopener nofollow">Terminology</a>
-<br><br>
-<br><a data-href="Simplifying Logarithms" href=".\https:\\azraelix316.github.io\math\simplifying-logarithms.html" class="internal-link" target="_self" rel="noopener nofollow">Simplifying Logarithms</a>
-
-<br>Logarithmic Properties
+<br>alpha + window: log with any base
+<br>ln is under log
+<br>2nd ln:  for any value
 
 
-<br><a data-href="Inverse Functions" href=".\https:\\azraelix316.github.io\Inverse Functions" class="internal-link" target="_self" rel="noopener nofollow">Inverse Functions</a>
+]]></description><link>.\https:\\azraelix316.github.io\math\apply-(calculator).html</link><guid isPermaLink="false">MATH/Apply (calculator).md</guid><pubDate>Tue, 29 Apr 2025 12:29:43 GMT</pubDate></item><item><title><![CDATA[Exponential Features]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <br>
+Note: These features apply to PARENT GRAPHS and change after transformations
+<br>
+<br>Key Point
 
-<br><a data-href="Function Composition" href=".\https:\\azraelix316.github.io\Function Composition" class="internal-link" target="_self" rel="noopener nofollow">Function Composition</a>
+<br>All exponential functions' parent graph has the key point (0,1) which may change with transformations 
 
-
-<br><a data-href="Graphing Logs" href=".\https:\\azraelix316.github.io\Graphing Logs" class="internal-link" target="_self" rel="noopener nofollow">Graphing Logs</a>
-
-<br>Log Features
-<br>Graphing Inverses
-
-
-<br><a data-href="Solving Logs" href=".\https:\\azraelix316.github.io\math\solving-logs.html" class="internal-link" target="_self" rel="noopener nofollow">Solving Logs</a>
-
-<br>Logs One-to-One
-<br>Rewriting as Exponential
+<br>Since 
 
 
-<br><a data-href="Apply (calculator)" href=".\https:\\azraelix316.github.io\math\apply-(calculator).html" class="internal-link" target="_self" rel="noopener nofollow">Apply (calculator)</a>
-<br>- [[Exponentials and Logs formulas]]
-]]></description><link>.\https:\\azraelix316.github.io\math\exponentials-and-logs-overview.html</link><guid isPermaLink="false">MATH/Exponentials and Logs Overview.md</guid><pubDate>Mon, 28 Apr 2025 13:31:35 GMT</pubDate></item><item><title><![CDATA[Solving Exponentials]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
- <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>Methods<br>
-<br><a data-href="U-sub" href=".\https:\\azraelix316.github.io\math\u-sub.html" class="internal-link" target="_self" rel="noopener nofollow">U-sub</a>
-
-<br>Useful when you get a quadratic looking exponentials, usually of the form 
 
 
-<br><a data-href="Exponential One to One" href=".\https:\\azraelix316.github.io\math\exponential-one-to-one.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential One to One</a>
+<br>Domain and Range
 
-<br>The most general method, anytime you have two exponentials to the same base  you can set  and solve from there.
+<br>D:  R:  
 
-
-<br><a data-href="Logarithmic methods" href=".\https:\\azraelix316.github.io\Logarithmic methods" class="internal-link" target="_self" rel="noopener nofollow">Logarithmic methods</a>
-
-<br>Useful when you can't solve cleanly into bases. You can use any log on an equation like  to isolate x -  and you can solve from there.
+<br>Opposite of log graph
 
 
-]]></description><link>.\https:\\azraelix316.github.io\math\solving-exponentials.html</link><guid isPermaLink="false">MATH/Solving Exponentials.md</guid><pubDate>Mon, 28 Apr 2025 13:32:11 GMT</pubDate></item><item><title><![CDATA[Exponential Properties]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+
+
+<br>Asymptotes and End Behavior
+
+<br>All exponential functions' parent graph have a horizontal asymptote at 
+
+<br>As       
+
+
+
+
+]]></description><link>.\https:\\azraelix316.github.io\math\exponential-features.html</link><guid isPermaLink="false">MATH/Exponential Features.md</guid><pubDate>Tue, 29 Apr 2025 05:35:35 GMT</pubDate></item><item><title><![CDATA[Exponential One to One]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>
+Because  when  by putting the same base on both sides of the equation, we can easily solve for the exponent<br>
+ means , really useful when everything is a power of the same base as you can combine powers via the <a data-href="Exponential Properties" href=".\https:\\azraelix316.github.io\math\exponential-properties.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential Properties</a>.]]></description><link>.\https:\\azraelix316.github.io\math\exponential-one-to-one.html</link><guid isPermaLink="false">MATH/Exponential One to One.md</guid><pubDate>Tue, 29 Apr 2025 05:35:40 GMT</pubDate></item><item><title><![CDATA[Exponential Properties]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
  <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>
 <br>Product Rule
 
@@ -95,39 +81,292 @@ Note that this rule only exists for when an entire power is raised to an exponen
 <br>
 
 
-]]></description><link>.\https:\\azraelix316.github.io\math\exponential-properties.html</link><guid isPermaLink="false">MATH/Exponential Properties.md</guid><pubDate>Mon, 28 Apr 2025 12:59:22 GMT</pubDate></item><item><title><![CDATA[Graphing Exponentials]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
- <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br><br>
-Every exponential function's parent graph is just , where a is the base. For example,<br>
-if  
-<br>All of the normal transformation rules apply. Make sure to convert functions into standard form!!!<br><br>Especially with factoring the exponent! You can also combine multiple exponential functions together via exponential rules if you have to.<br><br>Assume the exponential function is <br>
-One of the key concepts in graphing exponentials is if the function is an exponential growth or decay function, which greatly affects the shape of the graph.<br>Growth functions occur when , and these are the "typical" exponential functions, increasing more and more quickly as  grows. <br>Decay functions occur when , as if the base is fractional, as the exponent increases the value will decrease. These decay functions can be thought of as horizontal reflections as<br>
+]]></description><link>.\https:\\azraelix316.github.io\math\exponential-properties.html</link><guid isPermaLink="false">MATH/Exponential Properties.md</guid><pubDate>Tue, 29 Apr 2025 00:58:54 GMT</pubDate></item><item><title><![CDATA[Exponentials and Logs Overview]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <a href=".\https:\\azraelix316.github.io?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a><br><br>
+<br><a data-href="Simplifying Exponentials" href=".\https:\\azraelix316.github.io\math\simplifying-exponentials.html" class="internal-link" target="_self" rel="noopener nofollow">Simplifying Exponentials</a>
+
+<br><a data-href="Exponential Properties" href=".\https:\\azraelix316.github.io\math\exponential-properties.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential Properties</a>
+
+
+<br><a data-href="Graphing Exponentials" href=".\https:\\azraelix316.github.io\math\graphing-exponentials.html" class="internal-link" target="_self" rel="noopener nofollow">Graphing Exponentials</a>
+
+<br><a data-href="Exponential Features" href=".\https:\\azraelix316.github.io\math\exponential-features.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential Features</a>
+
+
+<br><a data-href="Solving Exponentials" href=".\https:\\azraelix316.github.io\math\solving-exponentials.html" class="internal-link" target="_self" rel="noopener nofollow">Solving Exponentials</a>
+
+<br><a data-href="U-sub" href=".\https:\\azraelix316.github.io\math\u-sub.html" class="internal-link" target="_self" rel="noopener nofollow">U-sub</a>
+<br><a data-href="Logarithmic methods" href=".\https:\\azraelix316.github.io\math\logarithmic-methods.html" class="internal-link" target="_self" rel="noopener nofollow">Logarithmic methods</a>
+<br><a data-href="Exponential One to One" href=".\https:\\azraelix316.github.io\math\exponential-one-to-one.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential One to One</a>
+
+
+<br><a data-href="Apply (calculator)" href=".\https:\\azraelix316.github.io\math\apply-(calculator).html" class="internal-link" target="_self" rel="noopener nofollow">Apply (calculator)</a>
+<br><a data-href="Terminology" href=".\https:\\azraelix316.github.io\math\terminology.html" class="internal-link" target="_self" rel="noopener nofollow">Terminology</a>
+<br><br>
+<br><a data-href="Simplifying Logarithms" href=".\https:\\azraelix316.github.io\math\simplifying-logarithms.html" class="internal-link" target="_self" rel="noopener nofollow">Simplifying Logarithms</a>
+
+<br><a data-href="Log Properties" href=".\https:\\azraelix316.github.io\math\log-properties.html" class="internal-link" target="_self" rel="noopener nofollow">Log Properties</a>
+
+
+<br><a data-href="Inverse Functions" href=".\https:\\azraelix316.github.io\math\inverse-functions.html" class="internal-link" target="_self" rel="noopener nofollow">Inverse Functions</a>
+
+<br><a data-href="Function Composition" href=".\https:\\azraelix316.github.io\math\function-composition.html" class="internal-link" target="_self" rel="noopener nofollow">Function Composition</a>
+
+
+<br><a data-href="Graphing Logs" href=".\https:\\azraelix316.github.io\math\graphing-logs.html" class="internal-link" target="_self" rel="noopener nofollow">Graphing Logs</a>
+
+<br><a data-href="Log Graph Features" href=".\https:\\azraelix316.github.io\math\log-graph-features.html" class="internal-link" target="_self" rel="noopener nofollow">Log Graph Features</a>
+
+
+<br><a data-href="Solving Logs" href=".\https:\\azraelix316.github.io\math\solving-logs.html" class="internal-link" target="_self" rel="noopener nofollow">Solving Logs</a>
+
+<br><a data-href="Logs One-to-One" href=".\https:\\azraelix316.github.io\math\logs-one-to-one.html" class="internal-link" target="_self" rel="noopener nofollow">Logs One-to-One</a>
+<br><a data-href="Rewriting as Exponential" href=".\https:\\azraelix316.github.io\math\rewriting-as-exponential.html" class="internal-link" target="_self" rel="noopener nofollow">Rewriting as Exponential</a>
+
+
+<br><a data-href="Apply (calculator)" href=".\https:\\azraelix316.github.io\math\apply-(calculator).html" class="internal-link" target="_self" rel="noopener nofollow">Apply (calculator)</a>
+]]></description><link>.\https:\\azraelix316.github.io\math\exponentials-and-logs-overview.html</link><guid isPermaLink="false">MATH/Exponentials and Logs Overview.md</guid><pubDate>Tue, 29 Apr 2025 13:06:15 GMT</pubDate></item><item><title><![CDATA[Function Composition]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a><br>
+<br>Function composition is when you set the output of one function to be equal to the input of another
+
+<br>e.g g(f(x))
+
+
+<br>Two forms<br>
+- <br>
+- <br>
+- both mean that you put the output of  into !
+
+There is a direction in composition! 
+
+
+<br>Solving<br>
+- You could evaluate each function individually<br>
+- Or just pass the entire function and solve the composed function<br>
+- Example:
+
+
+]]></description><link>.\https:\\azraelix316.github.io\math\function-composition.html</link><guid isPermaLink="false">MATH/Function Composition.md</guid><pubDate>Tue, 29 Apr 2025 12:26:43 GMT</pubDate></item><item><title><![CDATA[Graphing Exponentials]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <br><br>
+<br>Parent graph of all exponential functions of base  is  - there is no general parent graph!
+
+General note: make sure to factor your function into standard form and remove coefficients
+
+
+<br>Decay functions can be treated as horizontal reflections of the parent graph
+<br><br>
+<br>Growth functions are of the form  where  and have an upwards curve
+<br>Decay functions are where  and can be treated as horizontal reflections of <br>
+- 
+
+Vertically reflected functions (e.g over x-axis) are NEITHER GROWTH NOR DECAY
+
+
+<br><a data-href="Drawing 2025-04-28 16.17.09.excalidraw" href=".\https:\\azraelix316.github.io\excalidraw\drawing-2025-04-28-16.17.09.excalidraw.html" class="internal-link" target="_self" rel="noopener nofollow">Drawing 2025-04-28 16.17.09.excalidraw</a><br><a data-href="Exponential Features" href=".\https:\\azraelix316.github.io\math\exponential-features.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential Features</a>]]></description><link>.\https:\\azraelix316.github.io\math\graphing-exponentials.html</link><guid isPermaLink="false">MATH/Graphing Exponentials.md</guid><pubDate>Tue, 29 Apr 2025 05:15:29 GMT</pubDate></item><item><title><![CDATA[Graphing Logs]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a><br>
+<br>Logs are inverse functions of exponents
+
+<br>Everything is just flipped!
+<br>to graph inverses, just flip x and y for everything.
+
+
+<br><br>Key Point<br>
+<br>All log functions' parent graph has the key point (1,0) which may change with transformations<br>
+- Since 
+<br>Domain and Range
+
+<br>R:  D:  
+
+<br>Opposite of exponential graph
+
+
+
+
+<br>Asymptotes and End Behavior
+
+<br>All log functions' parent graph have a vertical asymptote at .
+
+<br>As       
+
+
+
+
+]]></description><link>.\https:\\azraelix316.github.io\math\graphing-logs.html</link><guid isPermaLink="false">MATH/Graphing Logs.md</guid><pubDate>Tue, 29 Apr 2025 12:34:51 GMT</pubDate></item><item><title><![CDATA[Inverse Functions]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <br> Inverse functions are functions which reverse the process of a given function, basically changing x and y --&gt; this basically allows you to get your inputs back from your outputs.<br>
+Inverse functions only exists for one to one functions! You must domain restrict a function if it's not one to one!
 <br>
-So a decay function is really just a growth function's reflection.<br>
-For reflections across the X-axis (), these are neither growth nor decay functions.
-<br><br><br><br>The domain of exponential functions is all real numbers, but the range is only  because of it's horizontal asymptote.<br><br>Exponential functions have a horizontal asymptote as  approaches  , and y approaches 0. This can be easily derived as  (because of negative exponent) will approach 0. <br>
-Exponential functions however, do NOT have a vertical asymptote
-<br><br>All exponential functions have the point  on their parent graph - this is easy to see, plug in  and we can see that for all exponential functions, their parent graph will have the  point. This point may be moved around by transformations, though.]]></description><link>.\https:\\azraelix316.github.io\math\graphing-exponentials.html</link><guid isPermaLink="false">MATH/Graphing Exponentials.md</guid><pubDate>Mon, 28 Apr 2025 13:18:00 GMT</pubDate></item><item><title><![CDATA[Drawing 2025-04-28 14.31.08]]></title><description><![CDATA[ 
- ]]></description><link>excalidraw\drawing-2025-04-28-14.31.08.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Drawing 2025-04-28 14.31.08.excalidraw.md</guid><pubDate>Mon, 28 Apr 2025 06:31:08 GMT</pubDate></item><item><title><![CDATA[Drawing 2025-04-28 14.31.38]]></title><description><![CDATA[ 
- ]]></description><link>excalidraw\drawing-2025-04-28-14.31.38.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Drawing 2025-04-28 14.31.38.excalidraw.md</guid><pubDate>Mon, 28 Apr 2025 06:33:59 GMT</pubDate></item><item><title><![CDATA[Drawing 2025-04-28 16.17.09]]></title><description><![CDATA[ 
- ]]></description><link>excalidraw\drawing-2025-04-28-16.17.09.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Drawing 2025-04-28 16.17.09.excalidraw.md</guid><pubDate>Mon, 28 Apr 2025 08:19:21 GMT</pubDate></item><item><title><![CDATA[Apply (calculator)]]></title><description><![CDATA[<a class="tag" href="?query=tag:calc" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#calc</a> <a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
- <br><a href=".?query=tag:calc" class="tag" target="_blank" rel="noopener nofollow">#calc</a> <a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a>]]></description><link>math\apply-(calculator).html</link><guid isPermaLink="false">MATH/Apply (calculator).md</guid><pubDate>Mon, 28 Apr 2025 12:25:29 GMT</pubDate></item><item><title><![CDATA[Exponential Features]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> <a class="tag" href="?query=tag:graphing" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#graphing</a> 
- <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <a href=".?query=tag:graphing" class="tag" target="_blank" rel="noopener nofollow">#graphing</a><br>These are the main key concepts to remember when graphing!<br><br>The domain of exponential functions is all real numbers, but the range is only  because of it's horizontal asymptote.<br><br>Exponential functions have a horizontal asymptote as  approaches  , and y approaches 0. This can be easily derived as  (because of negative exponent) will approach 0. <br>
-Exponential functions however, do NOT have a vertical asymptote
-<br><br>All exponential functions have the point  on their parent graph - this is easy to see, plug in  and we can see that for all exponential functions, their parent graph will have the  point. This point may be moved around by transformations, though.]]></description><link>math\exponential-features.html</link><guid isPermaLink="false">MATH/Exponential Features.md</guid><pubDate>Mon, 28 Apr 2025 12:42:51 GMT</pubDate></item><item><title><![CDATA[Exponential One to One]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
- <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <br>
-Exponential One to One is when
-]]></description><link>math\exponential-one-to-one.html</link><guid isPermaLink="false">MATH/Exponential One to One.md</guid><pubDate>Mon, 28 Apr 2025 12:42:46 GMT</pubDate></item><item><title><![CDATA[Logs One-to-One]]></title><description><![CDATA[<a class="tag" href="?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
- <br><a href=".?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a>]]></description><link>math\logs-one-to-one.html</link><guid isPermaLink="false">MATH/Logs One-to-One.md</guid><pubDate>Mon, 28 Apr 2025 12:25:48 GMT</pubDate></item><item><title><![CDATA[Simplifying Exponentials]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+<br>Represented as 
+<br>Properties
+
+<br>The <a data-tooltip-position="top" aria-label="Function Composition" data-href="Function Composition" href=".\https:\\azraelix316.github.io\math\function-composition.html" class="internal-link" target="_self" rel="noopener nofollow">composition</a> of the inverse and the normal function will always return the input --&gt; if you get your inputs back from your outputs, it'll be the input again.
+
+<br>Mathematically 
+
+
+<br>Domain and range flip when you invert
+<br>Graphically, acts like a reflection over the line 
+
+
+]]></description><link>.\https:\\azraelix316.github.io\math\inverse-functions.html</link><guid isPermaLink="false">MATH/Inverse Functions.md</guid><pubDate>Tue, 29 Apr 2025 12:26:33 GMT</pubDate></item><item><title><![CDATA[Log Graph Features]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a><br>
+Key Point<br>
+<br>All log functions' parent graph has the key point (1,0) which may change with transformations<br>
+- Since 
+<br>Domain and Range
+
+<br>R:  D:  
+
+<br>Opposite of exponential graph
+
+
+
+
+<br>Asymptotes and End Behavior
+
+<br>All log functions' parent graph have a vertical asymptote at .
+
+<br>As       
+
+
+
+
+]]></description><link>.\https:\\azraelix316.github.io\math\log-graph-features.html</link><guid isPermaLink="false">MATH/Log Graph Features.md</guid><pubDate>Tue, 29 Apr 2025 12:34:54 GMT</pubDate></item><item><title><![CDATA[Log Properties]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a><br>
+VERY VERY IMPORTANT! YOU CAN ONLY USE THESE PROPERTIES IF  and  is a positive real number
+<br>These rules work backwards as well to condense logs!<br>
+<br>Inverse Properties of Logs
+
+<br>
+<br>
+
+
+<br>Product rule of Logarithms
+
+<br>
+
+
+<br>Quotient Rule
+
+<br>
+
+
+<br>
+<br>Power Rule
+
+<br>
+
+
+<br>Change-of-Base Formula
+
+<br>
+
+<br>A silly mistake a lot of people make is quotient ruling this afterwards. 
+<br>This allows you to any log to any other log
+
+
+
+
+]]></description><link>.\https:\\azraelix316.github.io\math\log-properties.html</link><guid isPermaLink="false">MATH/Log Properties.md</guid><pubDate>Tue, 29 Apr 2025 12:29:28 GMT</pubDate></item><item><title><![CDATA[Logarithmic methods]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>
+When <a data-href="U-sub" href=".\https:\\azraelix316.github.io\math\u-sub.html" class="internal-link" target="_self" rel="noopener nofollow">U-sub</a> is not able to be used and the bases are different, you can take the log of both sides in order to solve the equation.<br>
+When using this method, you can use ANY log
+<br>Example:<br><br>This is a general method but it should be your last resort. It only works when the base is isolated]]></description><link>.\https:\\azraelix316.github.io\math\logarithmic-methods.html</link><guid isPermaLink="false">MATH/Logarithmic methods.md</guid><pubDate>Tue, 29 Apr 2025 05:37:37 GMT</pubDate></item><item><title><![CDATA[Logs One-to-One]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a><br>Similar to <a data-href="Exponential One to One" href=".\https:\\azraelix316.github.io\math\exponential-one-to-one.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential One to One</a>, if , <br>
+This lets you solve for the antilog easily, and you set this strategy up by trying to convert both sides to the same base. <br>
+Remember to check!!!
+]]></description><link>.\https:\\azraelix316.github.io\math\logs-one-to-one.html</link><guid isPermaLink="false">MATH/Logs One-to-One.md</guid><pubDate>Tue, 29 Apr 2025 12:39:14 GMT</pubDate></item><item><title><![CDATA[Rewriting as Exponential]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a><br>
+You can combine everything into one ginormous log and then solve by rewriting as exponential<br><br>
+<br>Examples soon...]]></description><link>.\https:\\azraelix316.github.io\math\rewriting-as-exponential.html</link><guid isPermaLink="false">MATH/Rewriting as Exponential.md</guid><pubDate>Tue, 29 Apr 2025 13:07:13 GMT</pubDate></item><item><title><![CDATA[Simplifying Logarithms]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a><br>
+You may be asked to condense or expand logarithms, and they have different rules to follow.
+<br>
+<br>Log Condensing Rules
+
+<br>The coefficient must be 1
+<br>Rational exponents should be written in radical form
+<br>Leave the input in radical form
+
+<br>No need to rationalize!
+
+
+
+
+<br>Expanding Logs
+
+<br>No power, product, or quotient should remain in the input
+<br>Numerical logs should be in simplest terms.
+
+<br>Evaluate logs as much as possible ()
+
+
+
+
+<br>Use the <a data-href="Log Properties" href=".\https:\\azraelix316.github.io\math\log-properties.html" class="internal-link" target="_self" rel="noopener nofollow">Log Properties</a> to simplify logs. Note that a lot of people mess these up, make sure to take extra care when using these!<br><br>An interesting problem on the last quiz involved an expression that simplified to<br>
+<br>
+Now, you can actually simplify this further via change of base!<br>]]></description><link>.\https:\\azraelix316.github.io\math\simplifying-logarithms.html</link><guid isPermaLink="false">MATH/Simplifying Logarithms.md</guid><pubDate>Tue, 29 Apr 2025 09:10:25 GMT</pubDate></item><item><title><![CDATA[Solving Exponentials]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>
+PLEASE PLEASE REMEMBER TO CHECK YOUR ANSWERS! 
+<br>Methods<br>
+<br>
+<a data-href="Exponential One to One" href=".\https:\\azraelix316.github.io\math\exponential-one-to-one.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential One to One</a>
+
+<br>The most general method, anytime you have two exponentials to the same base  you can set  and solve from there.
+<br>Noncheckable
+
+
+<br>
+<a data-href="U-sub" href=".\https:\\azraelix316.github.io\math\u-sub.html" class="internal-link" target="_self" rel="noopener nofollow">U-sub</a>
+
+<br>Useful when you get a quadratic looking exponentials, usually of the form 
+<br>Checkable
+
+
+<br>
+<a data-href="Logarithmic methods" href=".\https:\\azraelix316.github.io\math\logarithmic-methods.html" class="internal-link" target="_self" rel="noopener nofollow">Logarithmic methods</a><br>
+- Useful when you can't solve cleanly into bases. You can use any log on an equation like  to isolate x -  and you can solve from there.<br>
+- Checkable-ish<br>
+Always check if you can use One to One, then U-sub, then logs to make it easier.
+
+<br>The goofy example here is where you can distribute the logs to isolate, which is something you definitely want to keep in mind<br>
+e.g<br>]]></description><link>.\https:\\azraelix316.github.io\math\solving-exponentials.html</link><guid isPermaLink="false">MATH/Solving Exponentials.md</guid><pubDate>Tue, 29 Apr 2025 13:14:53 GMT</pubDate></item><item><title><![CDATA[Solving Logs]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a><br>PLEASE PLEASE REMEMBER TO CHECK YOUR ANSWERS!<br>
+<br><a data-href="Logs One-to-One" href=".\https:\\azraelix316.github.io\math\logs-one-to-one.html" class="internal-link" target="_self" rel="noopener nofollow">Logs One-to-One</a>
+
+<br>Useful anytime you only have log expressions
+
+
+<br><a data-tooltip-position="top" aria-label="Rewriting as Exponential" data-href="Rewriting as Exponential" href=".\https:\\azraelix316.github.io\math\rewriting-as-exponential.html" class="internal-link" target="_self" rel="noopener nofollow">Changing to Exponential</a><br>
+- Useful for everything else!<br>
+- Technically you can get here by doing <a data-href="Logs One-to-One" href=".\https:\\azraelix316.github.io\math\logs-one-to-one.html" class="internal-link" target="_self" rel="noopener nofollow">Logs One-to-One</a> by subtracting a 1-1 on both sides and simplifying... 
+
+You only have two strategies: rewrite everything as two logs on both sides, or rewrite everything as the same base. Everything else won't solve cleanly.
+
+
+<br>Always see if you can easily <a data-href="Logs One-to-One" href=".\https:\\azraelix316.github.io\math\logs-one-to-one.html" class="internal-link" target="_self" rel="noopener nofollow">Logs One-to-One</a> first, as it's a little bit cleaner]]></description><link>.\https:\\azraelix316.github.io\math\solving-logs.html</link><guid isPermaLink="false">MATH/Solving Logs.md</guid><pubDate>Tue, 29 Apr 2025 13:14:48 GMT</pubDate></item><item><title><![CDATA[Terminology]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br><br>The power is the entire expression (), and the exponent is only the value that determines how many times something is multiplied. () The base is the value that is being raised by an exponent (). <br><br>
+<br>e, Euler's number is an irrational number that is the limit of a function
+
+<br>ln is the log with base e , called the natural log because of how often it appears in nature
+
+
+<br><br>
+<br>Usually, logs without bases are  and called the common log
+
+<br>But in computer science logs without bases are  so don't take it for granted!
+
+
+]]></description><link>.\https:\\azraelix316.github.io\math\terminology.html</link><guid isPermaLink="false">MATH/Terminology.md</guid><pubDate>Tue, 29 Apr 2025 05:41:07 GMT</pubDate></item><item><title><![CDATA[U-sub]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>Replace  with a variable and then treat equation as a normal quadratic, e.g<br><br>
+Make sure to solve for the actual variable and not for !!! After solving for , you need to solve for the variable again!
+]]></description><link>.\https:\\azraelix316.github.io\math\u-sub.html</link><guid isPermaLink="false">MATH/U-sub.md</guid><pubDate>Tue, 29 Apr 2025 05:32:35 GMT</pubDate></item><item><title><![CDATA[Drawing 2025-04-28 16.17.09]]></title><description><![CDATA[ 
+ ]]></description><link>excalidraw\drawing-2025-04-28-16.17.09.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Drawing 2025-04-28 16.17.09.excalidraw.md</guid><pubDate>Mon, 28 Apr 2025 08:19:21 GMT</pubDate></item><item><title><![CDATA[Simplifying Exponentials]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
  <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>In order to simplify an exponential<br>
 <br>No negative exponents
 <br>All bases must be unique
 <br>No exponent should be raised to another exponent<br>
 We can achieve this via  <a data-href="Exponential Properties" href="math\exponential-properties.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential Properties</a>. 
-]]></description><link>math\simplifying-exponentials.html</link><guid isPermaLink="false">MATH/Simplifying Exponentials.md</guid><pubDate>Mon, 28 Apr 2025 12:43:36 GMT</pubDate></item><item><title><![CDATA[Simplifying Logarithms]]></title><description><![CDATA[<a class="tag" href="?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
- <br><a href=".?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a>]]></description><link>math\simplifying-logarithms.html</link><guid isPermaLink="false">MATH/Simplifying Logarithms.md</guid><pubDate>Mon, 28 Apr 2025 12:25:53 GMT</pubDate></item><item><title><![CDATA[Solving Logs]]></title><description><![CDATA[<a class="tag" href="?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
- <br><a href=".?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a>]]></description><link>math\solving-logs.html</link><guid isPermaLink="false">MATH/Solving Logs.md</guid><pubDate>Mon, 28 Apr 2025 12:26:03 GMT</pubDate></item><item><title><![CDATA[Terminology]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
- <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br><br>The power is the entire expression (), and the exponent is only the value that determines how many times something is multiplied. () The base is the value that is being raised by an exponent (). <br><br>]]></description><link>math\terminology.html</link><guid isPermaLink="false">MATH/Terminology.md</guid><pubDate>Mon, 28 Apr 2025 12:26:16 GMT</pubDate></item><item><title><![CDATA[U-sub]]></title><description><![CDATA[<a class="tag" href="?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
- <br><a href=".?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a>]]></description><link>math\u-sub.html</link><guid isPermaLink="false">MATH/U-sub.md</guid><pubDate>Mon, 28 Apr 2025 12:26:22 GMT</pubDate></item><item><title><![CDATA[index]]></title><description><![CDATA[ 
+]]></description><link>math\simplifying-exponentials.html</link><guid isPermaLink="false">MATH/Simplifying Exponentials.md</guid><pubDate>Mon, 28 Apr 2025 12:43:36 GMT</pubDate></item><item><title><![CDATA[index]]></title><description><![CDATA[ 
  <br>Vault for everything:<br>
 <br><a data-href="Exponentials and Logs Overview" href="math\exponentials-and-logs-overview.html" class="internal-link" target="_self" rel="noopener nofollow">Exponentials and Logs Overview</a>
 ]]></description><link>index.html</link><guid isPermaLink="false">index.md</guid><pubDate>Mon, 28 Apr 2025 12:34:54 GMT</pubDate></item></channel></rss>
