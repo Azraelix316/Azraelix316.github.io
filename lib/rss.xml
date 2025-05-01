@@ -1,6 +1,5 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Obsidian Vault]]></title><description><![CDATA[Obsidian digital garden]]></description><link>https://azraelix316.github.io/</link><image><url>.\https:\\azraelix316.github.io\lib\media\favicon.png</url><title>Obsidian Vault</title><link>https://azraelix316.github.io/</link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Wed, 30 Apr 2025 14:39:00 GMT</lastBuildDate><atom:link href=".\https:\\azraelix316.github.io\lib\rss.xml" rel="self" type="application/rss+xml"/><pubDate>Wed, 30 Apr 2025 14:38:58 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[Drawing 2025-04-30 12.53.23]]></title><description><![CDATA[ 
- ]]></description><link>.\https:\\azraelix316.github.io\excalidraw\drawing-2025-04-30-12.53.23.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Drawing 2025-04-30 12.53.23.excalidraw.md</guid><pubDate>Wed, 30 Apr 2025 04:54:34 GMT</pubDate></item><item><title><![CDATA[Apply (calculator)]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
- <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a><br>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Obsidian Vault]]></title><description><![CDATA[Obsidian digital garden]]></description><link>https://azraelix316.github.io/</link><image><url>.\https:\\azraelix316.github.io\lib\media\favicon.png</url><title>Obsidian Vault</title><link>https://azraelix316.github.io/</link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Thu, 01 May 2025 01:00:16 GMT</lastBuildDate><atom:link href=".\https:\\azraelix316.github.io\lib\rss.xml" rel="self" type="application/rss+xml"/><pubDate>Thu, 01 May 2025 01:00:06 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[Apply (calculator)]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <br>
 <br>
 Formulas
 
@@ -50,7 +49,61 @@ Where are the buttons
 <br>2nd ln:  for any value
 
 
-]]></description><link>.\https:\\azraelix316.github.io\math\apply-(calculator).html</link><guid isPermaLink="false">MATH/Apply (calculator).md</guid><pubDate>Wed, 30 Apr 2025 07:08:35 GMT</pubDate></item><item><title><![CDATA[Exponentials and Logs Overview]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> 
+]]></description><link>.\https:\\azraelix316.github.io\math\apply-(calculator).html</link><guid isPermaLink="false">MATH/Apply (calculator).md</guid><pubDate>Wed, 30 Apr 2025 15:11:50 GMT</pubDate></item><item><title><![CDATA[Exponential Features]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <br>
+Note: These features apply to PARENT GRAPHS and change after transformations
+<br>
+<br>Key Point
+
+<br>All exponential functions' parent graph has the key point (0,1) which may change with transformations 
+
+<br>Since 
+
+
+
+
+<br>Domain and Range
+
+<br>D:  R:  
+
+<br>Opposite of log graph
+
+
+
+
+<br>Asymptotes and End Behavior
+
+<br>All exponential functions' parent graph have a horizontal asymptote at 
+
+<br>As       
+
+
+
+
+]]></description><link>.\https:\\azraelix316.github.io\math\exponential-features.html</link><guid isPermaLink="false">MATH/Exponential Features.md</guid><pubDate>Wed, 30 Apr 2025 15:11:51 GMT</pubDate></item><item><title><![CDATA[Exponential One to One]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>
+Because  when  by putting the same base on both sides of the equation, we can easily solve for the exponent<br>
+ means , really useful when everything is a power of the same base as you can combine powers via the <a data-href="Exponential Properties" href=".\https:\\azraelix316.github.io\math\exponential-properties.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential Properties</a>.]]></description><link>.\https:\\azraelix316.github.io\math\exponential-one-to-one.html</link><guid isPermaLink="false">MATH/Exponential One to One.md</guid><pubDate>Wed, 30 Apr 2025 15:11:53 GMT</pubDate></item><item><title><![CDATA[Graphing Exponentials]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+ <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <br><br>
+<br>Parent graph of all exponential functions of base  is  - there is no general parent graph!
+
+General note: make sure to factor your function into standard form and remove coefficients
+
+
+<br>Decay functions can be treated as horizontal reflections of the parent graph
+<br><br>
+<br>Growth functions are of the form  where  and have an upwards curve
+<br>Decay functions are where  and can be treated as horizontal reflections of <br>
+- 
+
+Vertically reflected functions (e.g over x-axis) are NEITHER GROWTH NOR DECAY
+
+
+<br><br><a data-href="Exponential Features" href=".\https:\\azraelix316.github.io\math\exponential-features.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential Features</a>]]></description><link>.\https:\\azraelix316.github.io\math\graphing-exponentials.html</link><guid isPermaLink="false">MATH/Graphing Exponentials.md</guid><pubDate>Wed, 30 Apr 2025 14:46:08 GMT</pubDate></item><item><title><![CDATA[index]]></title><description><![CDATA[ 
+ <br>Event5/1/2025Tetastdyusad<br>Vault for everything:<br>
+<br><a data-href="Exponentials and Logs Overview" href=".\https:\\azraelix316.github.io\math\exponentials-and-logs-overview.html" class="internal-link" target="_self" rel="noopener nofollow">Exponentials and Logs Overview</a>
+]]></description><link>.\https:\\azraelix316.github.io\index.html</link><guid isPermaLink="false">index.md</guid><pubDate>Thu, 01 May 2025 00:59:42 GMT</pubDate></item><item><title><![CDATA[Drawing 2025-04-30 12.53.23]]></title><description><![CDATA[ 
+ ]]></description><link>.\https:\\azraelix316.github.io\excalidraw\drawing-2025-04-30-12.53.23.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Drawing 2025-04-30 12.53.23.excalidraw.md</guid><pubDate>Wed, 30 Apr 2025 04:54:34 GMT</pubDate></item><item><title><![CDATA[Exponentials and Logs Overview]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:logs" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#logs</a> 
  <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <a href=".\https:\\azraelix316.github.io?query=tag:logs" class="tag" target="_blank" rel="noopener nofollow">#logs</a><br><br>
 <br><a data-href="Simplifying Exponentials" href=".\https:\\azraelix316.github.io\math\simplifying-exponentials.html" class="internal-link" target="_self" rel="noopener nofollow">Simplifying Exponentials</a>
 
@@ -132,67 +185,7 @@ Where are the buttons
 
 <br><br>
 <br>In exponential functions, it's  in  which also turns out to be the y-intercept (because )
-]]></description><link>.\https:\\azraelix316.github.io\math\terminology.html</link><guid isPermaLink="false">MATH/Terminology.md</guid><pubDate>Wed, 30 Apr 2025 14:09:21 GMT</pubDate></item><item><title><![CDATA[index]]></title><description><![CDATA[ 
- <br>Period 1Event 1Event 2Event 300Sat 26Sun 27Mon 28Tue 29Wed 30Thu 1May 2025Fri 2April 2025
-	
-	
-	
-	
-	
-<br>Vault for everything:<br>
-<br><a data-href="Exponentials and Logs Overview" href=".\https:\\azraelix316.github.io\math\exponentials-and-logs-overview.html" class="internal-link" target="_self" rel="noopener nofollow">Exponentials and Logs Overview</a>
-]]></description><link>.\https:\\azraelix316.github.io\index.html</link><guid isPermaLink="false">index.md</guid><pubDate>Wed, 30 Apr 2025 14:38:47 GMT</pubDate></item><item><title><![CDATA[Graphing Exponentials]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
- <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <br><br>
-<br>Parent graph of all exponential functions of base  is  - there is no general parent graph!
-
-General note: make sure to factor your function into standard form and remove coefficients
-
-
-<br>Decay functions can be treated as horizontal reflections of the parent graph
-<br><br>
-<br>Growth functions are of the form  where  and have an upwards curve
-<br>Decay functions are where  and can be treated as horizontal reflections of <br>
-- 
-
-Vertically reflected functions (e.g over x-axis) are NEITHER GROWTH NOR DECAY
-
-
-<br><img alt="Drawing 2025-04-28 16.17.09.excalidraw.svg" src=".\https:\\azraelix316.github.io\lib\media\drawing-2025-04-28-16.17.09.excalidraw.svg"><br>
-<br><a data-href="Exponential Features" href=".\https:\\azraelix316.github.io\math\exponential-features.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential Features</a>]]></description><link>.\https:\\azraelix316.github.io\math\graphing-exponentials.html</link><guid isPermaLink="false">MATH/Graphing Exponentials.md</guid><pubDate>Tue, 29 Apr 2025 13:19:37 GMT</pubDate><enclosure url=".\https:\\azraelix316.github.io\lib\media\drawing-2025-04-28-16.17.09.excalidraw.svg" length="0" type="image/svg+xml"/><content:encoded>&lt;figure&gt;&lt;img src=".\https:\\azraelix316.github.io\lib\media\drawing-2025-04-28-16.17.09.excalidraw.svg"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Exponential Features]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
- <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a> <br>
-Note: These features apply to PARENT GRAPHS and change after transformations
-<br>
-<br>Key Point
-
-<br>All exponential functions' parent graph has the key point (0,1) which may change with transformations 
-
-<br>Since 
-
-
-
-
-<br>Domain and Range
-
-<br>D:  R:  
-
-<br>Opposite of log graph
-
-
-
-
-<br>Asymptotes and End Behavior
-
-<br>All exponential functions' parent graph have a horizontal asymptote at 
-
-<br>As       
-
-
-
-
-]]></description><link>.\https:\\azraelix316.github.io\math\exponential-features.html</link><guid isPermaLink="false">MATH/Exponential Features.md</guid><pubDate>Tue, 29 Apr 2025 05:35:35 GMT</pubDate></item><item><title><![CDATA[Exponential One to One]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
- <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>
-Because  when  by putting the same base on both sides of the equation, we can easily solve for the exponent<br>
- means , really useful when everything is a power of the same base as you can combine powers via the <a data-href="Exponential Properties" href=".\https:\\azraelix316.github.io\math\exponential-properties.html" class="internal-link" target="_self" rel="noopener nofollow">Exponential Properties</a>.]]></description><link>.\https:\\azraelix316.github.io\math\exponential-one-to-one.html</link><guid isPermaLink="false">MATH/Exponential One to One.md</guid><pubDate>Tue, 29 Apr 2025 05:35:40 GMT</pubDate></item><item><title><![CDATA[Exponential Properties]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
+]]></description><link>.\https:\\azraelix316.github.io\math\terminology.html</link><guid isPermaLink="false">MATH/Terminology.md</guid><pubDate>Wed, 30 Apr 2025 14:09:21 GMT</pubDate></item><item><title><![CDATA[Exponential Properties]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:exponents" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#exponents</a> 
  <br><a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:exponents" class="tag" target="_blank" rel="noopener nofollow">#exponents</a><br>
 <br>Product Rule
 
