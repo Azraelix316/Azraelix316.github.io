@@ -1,4 +1,76 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Obsidian Vault]]></title><description><![CDATA[Obsidian digital garden]]></description><link>https://azraelix316.github.io/</link><image><url>.\https:\\azraelix316.github.io\lib\media\favicon.png</url><title>Obsidian Vault</title><link>https://azraelix316.github.io/</link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Tue, 06 May 2025 10:25:05 GMT</lastBuildDate><atom:link href=".\https:\\azraelix316.github.io\lib\rss.xml" rel="self" type="application/rss+xml"/><pubDate>Tue, 06 May 2025 10:24:26 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[1949 Communist Takeover]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:history" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#history</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:history" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#history</a> 
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Obsidian Vault]]></title><description><![CDATA[Obsidian digital garden]]></description><link>https://azraelix316.github.io/</link><image><url>.\https:\\azraelix316.github.io\lib\media\favicon.png</url><title>Obsidian Vault</title><link>https://azraelix316.github.io/</link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Tue, 06 May 2025 10:36:43 GMT</lastBuildDate><atom:link href=".\https:\\azraelix316.github.io\lib\rss.xml" rel="self" type="application/rss+xml"/><pubDate>Tue, 06 May 2025 10:36:38 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[Drawing 2025-04-28 16.17.09]]></title><description><![CDATA[ 
+ ]]></description><link>.\https:\\azraelix316.github.io\excalidraw\drawing-2025-04-28-16.17.09.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Drawing 2025-04-28 16.17.09.excalidraw.md</guid><pubDate>Mon, 28 Apr 2025 08:19:21 GMT</pubDate></item><item><title><![CDATA[Drawing 2025-04-30 12.53.23]]></title><description><![CDATA[ 
+ ]]></description><link>.\https:\\azraelix316.github.io\excalidraw\drawing-2025-04-30-12.53.23.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Drawing 2025-04-30 12.53.23.excalidraw.md</guid><pubDate>Wed, 30 Apr 2025 04:54:34 GMT</pubDate></item><item><title><![CDATA[Drawing 2025-05-02 13.01.28]]></title><description><![CDATA[ 
+ ]]></description><link>.\https:\\azraelix316.github.io\excalidraw\drawing-2025-05-02-13.01.28.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Drawing 2025-05-02 13.01.28.excalidraw.md</guid><pubDate>Fri, 02 May 2025 05:02:35 GMT</pubDate></item><item><title><![CDATA[Principal Focus 2025-05-06 12.07.22]]></title><description><![CDATA[ 
+ ]]></description><link>.\https:\\azraelix316.github.io\excalidraw\principal-focus-2025-05-06-12.07.22.excalidraw.html</link><guid isPermaLink="false">Excalidraw/Principal Focus 2025-05-06 12.07.22.excalidraw.md</guid><pubDate>Tue, 06 May 2025 04:13:17 GMT</pubDate></item><item><title><![CDATA[Describe]]></title><description><![CDATA[ 
+ <br>Describe<br>
+<br>To describe you don't need to find next term, just say what the pattern is in ENGLISH, NO MATH
+
+<br>Difference
+
+<br>Subtraction/addition
+
+
+<br>Terms
+
+<br>Adjacent terms, terms next to each other
+<br>Actual values in sequence
+
+
+<br>Constant
+
+<br>Never changes
+
+
+<br>Ratio
+
+<br>Multiplication/Division
+
+
+<br>Term number
+
+<br>Index of term
+
+
+
+
+]]></description><link>.\https:\\azraelix316.github.io\math\sequences-and-series\describe.html</link><guid isPermaLink="false">MATH/Sequences and Series/Describe.md</guid><pubDate>Tue, 06 May 2025 10:30:01 GMT</pubDate></item><item><title><![CDATA[Concave]]></title><description><![CDATA[ 
+ <br><br>
+<br>The focus is at half of the radius of the concave mirror
+<br>Center of curvature is twice the focus distance, where the object looks the same size.
+<br>The orientation is flipped until the object passes the focal point,
+
+<br>but the image changes to a virtual image.
+
+
+<br>Magnification is always smaller until you get closer to the focus, and because the center
+<br><br>Given the <a data-href="Mirror Equations" href=".\https:\\azraelix316.github.io\physics\mirror-equations.html" class="internal-link" target="_self" rel="noopener nofollow">Mirror Equations</a> we can show that the magnification is greater than 1 when there is a virtual image for a concave mirror only<br>]]></description><link>.\https:\\azraelix316.github.io\physics\concave.html</link><guid isPermaLink="false">PHYSICS/Concave.md</guid><pubDate>Tue, 06 May 2025 10:35:39 GMT</pubDate></item><item><title><![CDATA[Mirror Equations]]></title><description><![CDATA[ 
+ <br>Focus of mirror<br>
+<br><br>
+Magnification equation
+<br><br>
+- negative means that the image is inverted<br>
+Mirror equation
+<br>
+
+<br>When  hits the focal length,  becomes infinite and thus the magnification becomes infinite, creating a projector
+
+
+]]></description><link>.\https:\\azraelix316.github.io\physics\mirror-equations.html</link><guid isPermaLink="false">PHYSICS/Mirror Equations.md</guid><pubDate>Tue, 06 May 2025 10:33:13 GMT</pubDate></item><item><title><![CDATA[PHYSICS]]></title><description><![CDATA[ 
+ <br><br>
+<br><a data-href="Law of Reflection" href=".\https:\\azraelix316.github.io\physics\law-of-reflection.html" class="internal-link" target="_self" rel="noopener nofollow">Law of Reflection</a>
+
+<br><a data-href="Principal Focus" href=".\https:\\azraelix316.github.io\physics\principal-focus.html" class="internal-link" target="_self" rel="noopener nofollow">Principal Focus</a>
+
+
+<br><a data-href="Mirror Equations" href=".\https:\\azraelix316.github.io\physics\mirror-equations.html" class="internal-link" target="_self" rel="noopener nofollow">Mirror Equations</a>
+<br><a data-href="Ray Diagram" href=".\https:\\azraelix316.github.io\physics\ray-diagram.html" class="internal-link" target="_self" rel="noopener nofollow">Ray Diagram</a>
+
+<br><a data-href="Concave" href=".\https:\\azraelix316.github.io\physics\concave.html" class="internal-link" target="_self" rel="noopener nofollow">Concave</a>
+<br><a data-href="Convex" href=".\https:\\azraelix316.github.io\physics\convex.html" class="internal-link" target="_self" rel="noopener nofollow">Convex</a>
+
+
+]]></description><link>.\https:\\azraelix316.github.io\physics\physics.html</link><guid isPermaLink="false">PHYSICS/PHYSICS.md</guid><pubDate>Tue, 06 May 2025 10:31:49 GMT</pubDate></item><item><title><![CDATA[1949 Communist Takeover]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:history" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#history</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:history" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#history</a> 
  <br><a href=".\https:\\azraelix316.github.io?query=tag:history" class="tag" target="_blank" rel="noopener nofollow">#history</a><br>
 Tags: <a href=".\https:\\azraelix316.github.io?query=tag:history" class="tag" target="_blank" rel="noopener nofollow">#history</a><br>
 Date of writing: 2025-05-05<br><br>In 1949, after the CCP won the <a data-href="Chinese Civil War" href=".\https:\\azraelix316.github.io\Chinese Civil War" class="internal-link" target="_self" rel="noopener nofollow">Chinese Civil War</a> following <a data-href="World War II" href=".\https:\\azraelix316.github.io\World War II" class="internal-link" target="_self" rel="noopener nofollow">World War II</a>, they were able to take over China and under the leadership of totalitarian leaders become an industrial superpower. In the Cold War, they played a crucial role in Communism in East Asia, both hindering and helping the U.S.S.R.<br><br>
@@ -669,20 +741,7 @@ Make sure to solve for the actual variable and not for !!! After solving for , y
 
 
 
-]]></description><link>.\https:\\azraelix316.github.io\math\sequences-and-series\continue.html</link><guid isPermaLink="false">MATH/Sequences and Series/Continue.md</guid><pubDate>Tue, 06 May 2025 10:10:22 GMT</pubDate></item><item><title><![CDATA[Describe]]></title><description><![CDATA[ 
- <br>Describe<br>
-- To describe you don't need to find next term, just say what the pattern is in ENGLISH, NO MATH<br>
-- Difference<br>
-- Subtraction/addition<br>
-- Terms<br>
-- Adjacent terms, terms next to each other<br>
-- Actual values in sequence<br>
-- Constant<br>
-- Never changes<br>
-- Ratio<br>
-- Multiplication/Division<br>
-- Term number<br>
-- Index of term]]></description><link>.\https:\\azraelix316.github.io\math\sequences-and-series\describe.html</link><guid isPermaLink="false">MATH/Sequences and Series/Describe.md</guid><pubDate>Tue, 06 May 2025 10:04:58 GMT</pubDate></item><item><title><![CDATA[Quick Note]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:sequencies" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#sequencies</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:series" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#series</a> 
+]]></description><link>.\https:\\azraelix316.github.io\math\sequences-and-series\continue.html</link><guid isPermaLink="false">MATH/Sequences and Series/Continue.md</guid><pubDate>Tue, 06 May 2025 10:10:22 GMT</pubDate></item><item><title><![CDATA[Quick Note]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:math" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#math</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:sequencies" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#sequencies</a> <a class="tag" href="https://azraelix316.github.io/?query=tag:series" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#series</a> 
  <br>Tags: <a href=".\https:\\azraelix316.github.io?query=tag:math" class="tag" target="_blank" rel="noopener nofollow">#math</a> <a href=".\https:\\azraelix316.github.io?query=tag:sequencies" class="tag" target="_blank" rel="noopener nofollow">#sequencies</a> <a href=".\https:\\azraelix316.github.io?query=tag:series" class="tag" target="_blank" rel="noopener nofollow">#series</a><br>
 Date: 2025-05-06<br>
 <br>
@@ -885,45 +944,16 @@ Note that it's compared to the normal, not the surface!
 ]]></description><link>.\https:\\azraelix316.github.io\physics\angle-of-incidence.html</link><guid isPermaLink="false">PHYSICS/Angle of Incidence.md</guid><pubDate>Mon, 05 May 2025 04:40:57 GMT</pubDate></item><item><title><![CDATA[Angle of Reflection]]></title><description><![CDATA[ 
  <br>The angle of a reflected ray compared with the normal (perpendicular) of any mirror line.<br>
 Note that it's compared to the normal, not the surface!
-]]></description><link>.\https:\\azraelix316.github.io\physics\angle-of-reflection.html</link><guid isPermaLink="false">PHYSICS/Angle of Reflection.md</guid><pubDate>Thu, 01 May 2025 05:32:27 GMT</pubDate></item><item><title><![CDATA[Concave]]></title><description><![CDATA[ 
- <br><br>
-<br>The focus is at half of the radius of the concave mirror
-<br>Center of curvature is twice the focus distance, where the object looks the same size.
-<br>The orientation is flipped until the object passes the focal point,
-
-<br>but the image changes to a virtual image.
-
-
-<br>Magnification is always smaller until you get closer to the focus, and because the center
-<br><br>Given the <a data-href="Mirror Equations" href=".\https:\\azraelix316.github.io\physics\mirror-equations.html" class="internal-link" target="_self" rel="noopener nofollow">Mirror Equations</a> we can show that the magnification is greater than 1.<br>]]></description><link>.\https:\\azraelix316.github.io\physics\concave.html</link><guid isPermaLink="false">PHYSICS/Concave.md</guid><pubDate>Tue, 06 May 2025 04:53:58 GMT</pubDate></item><item><title><![CDATA[Convex]]></title><description><![CDATA[ 
+]]></description><link>.\https:\\azraelix316.github.io\physics\angle-of-reflection.html</link><guid isPermaLink="false">PHYSICS/Angle of Reflection.md</guid><pubDate>Thu, 01 May 2025 05:32:27 GMT</pubDate></item><item><title><![CDATA[Convex]]></title><description><![CDATA[ 
  <br><br>
 <br>The focus is at half of the radius of the convex mirror
 <br>Magnification is always less than one, so you always appear smaller
 <br>The focus is always   behind the mirror
 <br>Always creates a virtual image
 <br>Image is always upright (virtual image)
-]]></description><link>.\https:\\azraelix316.github.io\physics\convex.html</link><guid isPermaLink="false">PHYSICS/Convex.md</guid><pubDate>Tue, 06 May 2025 04:26:01 GMT</pubDate></item><item><title><![CDATA[Initial note]]></title><description><![CDATA[<a class="tag" href="https://azraelix316.github.io/?query=tag:physics" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#physics</a> 
- <br>Tags: <a href=".\https:\\azraelix316.github.io?query=tag:physics" class="tag" target="_blank" rel="noopener nofollow">#physics</a><br>
-Date: 2025-05-06<br>
-<br>When  mirror becomes a projector as  reaches infinity
-
-<br>Mag becomes infinite 
-
-
-]]></description><link>.\https:\\azraelix316.github.io\physics\initial-note.html</link><guid isPermaLink="false">PHYSICS/Initial note.md</guid><pubDate>Tue, 06 May 2025 06:04:38 GMT</pubDate></item><item><title><![CDATA[Law of Reflection]]></title><description><![CDATA[ 
+]]></description><link>.\https:\\azraelix316.github.io\physics\convex.html</link><guid isPermaLink="false">PHYSICS/Convex.md</guid><pubDate>Tue, 06 May 2025 04:26:01 GMT</pubDate></item><item><title><![CDATA[Law of Reflection]]></title><description><![CDATA[ 
  <br>The <a data-href="Angle of Incidence" href=".\https:\\azraelix316.github.io\physics\angle-of-incidence.html" class="internal-link" target="_self" rel="noopener nofollow">Angle of Incidence</a> is equal to the <a data-href="Angle of Reflection" href=".\https:\\azraelix316.github.io\physics\angle-of-reflection.html" class="internal-link" target="_self" rel="noopener nofollow">Angle of Reflection</a> of any incident ray.<br><br>After reflection, the ray is called the reflected ray, and the source of the image seen (the <a data-href="Virtual Image" href=".\https:\\azraelix316.github.io\physics\virtual-image.html" class="internal-link" target="_self" rel="noopener nofollow">Virtual Image</a>) seems to come from within the mirror.<br>
-Furthermore, because of this , the image distance and the viewing distance is the same<br><br>See Lab 8-1 for the experiment to determine it]]></description><link>.\https:\\azraelix316.github.io\physics\law-of-reflection.html</link><guid isPermaLink="false">PHYSICS/Law of Reflection.md</guid><pubDate>Tue, 06 May 2025 04:04:30 GMT</pubDate></item><item><title><![CDATA[Mirror Equations]]></title><description><![CDATA[ 
- <br>Focus of mirror<br>
-<br>
-Magnification equation<br>
-<br>
-negative means that the image is inverted<br>
-Mirror equation<br>
-]]></description><link>.\https:\\azraelix316.github.io\physics\mirror-equations.html</link><guid isPermaLink="false">PHYSICS/Mirror Equations.md</guid><pubDate>Tue, 06 May 2025 04:29:18 GMT</pubDate></item><item><title><![CDATA[PHYSICS]]></title><description><![CDATA[ 
- <br><br><a data-href="Law of Reflection" href=".\https:\\azraelix316.github.io\physics\law-of-reflection.html" class="internal-link" target="_self" rel="noopener nofollow">Law of Reflection</a><br>
-<a data-href="Principal Focus" href=".\https:\\azraelix316.github.io\physics\principal-focus.html" class="internal-link" target="_self" rel="noopener nofollow">Principal Focus</a><br>
-<a data-href="Mirror Equations" href=".\https:\\azraelix316.github.io\physics\mirror-equations.html" class="internal-link" target="_self" rel="noopener nofollow">Mirror Equations</a><br>
-<a data-href="Ray Diagram" href=".\https:\\azraelix316.github.io\physics\ray-diagram.html" class="internal-link" target="_self" rel="noopener nofollow">Ray Diagram</a>]]></description><link>.\https:\\azraelix316.github.io\physics\physics.html</link><guid isPermaLink="false">PHYSICS/PHYSICS.md</guid><pubDate>Tue, 06 May 2025 05:00:04 GMT</pubDate></item><item><title><![CDATA[Principal Focus]]></title><description><![CDATA[ 
+Furthermore, because of this , the image distance and the viewing distance is the same<br><br>See Lab 8-1 for the experiment to determine it]]></description><link>.\https:\\azraelix316.github.io\physics\law-of-reflection.html</link><guid isPermaLink="false">PHYSICS/Law of Reflection.md</guid><pubDate>Tue, 06 May 2025 04:04:30 GMT</pubDate></item><item><title><![CDATA[Principal Focus]]></title><description><![CDATA[ 
  <br>In a <a data-href="Concave" href=".\https:\\azraelix316.github.io\physics\concave.html" class="internal-link" target="_self" rel="noopener nofollow">Concave</a> mirror, there is a principal focus where all of the rays converge outside of the mirror<br>In a <a data-href="Convex" href=".\https:\\azraelix316.github.io\physics\convex.html" class="internal-link" target="_self" rel="noopener nofollow">Convex</a> mirror, the light reflects as if there is a focus within the mirror<br>The principal focus is where all light rays must cross, which could mean that the rays intersect and enter the focus or the place where the rays seem to come from <br>
 <br>in a convex mirror, after the light reflects and the virtual image is always in the same place<br>
 
