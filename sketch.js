@@ -10,6 +10,7 @@ let speed=8;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+  // canvas.style('z-index','-1');
 	background(0);
 	strokeWeight(0.2)
 	stroke(255,10)
@@ -60,7 +61,7 @@ if (this.position.y < 0) {
 		this.position.add(this.velocity)
 	}
 	display() {
-	stroke(this.color.x,this.color.y,this.color.z,105)
+	stroke(this.color.x,this.color.y,this.color.z,155)
   line(this.position.x-this.velocity.x,this.position.y-this.velocity.y,this.position.x,this.position.y)
 	}
 }

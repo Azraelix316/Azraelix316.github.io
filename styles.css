@@ -1,5 +1,9 @@
 * {
-color: white;
-background-color: black;
-font-family: "Roboto",sans-serif;
+color: white; 
+background-color: black; 
+font-family: "Roboto",sans-serif; 
+  /* background-image:         linear-gradient(#648880, #293f50); */
+}
+div {
+  background-image:         linear-gradient(#648880, #293f50);
 }
