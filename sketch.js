@@ -32,6 +32,7 @@ function draw() {
 }
 
 function mousePressed() {
+  noiseSeed(frameCount);
 	blendMode(BLEND);
   background(0);
 	blendMode(ADD);
