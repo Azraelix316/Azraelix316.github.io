@@ -50,6 +50,7 @@ padding-left: 8px;
 padding-right:8px;
   display:flex;
   align-items: center;
+  transition:all 400ms ease;
 }
 
 .top-menu-item {
@@ -72,9 +73,11 @@ transition: all 400ms ease;
 }
 .top-menu-item:hover {
 text-decoration: underline;
-opacity:0.8;
+opacity:0.3;
 }
-
+.icon-link:hover {
+opacity:0.3;
+}
 .main-menu-item:hover {
 opacity: 0.5;
 font-size:clamp(10vh,11vh,11vh);
