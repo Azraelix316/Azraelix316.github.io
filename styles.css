@@ -62,7 +62,7 @@ font-size:large;
 .main-menu-item {
 color: white;
 display: block;
-font-size:clamp(3rem,4vw,4vw);
+font-size:clamp(5vh,8vh,8vh);
 padding-left: 10px;
 padding-top: 20px;
 padding-bottom: 10px;
@@ -77,5 +77,5 @@ opacity:0.8;
 
 .main-menu-item:hover {
 opacity: 0.5;
-font-size:clamp(3rem,5vw,5vw);
+font-size:clamp(10vh,11vh,11vh);
 }
