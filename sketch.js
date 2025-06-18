@@ -30,7 +30,10 @@ function draw() {
 // filter(BLUR,1)
 
 }
-
+function windowResized() {
+resizeCanvas(windowWidth,windowHeight,false);
+setup();
+}
 function mousePressed() {
   noiseSeed(frameCount);
 	blendMode(BLEND);
