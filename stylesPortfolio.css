@@ -139,10 +139,12 @@ width: 75vw;
 height: 91vh;
 object-fit:cover;
 }
-.hidden h1 {
+.hidden .text {
+  padding: 6px;
 display: flex;
+justify-items: center;
+align-items: center;
+flex-direction: column;
 height:fit-content;
 width: 25vw;
-justify-content: center;
-align-content: center;
 }
