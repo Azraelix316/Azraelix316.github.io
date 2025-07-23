@@ -1,3 +1,7 @@
+:root {
+font-weight: 100;
+font-family: 'Figtree', 'Roboto', sans-serif;
+}
 .gradient {
   position: fixed;
   top: 0;
@@ -10,8 +14,6 @@
 
 /* Main body content */
 body {
-  font-family: 'Figtree', 'Roboto', sans-serif;
-  font-weight: 100;
   color: white;
   background: black;
   margin: 0;
@@ -32,7 +34,7 @@ body {
   left: 0;
   width: 100vw;
   background-color: black;
-  height: 60px;
+  height: 9vh;
   /* Flex layout to manage center + right alignment */
   display: flex;
   align-items: center;
