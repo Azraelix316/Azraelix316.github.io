@@ -1,65 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesPortfolio.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
-<title>PORTFOLIO</title>
+    <title>PORTFOLIO</title>
 
 </head>
+
 <body>
-<script src="expand.js"></script>
-<div id="top-menu">
-    <div id="top-menu-links">
-    <a href="index.html" class="top-menu-item">HOME</a>
-    <a href="portfolio.html" class="top-menu-item">PORTFOLIO</a>
-  <a href="https://discord.com/users/938790806217715772" class="icon-link"> <img src="assets/Discord-Symbol-White.png" alt="Discord" width="25" height=auto></a>
-    <a href="https://github.com/Azraelix316" class="icon-link"> <img src="assets/github-mark-white.png" alt="GitHub" width="25" height="25"></a>
+    <script src="expand.js"></script>
+    <div id="top-menu">
+        <div id="top-menu-links">
+            <a href="index.html" class="top-menu-item">HOME</a>
+            <a href="portfolio.html" class="top-menu-item">PORTFOLIO</a>
+            <a href="https://discord.com/users/938790806217715772" class="icon-link"> <img
+                    src="assets/Discord-Symbol-White.png" alt="Discord" width="25" height=auto></a>
+            <a href="https://github.com/Azraelix316" class="icon-link"> <img src="assets/github-mark-white.png"
+                    alt="GitHub" width="25" height="25"></a>
+        </div>
     </div>
-</div>
-<div class="main-title"><i>PORTFOLIO</i></div>
-<div class="cards">
-   <div class="c1 card dark">
-    <img src="assets/Screenshot 2025-06-15 185634.png">
-    <h1>FLOW FIELDS</h1>
-   </div>
-   <div class="c2 card dark">
-    <img src="assets/Screenshot 2025-06-20 121042.png">
-    <h1>ATTRACTORS</h1>
-   </div>
-   <div class="c3 card dark">
-    <img src="assets/Screenshot 2025-06-20 151709.png">
+    <div class="main-title"><i>PORTFOLIO</i></div>
+    <div class="cards">
+        <div class="c1 card dark">
+            <img src="assets/Screenshot 2025-06-15 185634.png">
+            <h1>FLOW FIELDS</h1>
+        </div>
+        <div class="c2 card dark">
+            <img src="assets/Screenshot 2025-06-20 121042.png">
+            <h1>ATTRACTORS</h1>
+        </div>
+        <div class="c3 card dark">
+            <img src="assets/Screenshot 2025-06-20 151709.png">
+            <h1>MCM</h1>
+        </div>
+    </div>
+    <div class="c1 hidden">
+        <img src="assets/Screenshot 2025-06-15 185634.png">
+        <div class="text">
+            <h1>FLOW FIELDS</h1>
+            <p>These flow fields were created in p5.js, and were generated via Perlin Noise and a vector field for
+                particles to follow. Flow fields helped launch me into generative art and design, and was how I started
+                learning p5.js, a powerful JavaScript library for creative coding.</p>
+        </div>
+    </div>
+    <div class="c2 hidden">
+        <img src="assets/Screenshot 2025-06-20 121042.png">
+        <div class="text">
+            <h1>ATTRACTORS</h1>
+            <p>These attractors simulate gravitational field, and were created in p5.js</p>
+        </div>
+    </div>
+    <div class="c3 hidden">
+        <img src="assets/Screenshot 2025-06-20 151709.png">
+<div class="text">
     <h1>MCM</h1>
-   </div>
+    <p>The Mathematical Competition in Modeling (MCM) is a math modeling competition for high school and undergraduate
+        students involving real-world problems.
+        In 2025, I participated as a freshman in a team of 3 and won an Honorable Mention ranking for problem B
+        (top ~31% of all submissions), which was to model the stresses and potential solutions of overtourism in
+        Juneau, Alaska. The resulting minimax model and paper required us to conduct extensive research, implement a model design, and write a high-quality 25 page paper in 3 days.
+        </p>
 </div>
-   <div class="c1 hidden">
-    <img src="assets/Screenshot 2025-06-15 185634.png">
-    <div class="text">
-    <h1>FLOW FIELDS</h1>
-    <p>These flow fields were created in p5.js, and were generated via Perlin Noise and a vector field.</p>
     </div>
-   </div>
-  <div class="c2 hidden">
-    <img src="assets/Screenshot 2025-06-20 121042.png">
-    <div class="text">
-    <h1>ATTRACTORS</h1>
-    <p>These attractors simulate gravitational field, and were created in p5.js</p>
-    </div>
-   </div>
-  <div class="c3 hidden">
-    <img src="assets/Screenshot 2025-06-20 151709.png">
-    <div class="text">
-    <h1>MCM</h1>
-    <p>The Mathematical Competition in Modeling (MCM) is an annual competition for high school and undergraduate students, with a wide range of real-world problems to solve. </p>
-    </div>
-   </div>
     <div class="gradient"></div>
 </body>
+
 </html>
