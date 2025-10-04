@@ -1,6 +1,7 @@
 :root {
 font-weight: 100;
 font-family: 'Figtree', 'Roboto', sans-serif;
+letter-spacing: 7px;
 }
 .gradient {
   position: fixed;
@@ -82,7 +83,7 @@ body {
 }
 
 .top-menu-item:hover {
-  text-decoration: underline;
+  border-bottom: 0.5px solid white;
   opacity: 0.3;
 }
 
