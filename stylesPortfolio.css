@@ -52,8 +52,8 @@ font-size:large;
 z-index: 1000;
 }
 .top-menu-item:hover {
-  border-bottom: 0.5px solid white;
   opacity: 0.3;
+  border-bottom: 1px solid white;
 }
 .icon-link:hover {
 opacity:0.3;
@@ -89,8 +89,8 @@ border-color: rgba(255, 255, 255, 1.0);
 
 .card>img {
 transition: all 600ms ease;
-width: 25vw;
-height: 25vw;
+width: 23vw;
+height: 23vw;
   object-fit: cover;
 }
 .card:hover>img {
