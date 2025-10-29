@@ -94,7 +94,7 @@ height: 23vw;
   object-fit: cover;
 }
 .card:hover>img {
-filter:blur(4px);
+filter:blur(6px);
 }
 .card:hover>h1 {
 opacity:1.0;
@@ -151,6 +151,11 @@ transform: scale(1);
 width: 75vw;
 height: 91vh;
 object-fit:cover;
+}
+.hidden iframe {
+  width: 75vw;
+  height: 91vh;
+  object-fit: cover;
 }
 .hidden .text {
   padding: 6px;
