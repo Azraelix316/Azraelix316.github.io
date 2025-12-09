@@ -1,8 +1,9 @@
 :root {
-font-weight: 100;
-font-family: 'Figtree', 'Roboto', sans-serif;
-letter-spacing: 7px;
+  font-weight: 100;
+  font-family: 'Figtree', 'Roboto', sans-serif;
+  letter-spacing: 7px;
 }
+
 .gradient {
   position: fixed;
   top: 0;
@@ -26,6 +27,7 @@ body {
   top: 0;
   left: 0;
   align-items: center;
+  width: 30vw;
   height: 100vh;
 }
 
@@ -80,6 +82,7 @@ body {
   text-decoration: none;
   opacity: 1;
   transition: all 400ms ease;
+  z-index: 1000;
 }
 
 .top-menu-item:hover {
@@ -89,6 +92,49 @@ body {
 
 .icon-link:hover {
   opacity: 0.3;
+}
+
+.card h1 {
+  transition: all 400ms ease;
+}
+
+.card p {
+  transition: all 400ms ease;
+}
+
+.card h1 {
+  position: absolute;
+  top: 0vh;
+  left: 45vw;
+  opacity: 0.0;
+}
+
+.card p {
+  position: absolute;
+  top: 0vh;
+  left: 45vw;
+  opacity: 0.0;
+}
+
+.card iframe {
+  position: absolute;
+  top: 9vh;
+  left: 45vw;
+  opacity: 0.0;
+}
+
+.card:hover p {
+  top: 35vh;
+  left: 45vw;
+  opacity: 1.0;
+  z-index: 1.0;
+}
+
+.card:hover h1 {
+  top: 9vh;
+  left: 45vw;
+  opacity: 1.0;
+  z-index: 1.0;
 }
 
 .main-menu-item:hover {
