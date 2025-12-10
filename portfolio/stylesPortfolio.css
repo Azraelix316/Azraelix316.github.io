@@ -97,7 +97,7 @@ body {
   font-size: clamp(6vh, 9vh, 9vh);
 }
 
-h1 {
+.spec {
   position: relative;
   left: 10vw;
   width: 80vw;
@@ -129,11 +129,62 @@ p {
   flex-wrap: wrap;
 }
 
-.gallery>img {
+.item {
+  position: relative;
+  /* Keep this to contain the item for hover effects */
   width: 23vw;
   height: 23vw;
-  object-fit: cover;
+  margin: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* Stack image and h1 vertically */
+  align-items: center;
+  /* Center content horizontally */
+  justify-content: flex-start;
+  /* Start elements from the top */
 }
+
+.gallery img {
+  width: 23vw;
+  height: 23vw;
+  padding: 15px;
+  object-fit: cover;
+  transition: all 600ms ease;
+}
+
+.item:hover>img {
+  filter: blur(6px);
+  opacity: 0.9;
+}
+
+.item:hover>h1 {
+  opacity: 1.0;
+  z-index: 1;
+  transform: translateY(0%);
+}
+
+.item h1 {
+  transition: all 600ms ease;
+  font-weight: 100;
+  opacity: 0.0;
+  margin-top: -6em;
+  z-index: -1;
+  font-size: 1.5em;
+  width: 23vw;
+  padding: 15px;
+  text-align: center;
+  transform: translateY(-100%);
+}
+
+.dark {
+  color: black;
+}
+
+.light {
+  color: white;
+}
+
 
 /* The Curtain Styling */
 .curtain {
