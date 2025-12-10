@@ -103,60 +103,9 @@ body {
   opacity: 0.3;
 }
 
-.card h1 {
-  text-align: center;
-  width: 30vw;
-  transition: all 400ms ease;
-  position: absolute;
-  top: 0vh;
-  left: 35vw;
-  opacity: 0.0;
-}
-
-.card p {
-  text-align: center;
-  transition: all 400ms ease;
-  position: absolute;
-  top: 0vh;
-  left: 20vw;
-  width: 60vw;
-  opacity: 0.0;
-}
-
-
-.card:has(a:hover) p {
-  top: 35vh;
-  opacity: 1.0;
-  z-index: 1.0;
-}
-
-
-.card:has(a:hover) h1 {
-  top: 20vh;
-  opacity: 1.0;
-  z-index: 1.0;
-}
-
 .main-menu-item:hover {
   opacity: 0.5;
   font-size: clamp(4vh, 6vh, 6vh);
-}
-
-.gallery .item {
-  position: absolute;
-  top: -100px;
-  left: -100px;
-  opacity: 0.0;
-  z-index: -1001;
-  width: 300px;
-}
-
-.card:has(a:hover) .gallery .item {
-  position: absolute;
-  opacity: 0.6;
-  width: var(--size);
-  transition: opacity 500ms ease;
-  transform: translate(var(--x), var(--y));
 }
 
 /* The Curtain Styling */
