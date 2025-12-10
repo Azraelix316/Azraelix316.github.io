@@ -38,6 +38,7 @@ function randomizeAll() {
     img.style.setProperty('--x', x + "px");
     img.style.setProperty('--y', y + "px");
     img.style.setProperty('--size', size + "px");
+
   });
 }
 const gallery = document.querySelector('.card');
