@@ -49,7 +49,7 @@ gallery.addEventListener('mouseenter', randomizeAll);
 document.addEventListener('DOMContentLoaded', () => {
     const curtain = document.getElementById('curtain');
     // MAKE SURE your links have this class, or change this selector to 'a'
-    const links = document.querySelectorAll('.main-menu-item'); 
+    const links = document.querySelectorAll('a'); 
 
     // --- PART 1: ENTRANCE (Page Load) ---
     // We use 'pageshow' so it works even if you use the Back button
