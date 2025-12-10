@@ -110,7 +110,7 @@ body {
   position: absolute;
   top: 0vh;
   left: 35vw;
-  opacity: 0.3;
+  opacity: 0.0;
 }
 
 .card p {
@@ -120,7 +120,7 @@ body {
   top: 0vh;
   left: 20vw;
   width: 60vw;
-  opacity: 0.3;
+  opacity: 0.0;
 }
 
 

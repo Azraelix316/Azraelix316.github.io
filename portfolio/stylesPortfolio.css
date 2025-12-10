@@ -1,0 +1,183 @@
+:root {
+  font-weight: 100;
+  font-family: 'Figtree', 'Roboto', sans-serif;
+  letter-spacing: 5px;
+}
+
+.gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.85));
+  z-index: -1;
+  transition: background 1500ms ease;
+  /* Add transition for smoothness */
+}
+
+body:has(.card a:hover) .gradient {
+  background: black;
+}
+
+
+
+
+/* Main body content */
+body {
+  color: white;
+  background: black;
+  margin: 0;
+}
+
+#main-menu {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  width: 50vw;
+  height: 100vh;
+}
+
+#top-menu {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: black;
+  height: 9vh;
+  /* Flex layout to manage center + right alignment */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+/* Center the links in the middle section */
+#top-menu-links {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.top-menu-item {
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+  transition: all 300ms ease;
+  font-size: large;
+  z-index: 1000;
+}
+
+/* Right-align the icon */
+.icon-link {
+  padding-left: 8px;
+  padding-right: 8px;
+  display: flex;
+  align-items: center;
+  transition: all 400ms ease;
+}
+
+.main-menu-item {
+  color: white;
+  display: block;
+  font-size: clamp(3vh, 5vh, 5vh);
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  opacity: 1;
+  transition: all 400ms ease;
+  z-index: 1000;
+}
+
+.top-menu-item:hover {
+  border-bottom: 1px solid white;
+  opacity: 0.3;
+}
+
+.icon-link:hover {
+  opacity: 0.3;
+}
+
+.card h1 {
+  text-align: center;
+  width: 30vw;
+  transition: all 400ms ease;
+  position: absolute;
+  top: 0vh;
+  left: 35vw;
+  opacity: 0.0;
+}
+
+.card p {
+  text-align: center;
+  transition: all 400ms ease;
+  position: absolute;
+  top: 0vh;
+  left: 20vw;
+  width: 60vw;
+  opacity: 0.0;
+}
+
+
+.card:has(a:hover) p {
+  top: 35vh;
+  opacity: 1.0;
+  z-index: 1.0;
+}
+
+
+.card:has(a:hover) h1 {
+  top: 20vh;
+  opacity: 1.0;
+  z-index: 1.0;
+}
+
+.main-menu-item:hover {
+  opacity: 0.5;
+  font-size: clamp(6vh, 9vh, 9vh);
+}
+
+.gallery .item {
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  opacity: 0.0;
+  z-index: -1001;
+  width: 300px;
+}
+
+.card:has(a:hover) .gallery .item {
+  position: absolute;
+  opacity: 0.5;
+  width: var(--size);
+  transition: opacity 500ms ease;
+  transform: translate(var(--x), var(--y));
+}
+
+/* The Curtain Styling */
+.curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  /* Your brand color (e.g., Black) */
+  z-index: 100;
+  opacity: 1.0;
+  /* Must be on top of everything */
+
+  /* Start hidden by sliding it OUT of view (upwards) */
+  transform: translateY(0%);
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Class to trigger the slide DOWN to cover screen */
+.curtain.lifted {
+  transform: translateY(-100%);
+}
