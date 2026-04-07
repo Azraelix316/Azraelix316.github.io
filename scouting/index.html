@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Scouting Dashboard</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- PapaParse for reading Google Sheets CSV -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <!-- Chart.js for the Radar and Bar charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .chart-container { position: relative; height: 100%; width: 100%; }
+        /* Hide scrollbar for cleaner look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        
+        <!-- HEADER & SEARCH BAR -->
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-8 border border-slate-200">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-6">🤖 Scouting Dashboard</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-semibold text-slate-600 mb-1">Google Sheet URL (Must be "Anyone with link can view")</label>
+                    <input type="text" id="sheetUrl" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="https://docs.google.com/spreadsheets/d/...">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-600 mb-1">Team Number</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="teamNumber" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="e.g. 254">
+                        <button onclick="analyzeTeam()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+                            Analyze
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Error / Loading Messages -->
+            <div id="statusMessage" class="mt-4 text-sm font-semibold hidden"></div>
+        </div>
+
+        <!-- DASHBOARD CONTENT (Hidden until loaded) -->
+        <div id="dashboard" class="hidden space-y-8">
+            
+            <!-- Header for Results -->
+            <div class="text-center mb-8">
+                <h2 id="reportTitle" class="text-4xl font-black text-slate-800 tracking-tight">TEAM XXXX</h2>
+                <div class="inline-block mt-2 px-4 py-1 rounded-full bg-slate-100 border border-slate-300">
+                    <span class="text-slate-600 font-bold uppercase tracking-wider text-sm" id="reportSubtitle">Typical Role: Unknown</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Bar Chart: Role Distribution -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-slate-200 h-[400px]">
+                    <h3 class="text-lg font-bold text-slate-700 mb-4 text-center">Match Role Distribution</h3>
+                    <div class="chart-container">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Radar Chart: Season Average -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-slate-200 h-[400px]">
+                    <h3 class="text-lg font-bold text-slate-700 mb-4 text-center">Normalized Season Average</h3>
+                    <div class="chart-container">
+                        <canvas id="avgRadarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Grid for Individual Match Radars -->
+            <div>
+                <h3 class="text-2xl font-extrabold text-slate-800 mb-6 border-b pb-2">Individual Match History</h3>
+                <div id="matchesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Charts injected here via JS -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // --- 1. CONFIGURATION & CONSTANTS ---
+        const ROLES_MAP = {
+            "Passer": { tendencies: { time_passing: 50.0, time_intaking: 60.0 } },
+            "Defense": { tendencies: { time_defending: 45.0 } },
+            "Scorer": { tendencies: { num_balls_shot: 15.0, time_shooting_r1: 10.0, time_shooting_r2: 10.0 } }
+        };
+
+        const ROLE_COLORS = {
+            "Scorer": "rgba(231, 76, 60, 1)",   // Red
+            "Defense": "rgba(46, 204, 113, 1)", // Green
+            "Passer": "rgba(241, 196, 15, 1)",  // Yellow
+            "Unknown": "rgba(149, 165, 166, 1)" // Grey
+        };
+
+        const NUMERIC_FIELDS = [
+            'time_shooting_r1', 'time_shooting_r2', 'time_shooting_r3',
+            'time_intaking', 'time_passing', 'num_balls_shot',
+            'time_to_climb', 'time_defending', 'time_dysfunctional'
+        ];
+
+        let chartInstances = []; // Keep track of charts to destroy them on re-render
+
+        // --- 2. DATA PROCESSING LOGIC ---
+
+        function calculateRoleScore(dataObj, rolesMap) {
+            let bestRole = "Unknown";
+            let highestScore = -1.0;
+
+            for (const [roleName, criteria] of Object.entries(rolesMap)) {
+                const tendencies = criteria.tendencies || {};
+                let ratios = [];
+                
+                for (const [attr, target] of Object.entries(tendencies)) {
+                    let actual = dataObj[attr] || 0;
+                    ratios.push(target > 0 ? (actual / target) : 0);
+                }
+
+                if (ratios.length > 0) {
+                    let avgRatio = ratios.reduce((a, b) => a + b, 0) / ratios.length;
+                    if (avgRatio > highestScore) {
+                        highestScore = avgRatio;
+                        bestRole = roleName;
+                    }
+                }
+            }
+            return { role: bestRole, score: highestScore.toFixed(2) };
+        }
+
+        // --- 3. MAIN EXECUTION ---
+
+        async function analyzeTeam() {
+            const rawUrl = document.getElementById('sheetUrl').value.trim();
+            const teamNumber = document.getElementById('teamNumber').value.trim();
+            const msgEl = document.getElementById('statusMessage');
+            
+            if (!rawUrl || !teamNumber) {
+                showMsg("Please enter both a Google Sheet URL and a Team Number.", "text-red-600");
+                return;
+            }
+
+            // Convert Google Sheet URL to CSV Export URL
+            let exportUrl = rawUrl;
+            if (rawUrl.includes('/edit')) {
+                exportUrl = rawUrl.replace(/\/edit.*$/, '/export?format=csv');
+            } else if (!rawUrl.includes('/export')) {
+                exportUrl += '/export?format=csv';
+            }
+
+            showMsg("Fetching and processing data...", "text-blue-600");
+
+            Papa.parse(exportUrl, {
+                download: true,
+                header: false, // Positional mapping
+                skipEmptyLines: true,
+                complete: function(results) {
+                    try {
+                        processParsedData(results.data, teamNumber);
+                        showMsg("", ""); // Clear message
+                    } catch (e) {
+                        console.error(e);
+                        showMsg("Error processing data: " + e.message, "text-red-600");
+                    }
+                },
+                error: function(err) {
+                    showMsg("Failed to load Google Sheet. Ensure it is public ('Anyone with link').", "text-red-600");
+                }
+            });
+        }
+
+        function showMsg(text, classes) {
+            const el = document.getElementById('statusMessage');
+            el.textContent = text;
+            el.className = `mt-4 text-sm font-semibold ${classes}`;
+            if(text) el.classList.remove('hidden');
+            else el.classList.add('hidden');
+        }
+
+        function processParsedData(rows, targetTeam) {
+            // Remove header row
+            if (rows.length > 0 && isNaN(parseInt(rows[0][0]))) {
+                rows.shift();
+            }
+
+            let matchHistory = [];
+
+            // 1. Positional Extraction
+            rows.forEach(row => {
+                if (row.length < 12) return;
+                
+                let teamStr = String(row[0]).trim();
+                if (teamStr !== String(targetTeam).trim()) return;
+
+                let profile = {
+                    team: teamStr,
+                    match_number: parseInt(row[1]) || 0,
+                    time_shooting_r1: parseFloat(row[2]) || 0,
+                    time_shooting_r2: parseFloat(row[3]) || 0,
+                    time_shooting_r3: parseFloat(row[4]) || 0,
+                    time_intaking: parseFloat(row[5]) || 0,
+                    time_passing: parseFloat(row[6]) || 0,
+                    num_balls_shot: parseFloat(row[7]) || 0,
+                    time_to_climb: parseFloat(row[8]) || 0,
+                    climb_level: String(row[9]),
+                    time_defending: parseFloat(row[10]) || 0,
+                    time_dysfunctional: parseFloat(row[11]) || 0
+                };
+
+                // Analyze Match Role
+                let result = calculateRoleScore(profile, ROLES_MAP);
+                profile.assigned_role = result.role;
+                profile.role_score = result.score;
+                
+                matchHistory.push(profile);
+            });
+
+            if (matchHistory.length === 0) {
+                throw new Error(`No matches found for Team ${targetTeam}`);
+            }
+
+            // 2. Aggregate Robot Data
+            let roleCounts = { "Scorer": 0, "Passer": 0, "Defense": 0, "Unknown": 0 };
+            let avgMetrics = {};
+            NUMERIC_FIELDS.forEach(f => avgMetrics[f] = 0);
+
+            matchHistory.forEach(m => {
+                if (roleCounts[m.assigned_role] !== undefined) roleCounts[m.assigned_role]++;
+                else roleCounts["Unknown"]++;
+
+                NUMERIC_FIELDS.forEach(f => avgMetrics[f] += m[f]);
+            });
+
+            NUMERIC_FIELDS.forEach(f => avgMetrics[f] /= matchHistory.length);
+
+            // Calculate Typical Role based on averages
+            let typicalRoleResult = calculateRoleScore(avgMetrics, ROLES_MAP);
+            let typicalRole = typicalRoleResult.role;
+
+            // Find Max Values for Normalization
+            let maxVals = {};
+            NUMERIC_FIELDS.forEach(f => {
+                let max = Math.max(...matchHistory.map(m => m[f]));
+                maxVals[f] = max > 0 ? max : 1; // Prevent division by zero
+            });
+
+            const robotData = {
+                team: targetTeam,
+                matchHistory,
+                roleCounts,
+                avgMetrics,
+                typicalRole,
+                maxVals
+            };
+
+            renderDashboard(robotData);
+        }
+
+        // --- 4. VISUALIZATION LOGIC (Chart.js) ---
+
+        function renderDashboard(robot) {
+            document.getElementById('dashboard').classList.remove('hidden');
+            document.getElementById('reportTitle').innerText = `TEAM ${robot.team}`;
+            document.getElementById('reportSubtitle').innerText = `TYPICAL ROLE: ${robot.typicalRole}`;
+
+            // Clear old charts
+            chartInstances.forEach(c => c.destroy());
+            chartInstances = [];
+            document.getElementById('matchesGrid').innerHTML = '';
+
+            // Clean labels for Radar charts (e.g. "time_intaking" -> "Time Intaking")
+            const cleanLabels = NUMERIC_FIELDS.map(f => {
+                return f.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            });
+
+            // --- A. BAR CHART ---
+            const ctxBar = document.getElementById('barChart').getContext('2d');
+            const roles = Object.keys(robot.roleCounts);
+            const counts = Object.values(robot.roleCounts);
+            const barColors = roles.map(r => ROLE_COLORS[r] || ROLE_COLORS["Unknown"]);
+            
+            // Highlight typical role border
+            const borderColors = roles.map(r => r === robot.typicalRole ? '#000000' : 'transparent');
+            const borderWidths = roles.map(r => r === robot.typicalRole ? 2 : 0);
+
+            chartInstances.push(new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: roles,
+                    datasets: [{
+                        label: 'Matches',
+                        data: counts,
+                        backgroundColor: barColors,
+                        borderColor: borderColors,
+                        borderWidth: borderWidths,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // Make it horizontal
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { beginAtZero: true, grid: { borderDash: [4, 4] } },
+                        y: { grid: { display: false } }
+                    }
+                }
+            }));
+
+            // --- COMMON RADAR OPTIONS (No Ticks, Normalized Scale) ---
+            const radarOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 1, // Because data is normalized
+                        ticks: { display: false }, // NO TICKS
+                        pointLabels: {
+                            font: { size: 10, family: 'Inter' },
+                            color: '#64748b'
+                        },
+                        grid: { color: '#e2e8f0' },
+                        angleLines: { color: '#e2e8f0' }
+                    }
+                },
+                plugins: { legend: { display: false } }
+            };
+
+            // --- B. AVERAGE RADAR ---
+            const ctxAvg = document.getElementById('avgRadarChart').getContext('2d');
+            const normalizedAvgs = NUMERIC_FIELDS.map(f => robot.avgMetrics[f] / robot.maxVals[f]);
+            const avgColorHex = ROLE_COLORS[robot.typicalRole] || ROLE_COLORS["Unknown"];
+
+            chartInstances.push(new Chart(ctxAvg, {
+                type: 'radar',
+                data: {
+                    labels: cleanLabels,
+                    datasets: [{
+                        data: normalizedAvgs,
+                        backgroundColor: avgColorHex.replace('1)', '0.3)'),
+                        borderColor: avgColorHex,
+                        borderWidth: 3,
+                        pointBackgroundColor: avgColorHex
+                    }]
+                },
+                options: radarOptions
+            }));
+
+            // --- C. INDIVIDUAL MATCH RADARS ---
+            const gridEl = document.getElementById('matchesGrid');
+            
+            robot.matchHistory.forEach((match, index) => {
+                // Create container
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-xl shadow-sm p-4 border border-slate-200 h-[300px] flex flex-col";
+                
+                const colorHex = ROLE_COLORS[match.assigned_role] || ROLE_COLORS["Unknown"];
+                
+                // Header
+                card.innerHTML = `
+                    <div class="text-center mb-2">
+                        <div class="font-bold text-slate-800">Match ${match.match_number}</div>
+                        <div class="text-xs font-bold" style="color: ${colorHex}">${match.assigned_role} (Score: ${match.role_score})</div>
+                    </div>
+                    <div class="flex-grow relative">
+                        <!-- Use the loop index to guarantee a globally unique ID for the canvas -->
+                        <canvas id="matchChart_${index}"></canvas>
+                    </div>
+                `;
+                gridEl.appendChild(card);
+
+                // Draw Chart
+                const ctxM = document.getElementById(`matchChart_${index}`).getContext('2d');
+                const normalizedMatchData = NUMERIC_FIELDS.map(f => match[f] / robot.maxVals[f]);
+
+                chartInstances.push(new Chart(ctxM, {
+                    type: 'radar',
+                    data: {
+                        labels: cleanLabels,
+                        datasets: [{
+                            data: normalizedMatchData,
+                            backgroundColor: colorHex.replace('1)', '0.15)'),
+                            borderColor: colorHex,
+                            borderWidth: 2,
+                            pointRadius: 2,
+                            pointBackgroundColor: colorHex
+                        }]
+                    },
+                    options: {
+                        ...radarOptions,
+                        scales: {
+                            r: {
+                                ...radarOptions.scales.r,
+                                pointLabels: { font: { size: 8 } } // Smaller labels for small charts
+                            }
+                        }
+                    }
+                }));
+            });
+        }
+    </script>
+</body>
+</html>
