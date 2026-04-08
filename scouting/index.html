@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robot Scouting Dashboard</title>
-    <!-- Tailwind CSS for styling -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- PapaParse for reading Google Sheets CSV -->
+    <!-- PapaParse -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-    <!-- Chart.js for the Radar and Bar charts -->
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { background-color: #f8fafc; font-family: 'Inter', sans-serif; }
         .chart-container { position: relative; height: 100%; width: 100%; }
-        /* Hide scrollbar for cleaner look */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -44,11 +43,10 @@
                 </div>
             </div>
             
-            <!-- Error / Loading Messages -->
             <div id="statusMessage" class="mt-4 text-sm font-semibold hidden"></div>
         </div>
 
-        <!-- DASHBOARD CONTENT (Hidden until loaded) -->
+        <!-- DASHBOARD CONTENT -->
         <div id="dashboard" class="hidden space-y-8">
             
             <!-- Header for Results -->
@@ -57,10 +55,11 @@
                 <div class="inline-block mt-2 px-4 py-1 rounded-full bg-slate-100 border border-slate-300">
                     <span class="text-slate-600 font-bold uppercase tracking-wider text-sm" id="reportSubtitle">Typical Role: Unknown</span>
                 </div>
+                <div id="robotCapabilities" class="mt-4 flex justify-center gap-3"></div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Bar Chart: Role Distribution -->
+                <!-- Bar Chart -->
                 <div class="bg-white rounded-xl shadow-sm p-6 border border-slate-200 h-[400px]">
                     <h3 class="text-lg font-bold text-slate-700 mb-4 text-center">Match Role Distribution</h3>
                     <div class="chart-container">
@@ -68,7 +67,7 @@
                     </div>
                 </div>
 
-                <!-- Radar Chart: Season Average -->
+                <!-- Radar Chart -->
                 <div class="bg-white rounded-xl shadow-sm p-6 border border-slate-200 h-[400px]">
                     <h3 class="text-lg font-bold text-slate-700 mb-4 text-center">Normalized Season Average</h3>
                     <div class="chart-container">
@@ -91,9 +90,9 @@
     <script>
         // --- 1. CONFIGURATION & CONSTANTS ---
         const ROLES_MAP = {
-            "Passer": { tendencies: { time_passing: 50.0, time_intaking: 60.0 } },
-            "Defense": { tendencies: { time_defending: 45.0 } },
-            "Scorer": { tendencies: { num_balls_shot: 15.0, time_shooting_r1: 10.0, time_shooting_r2: 10.0 } }
+            "Passer": { tendencies: { npass_time: 20.0, opass_time: 20.0 } },
+            "Defense": { tendencies: { ndef_time: 20.0, odef_time: 20.0 } },
+            "Scorer": { tendencies: { close_shot_time: 20.0, mid_shot_time: 20.0, far_shot_time: 15.0 } }
         };
 
         const ROLE_COLORS = {
@@ -104,12 +103,13 @@
         };
 
         const NUMERIC_FIELDS = [
-            'time_shooting_r1', 'time_shooting_r2', 'time_shooting_r3',
-            'time_intaking', 'time_passing', 'num_balls_shot',
-            'time_to_climb', 'time_defending', 'time_dysfunctional'
+            'close_shot_time', 'mid_shot_time', 'far_shot_time',
+            'traverse_time',
+            'npass_time', 'opass_time', 'ndef_time', 'odef_time',
+            'dysfunctional'
         ];
 
-        let chartInstances = []; // Keep track of charts to destroy them on re-render
+        let chartInstances = []; 
 
         // --- 2. DATA PROCESSING LOGIC ---
 
@@ -142,14 +142,12 @@
         async function analyzeTeam() {
             const rawUrl = document.getElementById('sheetUrl').value.trim();
             const teamNumber = document.getElementById('teamNumber').value.trim();
-            const msgEl = document.getElementById('statusMessage');
             
             if (!rawUrl || !teamNumber) {
                 showMsg("Please enter both a Google Sheet URL and a Team Number.", "text-red-600");
                 return;
             }
 
-            // Convert Google Sheet URL to CSV Export URL
             let exportUrl = rawUrl;
             if (rawUrl.includes('/edit')) {
                 exportUrl = rawUrl.replace(/\/edit.*$/, '/export?format=csv');
@@ -161,12 +159,12 @@
 
             Papa.parse(exportUrl, {
                 download: true,
-                header: false, // Positional mapping
+                header: false,
                 skipEmptyLines: true,
                 complete: function(results) {
                     try {
                         processParsedData(results.data, teamNumber);
-                        showMsg("", ""); // Clear message
+                        showMsg("", ""); 
                     } catch (e) {
                         console.error(e);
                         showMsg("Error processing data: " + e.message, "text-red-600");
@@ -187,34 +185,132 @@
         }
 
         function processParsedData(rows, targetTeam) {
-            // Remove header row
+            // Correct Baseline Indices (Based exactly on your provided column list)
+            let IDX = {
+                close_shot_c: 26, close_shot_t: 27,
+                mid_shot_c: 28, mid_shot_t: 29,
+                far_shot_c: 30, far_shot_t: 31,
+                bump_c: 32, bump_t: 33,
+                trench_c: 34, trench_t: 35,
+                trav_c: 36, trav_t: 37,
+                npass_c: 38, npass_t: 39,
+                ndef_c: 40, ndef_t: 41,
+                opass_c: 42, opass_t: 43,
+                odef_c: 44, odef_t: 45,
+                dysfunctional: 52
+            };
+
+            // Bulletproof Dynamic Header Mapping (Exact Match to avoid Auton columns)
             if (rows.length > 0 && isNaN(parseInt(rows[0][0]))) {
-                rows.shift();
+                let headerRow = rows.shift();
+                let hMap = {};
+                
+                // Make headers purely lowercase for case-insensitive exact matching
+                headerRow.forEach((col, i) => hMap[String(col).trim().toLowerCase()] = i);
+                
+                // Helper: Find column that matches the EXACT name (ignoring case)
+                const getExactIdx = (exactName, fallback) => {
+                    let key = exactName.toLowerCase();
+                    return hMap[key] !== undefined ? hMap[key] : fallback;
+                };
+
+                IDX.close_shot_c = getExactIdx('Close shot count', IDX.close_shot_c);
+                IDX.close_shot_t = getExactIdx('Close shot time', IDX.close_shot_t);
+                IDX.mid_shot_c = getExactIdx('Mid shot count', IDX.mid_shot_c);
+                IDX.mid_shot_t = getExactIdx('Mid shot time', IDX.mid_shot_t);
+                IDX.far_shot_c = getExactIdx('Far shot count', IDX.far_shot_c);
+                IDX.far_shot_t = getExactIdx('Far shot time', IDX.far_shot_t);
+                
+                IDX.bump_c = getExactIdx('Bump count', IDX.bump_c);
+                IDX.bump_t = getExactIdx('Bump time', IDX.bump_t);
+                IDX.trench_c = getExactIdx('Trench count', IDX.trench_c);
+                IDX.trench_t = getExactIdx('Trench time', IDX.trench_t);
+                IDX.trav_c = getExactIdx('Traverse count', IDX.trav_c);
+                IDX.trav_t = getExactIdx('Traverse time', IDX.trav_t);
+                
+                IDX.npass_c = getExactIdx('NPass count', IDX.npass_c);
+                IDX.npass_t = getExactIdx('NPass time', IDX.npass_t);
+                IDX.ndef_c = getExactIdx('NDef count', IDX.ndef_c);
+                IDX.ndef_t = getExactIdx('NDef time', IDX.ndef_t);
+                IDX.opass_c = getExactIdx('OPass count', IDX.opass_c);
+                IDX.opass_t = getExactIdx('OPass time', IDX.opass_t);
+                IDX.odef_c = getExactIdx('ODef count', IDX.odef_c);
+                IDX.odef_t = getExactIdx('ODef time', IDX.odef_t);
+                
+                IDX.dysfunctional = getExactIdx('Dysfunctional', IDX.dysfunctional);
             }
 
             let matchHistory = [];
 
-            // 1. Positional Extraction
             rows.forEach(row => {
-                if (row.length < 12) return;
+                if (row.length < 52) return; 
                 
                 let teamStr = String(row[0]).trim();
                 if (teamStr !== String(targetTeam).trim()) return;
 
+                // Grab Times (converted from ms to seconds) dynamically using bulletproof IDX
+                let close_shot_t = (parseFloat(row[IDX.close_shot_t]) || 0) / 1000;
+                let mid_shot_t = (parseFloat(row[IDX.mid_shot_t]) || 0) / 1000;
+                let far_shot_t = (parseFloat(row[IDX.far_shot_t]) || 0) / 1000;
+                let bump_t = (parseFloat(row[IDX.bump_t]) || 0) / 1000;
+                let trench_t = (parseFloat(row[IDX.trench_t]) || 0) / 1000;
+                let trav_t = (parseFloat(row[IDX.trav_t]) || 0) / 1000;
+                let npass_t = (parseFloat(row[IDX.npass_t]) || 0) / 1000;
+                let ndef_t = (parseFloat(row[IDX.ndef_t]) || 0) / 1000;
+                let opass_t = (parseFloat(row[IDX.opass_t]) || 0) / 1000;
+                let odef_t = (parseFloat(row[IDX.odef_t]) || 0) / 1000;
+
+                // Grab Counts dynamically using bulletproof IDX
+                let close_shot_c = parseInt(row[IDX.close_shot_c]) || 0;
+                let mid_shot_c = parseInt(row[IDX.mid_shot_c]) || 0;
+                let far_shot_c = parseInt(row[IDX.far_shot_c]) || 0;
+                let bump_c = parseInt(row[IDX.bump_c]) || 0;
+                let trench_c = parseInt(row[IDX.trench_c]) || 0;
+                let trav_c = parseInt(row[IDX.trav_c]) || 0;
+                let npass_c = parseInt(row[IDX.npass_c]) || 0;
+                let ndef_c = parseInt(row[IDX.ndef_c]) || 0;
+                let opass_c = parseInt(row[IDX.opass_c]) || 0;
+                let odef_c = parseInt(row[IDX.odef_c]) || 0;
+
+                // Base Profile
                 let profile = {
-                    team: teamStr,
                     match_number: parseInt(row[1]) || 0,
-                    time_shooting_r1: parseFloat(row[2]) || 0,
-                    time_shooting_r2: parseFloat(row[3]) || 0,
-                    time_shooting_r3: parseFloat(row[4]) || 0,
-                    time_intaking: parseFloat(row[5]) || 0,
-                    time_passing: parseFloat(row[6]) || 0,
-                    num_balls_shot: parseFloat(row[7]) || 0,
-                    time_to_climb: parseFloat(row[8]) || 0,
-                    climb_level: String(row[9]),
-                    time_defending: parseFloat(row[10]) || 0,
-                    time_dysfunctional: parseFloat(row[11]) || 0
+                    close_shot_time: close_shot_t,
+                    mid_shot_time: mid_shot_t,
+                    far_shot_time: far_shot_t,
+                    traverse_time: trav_t + bump_t + trench_t,
+                    npass_time: npass_t,
+                    opass_time: opass_t,
+                    ndef_time: ndef_t,
+                    odef_time: odef_t,
+                    dysfunctional: (parseFloat(row[IDX.dysfunctional]) || 0) / 1000,
+                    // Track if they did bump/trench in this match
+                    is_bump: bump_t > 0 || bump_c > 0,
+                    is_trench: trench_t > 0 || trench_c > 0,
+                    is_dysfunctional: (parseFloat(row[IDX.dysfunctional]) || 0) > 0
                 };
+
+                // --- EFFICIENCY CALCULATIONS (Time / Count = Seconds per action) ---
+                
+                // Scoring Efficiency
+                let scoringTime = close_shot_t + mid_shot_t + far_shot_t;
+                let scoringCount = close_shot_c + mid_shot_c + far_shot_c;
+                profile.scoring_eff = scoringCount > 0 ? (scoringTime / scoringCount) : null;
+
+                // Traversal Efficiency
+                let traversalTime = profile.traverse_time;
+                let traversalCount = bump_c + trench_c + trav_c;
+                profile.traversal_eff = traversalCount > 0 ? (traversalTime / traversalCount) : null;
+
+                // Passing Efficiency
+                let passingTime = npass_t + opass_t;
+                let passingCount = npass_c + opass_c;
+                profile.passing_eff = passingCount > 0 ? (passingTime / passingCount) : null;
+
+                // Defense Efficiency
+                let defenseTime = ndef_t + odef_t;
+                let defenseCount = ndef_c + odef_c;
+                profile.defense_eff = defenseCount > 0 ? (defenseTime / defenseCount) : null;
 
                 // Analyze Match Role
                 let result = calculateRoleScore(profile, ROLES_MAP);
@@ -228,7 +324,7 @@
                 throw new Error(`No matches found for Team ${targetTeam}`);
             }
 
-            // 2. Aggregate Robot Data
+            // Aggregate Robot Data
             let roleCounts = { "Scorer": 0, "Passer": 0, "Defense": 0, "Unknown": 0 };
             let avgMetrics = {};
             NUMERIC_FIELDS.forEach(f => avgMetrics[f] = 0);
@@ -236,21 +332,24 @@
             matchHistory.forEach(m => {
                 if (roleCounts[m.assigned_role] !== undefined) roleCounts[m.assigned_role]++;
                 else roleCounts["Unknown"]++;
-
                 NUMERIC_FIELDS.forEach(f => avgMetrics[f] += m[f]);
             });
 
             NUMERIC_FIELDS.forEach(f => avgMetrics[f] /= matchHistory.length);
 
-            // Calculate Typical Role based on averages
-            let typicalRoleResult = calculateRoleScore(avgMetrics, ROLES_MAP);
-            let typicalRole = typicalRoleResult.role;
+            let typicalRole = calculateRoleScore(avgMetrics, ROLES_MAP).role;
 
-            // Find Max Values for Normalization
             let maxVals = {};
             NUMERIC_FIELDS.forEach(f => {
-                let max = Math.max(...matchHistory.map(m => m[f]));
-                maxVals[f] = max > 0 ? max : 1; // Prevent division by zero
+                let robotMax = Math.max(...matchHistory.map(m => m[f]));
+                let benchMax = 0;
+                // Check our benchmarks to ensure the chart scales properly
+                Object.keys(ROLES_MAP).forEach(role => {
+                    if (ROLES_MAP[role].tendencies[f]) {
+                        benchMax = Math.max(benchMax, ROLES_MAP[role].tendencies[f]);
+                    }
+                });
+                maxVals[f] = Math.max(robotMax, benchMax, 1); 
             });
 
             const robotData = {
@@ -259,7 +358,10 @@
                 roleCounts,
                 avgMetrics,
                 typicalRole,
-                maxVals
+                maxVals,
+                isBumpRobot: matchHistory.some(m => m.is_bump),
+                isTrenchRobot: matchHistory.some(m => m.is_trench),
+                isDysfunctionalRobot: matchHistory.some(m => m.is_dysfunctional)
             };
 
             renderDashboard(robotData);
@@ -272,12 +374,17 @@
             document.getElementById('reportTitle').innerText = `TEAM ${robot.team}`;
             document.getElementById('reportSubtitle').innerText = `TYPICAL ROLE: ${robot.typicalRole}`;
 
-            // Clear old charts
+            // Top-Level Capabilities
+            let capsHtml = '';
+            if (robot.isBumpRobot) capsHtml += `<span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-bold border border-green-200">✅ Overall Bump Bot</span>`;
+            if (robot.isTrenchRobot) capsHtml += `<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-bold border border-blue-200">✅ Overall Trench Bot</span>`;
+            if (robot.isDysfunctionalRobot) capsHtml += `<span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-bold border border-red-200">⚠️ History of Dysfunctional</span>`;
+            document.getElementById('robotCapabilities').innerHTML = capsHtml;
+
             chartInstances.forEach(c => c.destroy());
             chartInstances = [];
             document.getElementById('matchesGrid').innerHTML = '';
 
-            // Clean labels for Radar charts (e.g. "time_intaking" -> "Time Intaking")
             const cleanLabels = NUMERIC_FIELDS.map(f => {
                 return f.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
             });
@@ -287,8 +394,6 @@
             const roles = Object.keys(robot.roleCounts);
             const counts = Object.values(robot.roleCounts);
             const barColors = roles.map(r => ROLE_COLORS[r] || ROLE_COLORS["Unknown"]);
-            
-            // Highlight typical role border
             const borderColors = roles.map(r => r === robot.typicalRole ? '#000000' : 'transparent');
             const borderWidths = roles.map(r => r === robot.typicalRole ? 2 : 0);
 
@@ -297,7 +402,6 @@
                 data: {
                     labels: roles,
                     datasets: [{
-                        label: 'Matches',
                         data: counts,
                         backgroundColor: barColors,
                         borderColor: borderColors,
@@ -306,7 +410,7 @@
                     }]
                 },
                 options: {
-                    indexAxis: 'y', // Make it horizontal
+                    indexAxis: 'y', 
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: { legend: { display: false } },
@@ -317,65 +421,95 @@
                 }
             }));
 
-            // --- COMMON RADAR OPTIONS (No Ticks, Normalized Scale) ---
+            // --- B. AVERAGE RADAR ---
             const radarOptions = {
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
                     r: {
-                        min: 0,
-                        max: 1, // Because data is normalized
-                        ticks: { display: false }, // NO TICKS
-                        pointLabels: {
-                            font: { size: 10, family: 'Inter' },
-                            color: '#64748b'
-                        },
-                        grid: { color: '#e2e8f0' },
-                        angleLines: { color: '#e2e8f0' }
+                        min: 0, max: 1, ticks: { display: false },
+                        pointLabels: { font: { size: 10, family: 'Inter' }, color: '#64748b' },
                     }
                 },
-                plugins: { legend: { display: false } }
+                plugins: { 
+                    legend: { 
+                        display: true, 
+                        position: 'bottom',
+                        labels: { boxWidth: 12, font: { size: 10 } }
+                    } 
+                }
             };
 
-            // --- B. AVERAGE RADAR ---
             const ctxAvg = document.getElementById('avgRadarChart').getContext('2d');
             const normalizedAvgs = NUMERIC_FIELDS.map(f => robot.avgMetrics[f] / robot.maxVals[f]);
             const avgColorHex = ROLE_COLORS[robot.typicalRole] || ROLE_COLORS["Unknown"];
+
+            let avgDatasets = [{
+                label: 'Season Average',
+                data: normalizedAvgs,
+                backgroundColor: avgColorHex.replace('1)', '0.3)'),
+                borderColor: avgColorHex,
+                borderWidth: 3,
+                pointBackgroundColor: avgColorHex
+            }];
+
+            // Overlay all 3 benchmarks on the season average chart
+            Object.keys(ROLES_MAP).forEach(roleName => {
+                let bData = NUMERIC_FIELDS.map(f => (ROLES_MAP[roleName].tendencies[f] || 0) / robot.maxVals[f]);
+                avgDatasets.push({
+                    label: roleName + ' Benchmark',
+                    data: bData,
+                    borderColor: ROLE_COLORS[roleName],
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    borderDash: [4, 4],
+                    pointRadius: 0
+                });
+            });
 
             chartInstances.push(new Chart(ctxAvg, {
                 type: 'radar',
                 data: {
                     labels: cleanLabels,
-                    datasets: [{
-                        data: normalizedAvgs,
-                        backgroundColor: avgColorHex.replace('1)', '0.3)'),
-                        borderColor: avgColorHex,
-                        borderWidth: 3,
-                        pointBackgroundColor: avgColorHex
-                    }]
+                    datasets: avgDatasets
                 },
                 options: radarOptions
             }));
 
-            // --- C. INDIVIDUAL MATCH RADARS ---
+            // --- C. INDIVIDUAL MATCH RADARS & EFFICIENCY ---
             const gridEl = document.getElementById('matchesGrid');
             
             robot.matchHistory.forEach((match, index) => {
-                // Create container
                 const card = document.createElement('div');
-                card.className = "bg-white rounded-xl shadow-sm p-4 border border-slate-200 h-[300px] flex flex-col";
-                
+                card.className = "bg-white rounded-xl shadow-sm p-4 border border-slate-200 h-auto min-h-[380px] flex flex-col";
                 const colorHex = ROLE_COLORS[match.assigned_role] || ROLE_COLORS["Unknown"];
                 
-                // Header
+                // Construct Per-Match Checkmarks
+                let matchBadges = '';
+                if (match.is_bump) matchBadges += `<span class="px-2 py-0.5 bg-green-100 text-green-800 rounded text-[10px] font-bold border border-green-200 mr-1">✅ Bump</span>`;
+                if (match.is_trench) matchBadges += `<span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded text-[10px] font-bold border border-blue-200 mr-1">✅ Trench</span>`;
+                if (match.is_dysfunctional) matchBadges += `<span class="px-2 py-0.5 bg-red-100 text-red-800 rounded text-[10px] font-bold border border-red-200">⚠️ Dysfunc</span>`;
+
+                // Formatting helpers for Efficiency
+                const fmt = (val) => val !== null ? val.toFixed(1) + 's' : 'N/A';
+
                 card.innerHTML = `
                     <div class="text-center mb-2">
                         <div class="font-bold text-slate-800">Match ${match.match_number}</div>
                         <div class="text-xs font-bold" style="color: ${colorHex}">${match.assigned_role} (Score: ${match.role_score})</div>
+                        <div class="mt-1 h-5">${matchBadges}</div>
                     </div>
-                    <div class="flex-grow relative">
-                        <!-- Use the loop index to guarantee a globally unique ID for the canvas -->
+                    <div class="flex-grow relative min-h-[200px] mb-4">
                         <canvas id="matchChart_${index}"></canvas>
+                    </div>
+                    <div class="mt-auto bg-slate-50 border border-slate-200 rounded p-2">
+                        <div class="text-[10px] uppercase font-bold text-slate-500 mb-1 text-center border-b border-slate-200 pb-1">Efficiency (Sec/Action)</div>
+                        <div class="grid grid-cols-2 gap-1 text-xs text-slate-700">
+                            <div>🎯 Score: <span class="font-bold">${fmt(match.scoring_eff)}</span></div>
+                            <div>🚜 Trav: <span class="font-bold">${fmt(match.traversal_eff)}</span></div>
+                            <div>🏈 Pass: <span class="font-bold">${fmt(match.passing_eff)}</span></div>
+                            <div>🛡️ Def: <span class="font-bold">${fmt(match.defense_eff)}</span></div>
+                        </div>
                     </div>
                 `;
                 gridEl.appendChild(card);
@@ -384,25 +518,50 @@
                 const ctxM = document.getElementById(`matchChart_${index}`).getContext('2d');
                 const normalizedMatchData = NUMERIC_FIELDS.map(f => match[f] / robot.maxVals[f]);
 
+                let matchDatasets = [{
+                    label: 'Match Data',
+                    data: normalizedMatchData,
+                    backgroundColor: colorHex.replace('1)', '0.15)'),
+                    borderColor: colorHex,
+                    borderWidth: 2,
+                    pointRadius: 2,
+                    pointBackgroundColor: colorHex
+                }];
+
+                // Overlay ONLY the benchmark for the role they played this match
+                if (match.assigned_role !== "Unknown" && ROLES_MAP[match.assigned_role]) {
+                    let roleName = match.assigned_role;
+                    let bData = NUMERIC_FIELDS.map(f => (ROLES_MAP[roleName].tendencies[f] || 0) / robot.maxVals[f]);
+                    matchDatasets.push({
+                        label: roleName + ' Benchmark',
+                        data: bData,
+                        borderColor: ROLE_COLORS[roleName],
+                        backgroundColor: 'transparent',
+                        borderWidth: 2,
+                        borderDash: [4, 4],
+                        pointRadius: 0
+                    });
+                }
+
                 chartInstances.push(new Chart(ctxM, {
                     type: 'radar',
                     data: {
                         labels: cleanLabels,
-                        datasets: [{
-                            data: normalizedMatchData,
-                            backgroundColor: colorHex.replace('1)', '0.15)'),
-                            borderColor: colorHex,
-                            borderWidth: 2,
-                            pointRadius: 2,
-                            pointBackgroundColor: colorHex
-                        }]
+                        datasets: matchDatasets
                     },
                     options: {
                         ...radarOptions,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                                labels: { boxWidth: 10, font: { size: 8 } }
+                            }
+                        },
                         scales: {
                             r: {
                                 ...radarOptions.scales.r,
-                                pointLabels: { font: { size: 8 } } // Smaller labels for small charts
+                                pointLabels: { font: { size: 8 } }
                             }
                         }
                     }
