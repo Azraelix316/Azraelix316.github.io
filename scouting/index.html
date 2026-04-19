@@ -245,7 +245,8 @@
             rows.forEach(row => {
                 if (row.length < 52) return; 
                 
-                let teamStr = String(row[0]).trim();
+                // SWAPPED: Team is now index 1
+                let teamStr = String(row[1]).trim();
                 if (teamStr !== String(targetTeam).trim()) return;
 
                 // Grab Times (converted from ms to seconds) dynamically using bulletproof IDX
@@ -274,7 +275,8 @@
 
                 // Base Profile
                 let profile = {
-                    match_number: parseInt(row[1]) || 0,
+                    // SWAPPED: Match is now index 0
+                    match_number: parseInt(row[0]) || 0,
                     close_shot_time: close_shot_t,
                     mid_shot_time: mid_shot_t,
                     far_shot_time: far_shot_t,
