@@ -7,6 +7,7 @@ function setup() {
   canvas.position(0,0);
   canvas.style('pointer-events', 'none');
   canvas.style('background-color', 'transparent');  mX=random(-1,1)
+  canvas.style('position', 'fixed');  mX=random(-1,1)
   for (let i=0;i<particleCount;i++){
     particles.push(new Particle(random(windowWidth/2),windowHeight))
   }
