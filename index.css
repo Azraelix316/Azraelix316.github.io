@@ -57,38 +57,6 @@ script {
     animation: slideAnim 1.75s cubic-bezier(0.39, 0.58, 0.18, 0.97) forwards;
 }
 
-
-.portfolio-grid {
-    z-index: 3;
-    position: fixed;
-    left: 50vw;
-    top: 5vh;
-    width: 45vw;
-    height: auto;
-    display: grid;
-    background: rgba(255, 255, 255, 0.0); 
-  /* repeat(auto-fill, ...) will fit as many 125px items as possible per row */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));  /* Optional: centers the items if they don't perfectly fill the row width */
-    justify-content: center; 
-    padding: 20px;
-}
-
-.portfolio-item {
-  opacity: 1.0;
-  aspect-ratio: 1 / 1;
-  background: #f4f4f4;
-  display: flex; /* Helps center text inside the square */
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease-in-out;
-}
-
-.portfolio-item:hover {
-  transform: scale(1.02);
-  background: #e9e9e9;
-  filter: blur(2px);
-}
-
 @keyframes slideAnim {
     from {
         transform: translateX(0);
