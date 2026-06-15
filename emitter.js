@@ -35,17 +35,12 @@ function setup() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
-let mainBool=true;
-let frame=0;
-function mouseClicked() {
-  clear();
-  mainBool=false;
-  frame=frameCount;
-}
+
 
 function draw() {
-  if (mainBool) {
   clear();
+  rotateZ(-PI/180*20);
+  rotateX(HALF_PI-PI/180*20);
   orbitControl();
   fill(0);
   sphere(Rs);
@@ -53,12 +48,7 @@ function draw() {
     particle.update();
     particle.display();
   }
-} else {
-  clear();
-  fill(0);
-  translate(0,pow(frameCount-frame,1.5),0);
-  sphere(50);
-}
+
 
 }
 
