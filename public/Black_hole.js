@@ -16,12 +16,28 @@ const MDOT = 1.0e7;       // Accretion rate in kg/s
 let Rs = (2 * G * M) / (c * c); 
 
 function setup() {
-  canvas=createCanvas(windowWidth/2, windowHeight,WEBGL);
-  canvas.style('z-index','2');
-  canvas.style('pointer-events', 'none');
-  canvas.style('background-color', 'transparent'); 
-  canvas.style('position', 'absolute');
-  canvas.style('left','50vw');
+// 1. Get the container div passed from React
+  let container = window.p5TargetContainer;
+
+  // Measure container size (fallback to 500x400 if not measured yet)
+  let w = container ? container.clientWidth : 500;
+  let h = container ? container.clientHeight : 400;
+
+  // 2. Create canvas
+  let canvas = createCanvas(w, h, WEBGL);
+
+  // 3. MOVE CANVAS DOM NODE inside your React component
+  if (container) {
+    container.appendChild(canvas.elt);
+  }
+// 4. OVERRIDE STYLES (Remove position: fixed so it respects local flex layout!)
+  canvas.style('position', 'relative');
+  canvas.style('top', '0');
+  canvas.style('left', '0');
+  canvas.style('width', '100%');
+  canvas.style('height', '100%');
+  canvas.style('display', 'block');
+  canvas.style('pointer-events', 'auto');
   for (let i = 0; i < 300; i++) {
     let angle = random(TWO_PI);
     let radius = random(235, 350);
@@ -33,8 +49,10 @@ function setup() {
   }
 }
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+let container = window.p5TargetContainer;
+  if (container) {
+    resizeCanvas(container.clientWidth, container.clientHeight);
+  }}
 
 
 function draw() {
