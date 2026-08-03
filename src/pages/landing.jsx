@@ -1,15 +1,20 @@
 // LandingPage.jsx
 import React from 'react';
 import FeatureSection from '../components/FeatureSection';
+import HeroTitle from '../components/HeroTitle';
 import BlackHole from '../components/Black_Hole';
 
 const LandingPage = () => {
   return (
     <main className="landing-page">
-      {/* Block 1: Black Hole */}
       <FeatureSection
-        title="Hi, I'm Jared"
-        text="I make cool things. Sometimes."
+        content={
+          <HeroTitle 
+            name="Jared"
+            specialties={["React", "AI", "Data Viz", "C++", "p5.js"]}
+            description="I bridge the gap between complex software engineering, interactive physics simulations, and responsive web design."
+          />
+        }
         animation={<BlackHole />}
         reversed={false}
       />
