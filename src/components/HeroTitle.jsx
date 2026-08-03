@@ -26,16 +26,10 @@ const HeroTitle = ({
   intervalMs = 4000
 }) => {
   const [activeDataIndex, setActiveDataIndex] = useState(0);
-
-  // Tracks visibility state for the specialty title
   const [specialtyVisible, setSpecialtyVisible] = useState(true);
-
-  // Tracks visibility state for each individual project item in the list
   const [projectsVisible, setProjectsVisible] = useState(
     new Array(data[0].projects.length).fill(true)
   );
-
-  // Stores the active specialty and projects currently rendered on screen
   const [currentDisplay, setCurrentDisplay] = useState(data[0]);
 
   useEffect(() => {
@@ -43,11 +37,8 @@ const HeroTitle = ({
       const nextIndex = (activeDataIndex + 1) % data.length;
       const nextData = data[nextIndex];
 
-      // --- STEP 1: Cascade Fade-Out ---
-      // Fade out specialty title
       setSpecialtyVisible(false);
 
-      // Stagger fade-out for existing project list items (100ms apart)
       currentDisplay.projects.forEach((_, i) => {
         setTimeout(() => {
           setProjectsVisible((prev) => {
@@ -58,20 +49,15 @@ const HeroTitle = ({
         }, 100 + i * 100);
       });
 
-      // --- STEP 2: Swap Data & Cascade Fade-In ---
-      // Total duration of fade-out phase
       const fadeOutDuration = 100 + currentDisplay.projects.length * 100 + 200;
 
       setTimeout(() => {
-        // Update content to the new specialty & project list
         setActiveDataIndex(nextIndex);
         setCurrentDisplay(nextData);
         setProjectsVisible(new Array(nextData.projects.length).fill(false));
 
-        // Wave In 1: Specialty Title updates first
         setSpecialtyVisible(true);
 
-        // Wave In 2: Each project flips in with an additional 100ms delay per item
         nextData.projects.forEach((_, i) => {
           setTimeout(() => {
             setProjectsVisible((prev) => {
@@ -90,12 +76,15 @@ const HeroTitle = ({
 
   return (
     <div className="hero-title-container">
-      {/* 1. Main Greeting Header */}
+      {/* Visual Anchor */}
+      <span className="hero-index">01 // PORTFOLIO</span>
+
+      {/* Main Header */}
       <h1 className="hero-greeting">
         Hi, I'm <span className="hero-name">{name}</span>
       </h1>
 
-      {/* 2. Subtitle with Specializing in... */}
+      {/* Subtitle */}
       <div className="hero-subtitle">
         <span className="subtitle-prefix">Specializing in</span>
         <span className={`specialty-text ${specialtyVisible ? 'flip-in' : 'flip-out'}`}>
@@ -103,7 +92,7 @@ const HeroTitle = ({
         </span>
       </div>
 
-      {/* 3. Staggered Wave Project List */}
+      {/* Project List */}
       <ul className="project-list">
         {currentDisplay.projects.map((project, idx) => (
           <li
