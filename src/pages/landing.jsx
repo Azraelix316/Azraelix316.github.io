@@ -4,6 +4,7 @@ import FeatureSection from '../components/FeatureSection';
 import HeroTitle from '../components/HeroTitle';
 import BlackHole from '../components/Black_Hole';
 import ScrollCaret from '../components/ScrollCaret';
+import Navbar from '../components/Navbar';
 
 const LandingPage = () => {
   return (
@@ -25,6 +26,7 @@ const LandingPage = () => {
         }
       />
       <ScrollCaret />
+      <Navbar />
     </main>
   );
 };
