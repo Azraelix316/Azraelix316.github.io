@@ -4,12 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.75rem; /* Tightened from 3.5rem to group header elements cohesive */
+  gap: 2.5rem; /* Tightened from 3.5rem to group header elements cohesive */
   max-width: 580px;
   width: 100%;
   padding: 0;
   font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
   color: #000000;
+  padding: 0.5rem 1.25rem 0rem 0rem;
 }
 
 /* Subtle Top Index Marker to frame the section */
