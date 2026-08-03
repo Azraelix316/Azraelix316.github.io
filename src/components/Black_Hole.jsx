@@ -38,7 +38,7 @@ const BlackHole = () => {
       className="black-hole-wrapper"
       style={{ 
         width: '100%', 
-        height: '400px', // High-level container must have a height!
+        height: '100%', // High-level container must have a height!
         position: 'relative',
         overflow: 'hidden'
       }}

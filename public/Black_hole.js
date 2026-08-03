@@ -56,7 +56,6 @@ let container = window.p5TargetContainer;
 
 
 function draw() {
-  noLoop();
   clear();
   orbitControl();
   rotateZ(-PI/180*20);
