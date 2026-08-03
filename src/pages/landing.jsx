@@ -3,6 +3,7 @@ import React from 'react';
 import FeatureSection from '../components/FeatureSection';
 import HeroTitle from '../components/HeroTitle';
 import BlackHole from '../components/Black_Hole';
+import ScrollCaret from '../components/ScrollCaret';
 
 const LandingPage = () => {
   return (
@@ -18,6 +19,12 @@ const LandingPage = () => {
         animation={<BlackHole />}
         reversed={false}
       />
+      <FeatureSection
+        content={
+          <p>Test content</p>
+        }
+      />
+      <ScrollCaret />
     </main>
   );
 };

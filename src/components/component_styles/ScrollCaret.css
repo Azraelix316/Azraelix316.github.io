@@ -1,0 +1,53 @@
+/* Import Figtree if not already imported globally */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300&display=swap');
+
+.scroll-caret-container {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0.5rem;
+
+  color: #374151; /* Subtle dark gray */
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  /* Gentle subtle bouncing animation */
+  animation: floatCaret 2.2s infinite ease-in-out;
+}
+
+.scroll-caret-container:hover {
+  opacity: 0.75;
+}
+
+.caret-text {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 300; /* Explicitly 300 weight */
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.caret-icon {
+  display: block;
+}
+
+/* Subtle bounce animation keyframes */
+@keyframes floatCaret {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
