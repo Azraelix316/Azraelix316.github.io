@@ -1,6 +1,6 @@
 // FeatureSection.jsx
 import React from 'react';
-
+import './component_styles/FeatureSection.css';
 const FeatureSection = ({ title, text, animation, reversed = false }) => {
   return (
     <section className={`feature-row ${reversed ? 'reversed' : ''}`}>

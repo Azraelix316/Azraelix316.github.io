@@ -8,8 +8,8 @@ const LandingPage = () => {
     <main className="landing-page">
       {/* Block 1: Black Hole */}
       <FeatureSection
-        title="Event Horizon Physics"
-        text="Simulate realistic accretion disk dynamics and gravitational physics right inside your browser."
+        title="Hi, I'm Jared"
+        text="I make cool things. Sometimes."
         animation={<BlackHole />}
         reversed={false}
       />
