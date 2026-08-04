@@ -4,7 +4,6 @@ import './component_styles/FeatureSection.css';
 const FeatureSection = ({ content, animation, reversed = false }) => {
   return (
     <section className={`feature-row ${reversed ? 'reversed' : ''}`}>
-    <div className="feature-grid-bg" />
       <div className="feature-text">
         {content}
       </div>

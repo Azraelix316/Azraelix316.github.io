@@ -6,9 +6,11 @@ import BlackHole from '../components/Black_Hole';
 import ScrollCaret from '../components/ScrollCaret';
 import Navbar from '../components/Navbar';
 import NeuralNet from '../components/Neural_Net.jsx';
+import '../components/component_styles/LandingPage.css';
 const LandingPage = () => {
   return (
     <main className="landing-page">
+<div className="grid-bg"></div>
       <FeatureSection
         content={
           <HeroTitle 
@@ -20,13 +22,13 @@ const LandingPage = () => {
         animation={<BlackHole />}
         reversed={false}
       />
-      {/* <FeatureSection
+      <FeatureSection
         content={
           <p>Test content</p>
         }
         animation={<NeuralNet />}
         reversed={true}
-      /> */}
+      />
       <ScrollCaret />
       <Navbar />
     </main>
