@@ -9,7 +9,31 @@
     width: 100vw;
 font-family: 'Figtree', sans-serif;
 }
+/* --- GRAPH PAPER GRID BACKGROUND --- */
+.feature-grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 
+  /* Graph-paper line pattern (24px x 24px grid) */
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+
+  /* Fade out grid toward section edges */
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 80%);
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 80%);
+}
+
+/* Bring interactive content above grid background */
+.feature-text,
+.feature-animation {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
 /* Swaps order on desktop when 'reversed' prop is true */
 .feature-row.reversed {
   flex-direction: row-reverse;
