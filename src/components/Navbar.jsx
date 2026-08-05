@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Contact from './Contact';
 import './component_styles/Navbar.css';
 
 const MENU_ITEMS = [
@@ -57,6 +58,9 @@ const Navbar = () => {
             ))}
           </ul>
         </nav>
+        <div className="menu-contact">
+          <Contact />
+        </div>
       </div>
     </>
   );

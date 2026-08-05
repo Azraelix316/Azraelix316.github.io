@@ -1,0 +1,39 @@
+.contact-container {
+  position: absolute;
+  bottom: 5vh;
+  left: 5vw;
+  display: flex;
+  gap: 2rem;
+  z-index: 10;
+  align-items: center;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  padding-right: 1rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  transition: opacity 0.2s ease;
+  position: relative;
+  padding: 0.25rem;
+}
+
+.contact-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%);
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.contact-link:hover img {
+  opacity: 1;
+}
