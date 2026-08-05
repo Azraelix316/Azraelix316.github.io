@@ -6,6 +6,7 @@ import './App.css'
 import LandingPage from './pages/landing.jsx'
 import Navbar from './components/Navbar.jsx'
 import HudCursor from './components/HudCursor.jsx'
+import ProjectPage from './pages/project.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,6 +14,7 @@ function App() {
   return (
     <>
     <LandingPage />
+    {/* <ProjectPage /> */}
         <Navbar />
         <HudCursor />
     </>
