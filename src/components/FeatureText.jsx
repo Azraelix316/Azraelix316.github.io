@@ -2,13 +2,12 @@
 import React from 'react';
 import './component_styles/FeatureText.css';
 
-const FeatureText = ({ index = '02', tag = 'MODULE // FEATURE', title, text }) => {
+const FeatureText = ({ index = '02', tag = 'MODULE // FEATURE', title, text, reversed = false }) => {
   return (
-    <div className="feature-text-container">
+    <div className={`feature-text-container ${reversed ? 'reversed' : ''}`}>
       {/* HUD Telemetry Tag */}
       <div className="feature-text-tag">
-        <span className="tag-index">{index}</span>
-        <span className="tag-label">// {tag}</span>
+        <span className="tag-label">{index}// {tag}</span>
       </div>
 
       {/* Title */}

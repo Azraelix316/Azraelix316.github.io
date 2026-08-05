@@ -67,3 +67,48 @@
   background: rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
+
+.feature-text-container.reversed {
+  align-items: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+/* Reverse the index & label tag order */
+.feature-text-container.reversed .feature-text-tag {
+  flex-direction: row-reverse;
+}
+
+/* Move vertical border line accent from left to right */
+.feature-text-container.reversed .feature-text-title {
+  padding-left: 0;
+  padding-right: 0.75rem;
+  border-left: none;
+  border-right: 2px solid #000000;
+}
+
+
+.feature-text-container::before,
+.feature-text-container::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+
+/* Top-Left and Top-Right Bracket */
+.feature-text-container::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+}
+
+/* Bottom-Right Bracket */
+.feature-text-container::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid #000000;
+  border-right: 2px solid #000000;
+}
