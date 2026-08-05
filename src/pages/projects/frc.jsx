@@ -7,7 +7,7 @@ const FRCProject = () => {
       title="FRC Team Participation"
       subtitle="PORTFOLIO > ROBOTICS"
       description="FIRST Robotics Competition involvement showcasing complex system integration, team collaboration, and rapid prototyping under competitive pressure. Building robots that compete at the highest levels of collegiate robotics."
-      image="/src/assets/FRC.jpg"
+      image="/assets/FRC.jpg"
       imageAlt="FRC Robot"
       features={[
         {

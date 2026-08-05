@@ -7,7 +7,7 @@ const VEXProject = () => {
       title="VEX Over Under"
       subtitle="PORTFOLIO > ROBOTICS"
       description="VEX Robotics competition showcasing design innovation, competitive engineering, and autonomous programming. This season's robot was built to excel in both autonomous and driver-controlled periods."
-      image="/src/assets/vex_smoke_bot_angle.png"
+      image="/assets/vex_smoke_bot_angle.png"
       imageAlt="VEX Robot"
       features={[
         {

@@ -7,7 +7,7 @@ const QuantumProject = () => {
       title="Quantum Computing"
       subtitle="PORTFOLIO > RESEARCH"
       description="Quantum algorithm research and implementation exploring quantum gates, circuits, and solving problems with quantum advantage. Visualizing quantum states and circuit execution."
-      image="/src/assets/simon_linear_oracle_circuit.png"
+      image="/assets/simon_linear_oracle_circuit.png"
       imageAlt="Quantum Circuit"
       features={[
         {
