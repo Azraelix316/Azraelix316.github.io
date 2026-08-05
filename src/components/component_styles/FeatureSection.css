@@ -8,6 +8,9 @@
     height: 100vh;
     width: 100vw;
 font-family: 'Figtree', sans-serif;
+scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
 }
 /* --- GRAPH PAPER GRID BACKGROUND --- */
 .feature-grid-bg {
@@ -28,6 +31,7 @@ font-family: 'Figtree', sans-serif;
 }
 
 /* Bring interactive content above grid background */
+.feature-text-wrapper,
 .feature-text,
 .feature-animation {
   position: relative;
@@ -44,7 +48,7 @@ font-family: 'Figtree', sans-serif;
     font-weight: 300;
 }
 
-
+.feature-text-wrapper,
 .feature-text, 
 .feature-animation {
   flex: 1;
