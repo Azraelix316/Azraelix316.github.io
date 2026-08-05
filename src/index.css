@@ -7,4 +7,12 @@ body {
 * {
   font-family: 'Figtree', sans-serif;
   font-weight: 300;
+  scrollbar-width: none;
+  
+  /* 3. Hide scrollbar for IE and Legacy Edge */
+  -ms-overflow-style: none;
 }
+
+*::webkit-scrollbar {
+  display: none;
+} 
