@@ -1,23 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './component_styles/ScrollCaret.css';
 
 const ScrollCaret = () => {
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(-1);
+
   const scrollToNextSection = () => {
     // Finds all feature sections on the page
     const sections = document.querySelectorAll('.feature-row, .feature-section');
-    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    
+    if (sections.length === 0) return;
 
-    // Find the first section that is below the current scroll position
-    for (let section of sections) {
-      const top = section.offsetTop;
-      if (top > scrollPosition) {
-        section.scrollIntoView({ behavior: 'smooth' });
-        return;
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    let nextIndex = currentSectionIndex + 1;
+
+    // Find which section we're currently in
+    let currentIndex = -1;
+    for (let i = 0; i < sections.length; i++) {
+      const sectionTop = sections[i].offsetTop;
+      const sectionBottom = sectionTop + sections[i].offsetHeight;
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+        currentIndex = i;
+        break;
       }
     }
 
-    // Fallback: If at the top or section finding fails, scroll down 1 full viewport
-    window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+    // If we found current section, go to next; otherwise start from first
+    if (currentIndex !== -1) {
+      nextIndex = currentIndex + 1;
+    }
+
+    // If we're at or past the last section, cycle back to first
+    if (nextIndex >= sections.length) {
+      nextIndex = 0;
+    }
+
+    setCurrentSectionIndex(nextIndex);
+    sections[nextIndex].scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
