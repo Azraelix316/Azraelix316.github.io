@@ -2,7 +2,9 @@ name: Deploy React Site to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ] # Change to "master" if your default branch is master
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build-and-deploy:
@@ -10,6 +12,8 @@ jobs:
     
     permissions:
       contents: write
+      pages: write
+      id-token: write
 
     steps:
       # 1. Checkout the repository code
@@ -20,18 +24,23 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # You can adjust this to your preferred Node version
+          node-version: '20'
           cache: 'npm'
 
-      # 3. Install dependencies and build the project
-      - name: Install dependencies and build
-        run: |
-          npm ci
-          npm run build
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm ci
 
-      # 4. Deploy to GitHub Pages branch
+      # 4. Build the project
+      - name: Build project
+        run: npm run build
+
+      # 5. Deploy to GitHub Pages (only on push to main, not on PR)
       - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # Use 'dist' if you are using Vite instead of Create React App
+          publish_dir: ./dist
+          cname: # Remove this if you don't have a custom domain
+
