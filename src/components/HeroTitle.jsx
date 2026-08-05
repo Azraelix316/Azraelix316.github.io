@@ -78,7 +78,6 @@ const HeroTitle = ({
     <div className="hero-title-container">
       {/* Visual Anchor */}
       <span className="hero-index">01 // PORTFOLIO</span>
-
       {/* Main Header */}
       <h1 className="hero-greeting">
         Hi, I'm <span className="hero-name">{name}</span>
