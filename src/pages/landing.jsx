@@ -7,6 +7,7 @@ import ScrollCaret from '../components/ScrollCaret';
 import Navbar from '../components/Navbar';
 import NeuralNet from '../components/Neural_Net.jsx';
 import Contact from '../components/Contact';
+import ObsidianNetwork from '../components/ObsidianNetwork';
 import '../components/component_styles/LandingPage.css';
 import FeatureText from '../components/FeatureText.jsx';
 const LandingPage = () => {
@@ -39,6 +40,19 @@ const LandingPage = () => {
         }
         animation={<NeuralNet />}
         reversed={true}
+      />
+      <FeatureSection
+        content={
+            <FeatureText 
+                index="03"
+                tag="PORTFOLIO > SPECIALTY"
+                title="Data Visualization"
+                text="I craft immersive data visualizations that transform complex datasets into intuitive, interactive experiences. Using p5.js, Three.js, and D3.js, I create visual languages that make data exploration a dynamic journey through information architecture."
+                reversed={false}
+            />
+        }
+        animation={<ObsidianNetwork />}
+        reversed={false}
       />
       <ScrollCaret />
     </main>
