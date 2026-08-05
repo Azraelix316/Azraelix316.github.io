@@ -7,6 +7,7 @@ import ScrollCaret from '../components/ScrollCaret';
 import Navbar from '../components/Navbar';
 import NeuralNet from '../components/Neural_Net.jsx';
 import '../components/component_styles/LandingPage.css';
+import FeatureText from '../components/FeatureText.jsx';
 const LandingPage = () => {
   return (
     <main className="landing-page">
@@ -24,13 +25,17 @@ const LandingPage = () => {
       />
       <FeatureSection
         content={
-          <p>Test content</p>
+            <FeatureText 
+                index="02"
+                tag="MODULE // FEATURE"
+                title="AI & ML"
+                text="I specialize in building AI & ML systems that leverage the latest advancements in deep learning, computer vision, and natural language processing. From LLM workflow agents to neural net visualizers, I create intelligent solutions that drive innovation."
+            />
         }
         animation={<NeuralNet />}
         reversed={true}
       />
       <ScrollCaret />
-      <Navbar />
     </main>
   );
 };

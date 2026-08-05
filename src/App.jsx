@@ -4,6 +4,8 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import LandingPage from './pages/landing.jsx'
+import Navbar from './components/Navbar.jsx'
+import HudCursor from './components/HudCursor.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,6 +13,8 @@ function App() {
   return (
     <>
     <LandingPage />
+        <Navbar />
+        <HudCursor />
     </>
   )
 }
