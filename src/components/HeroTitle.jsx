@@ -4,19 +4,27 @@ import './component_styles/HeroTitle.css';
 const DEFAULT_DATA = [
   {
     specialty: 'React',
-    projects: ['Design System Component Library', 'Real-time Dashboard UI', 'SaaS Marketing Engine']
+    skills: ['Interactive Web Applications', 'Component Architecture', 'Real-time Dashboards']
   },
   {
     specialty: 'AI & ML',
-    projects: ['LLM Workflow Agent', 'Computer Vision Pipeline', 'Neural Net Visualizer']
+    skills: ['Neural Networks & Deep Learning', 'LLM Agents & Workflows', 'Computer Vision Systems']
   },
   {
     specialty: 'Data Visualization',
-    projects: ['p5.js Black Hole Simulator', 'WebGL Galaxy Renderer', 'D3.js Financial Graphs']
+    skills: ['p5.js Physics Simulations', 'Interactive D3.js Visualizations', 'WebGL Rendering']
+  },
+  {
+    specialty: 'Robotics',
+    skills: ['VEX Autonomous Programming', 'FRC Team Systems', 'Control Algorithms']
   },
   {
     specialty: 'C++',
-    projects: ['Custom Physics Engine', 'Audio DSP Plugin', 'High-Frequency Order Book']
+    skills: ['High-Performance Systems', 'Physics Engines', 'Embedded Programming']
+  },
+  {
+    specialty: 'Quantum Computing',
+    skills: ['Quantum Algorithms', 'Circuit Design & Simulation', 'Bloch Sphere Visualization']
   }
 ];
 
@@ -27,8 +35,8 @@ const HeroTitle = ({
 }) => {
   const [activeDataIndex, setActiveDataIndex] = useState(0);
   const [specialtyVisible, setSpecialtyVisible] = useState(true);
-  const [projectsVisible, setProjectsVisible] = useState(
-    new Array(data[0].projects.length).fill(true)
+  const [skillsVisible, setSkillsVisible] = useState(
+    new Array(data[0].skills.length).fill(true)
   );
   const [currentDisplay, setCurrentDisplay] = useState(data[0]);
 
@@ -39,9 +47,9 @@ const HeroTitle = ({
 
       setSpecialtyVisible(false);
 
-      currentDisplay.projects.forEach((_, i) => {
+      currentDisplay.skills.forEach((_, i) => {
         setTimeout(() => {
-          setProjectsVisible((prev) => {
+          setSkillsVisible((prev) => {
             const updated = [...prev];
             updated[i] = false;
             return updated;
@@ -49,18 +57,18 @@ const HeroTitle = ({
         }, 100 + i * 100);
       });
 
-      const fadeOutDuration = 100 + currentDisplay.projects.length * 100 + 200;
+      const fadeOutDuration = 100 + currentDisplay.skills.length * 100 + 200;
 
       setTimeout(() => {
         setActiveDataIndex(nextIndex);
         setCurrentDisplay(nextData);
-        setProjectsVisible(new Array(nextData.projects.length).fill(false));
+        setSkillsVisible(new Array(nextData.skills.length).fill(false));
 
         setSpecialtyVisible(true);
 
-        nextData.projects.forEach((_, i) => {
+        nextData.skills.forEach((_, i) => {
           setTimeout(() => {
-            setProjectsVisible((prev) => {
+            setSkillsVisible((prev) => {
               const updated = [...prev];
               updated[i] = true;
               return updated;
@@ -91,15 +99,15 @@ const HeroTitle = ({
         </span>
       </div>
 
-      {/* Project List */}
-      <ul className="project-list">
-        {currentDisplay.projects.map((project, idx) => (
+      {/* Skills List */}
+      <ul className="skills-list">
+        {currentDisplay.skills.map((skill, idx) => (
           <li
             key={idx}
-            className={`project-item ${projectsVisible[idx] ? 'flip-in' : 'flip-out'}`}
+            className={`skill-item ${skillsVisible[idx] ? 'flip-in' : 'flip-out'}`}
           >
             <span className="list-marker">&gt;</span>
-            <span className="project-title">{project}</span>
+            <span className="skill-title">{skill}</span>
           </li>
         ))}
       </ul>

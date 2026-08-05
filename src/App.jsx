@@ -10,6 +10,8 @@ import P5JSProject from './pages/projects/p5js.jsx'
 import ModelingProject from './pages/projects/modeling.jsx'
 import WebProject from './pages/projects/web.jsx'
 import QuantumProject from './pages/projects/quantum.jsx'
+import AboutPage from './pages/about.jsx'
+import ContactPage from './pages/contact.jsx'
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="/project/modeling" element={<ModelingProject />} />
         <Route path="/project/web" element={<WebProject />} />
         <Route path="/project/quantum" element={<QuantumProject />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Navbar />
       <HudCursor />

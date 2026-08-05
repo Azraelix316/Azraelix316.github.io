@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Contact from './Contact';
 import './component_styles/Navbar.css';
 
 const MENU_ITEMS = [
-  { label: 'Home', href: '#home' },
-  { label: 'About Me', href: '#about' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Research', href: '#research' },
+  { label: 'Home', href: '/' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'About Me', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const Navbar = () => {
@@ -41,8 +42,8 @@ const Navbar = () => {
           <ul className="menu-list">
             {MENU_ITEMS.map((item, index) => (
               <li key={item.label} className="menu-item">
-                <a 
-                  href={item.href} 
+                <Link 
+                  to={item.href}
                   className={`menu-link ${isOpen ? 'reveal' : ''}`}
                   style={{ animationDelay: `${0.15 + index * 0.08}s` }}
                   onClick={toggleMenu}
@@ -53,7 +54,7 @@ const Navbar = () => {
                     style={{ animationDelay: `${0.15 + index * 0.08}s` }}
                   />
                   <span className="link-text">{item.label}</span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
