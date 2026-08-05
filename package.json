@@ -14,7 +14,8 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-p5": "^1.4.1",
-    "react-router-dom": "^7.18.2"
+    "react-router-dom": "^7.18.2",
+    "terser": "^5.49.2"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",
