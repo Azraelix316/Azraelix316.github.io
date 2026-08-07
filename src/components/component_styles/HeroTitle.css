@@ -158,6 +158,19 @@
   letter-spacing: -0.01em;
 }
 
+.project-link {
+  font-family: 'Figtree', sans-serif;
+  letter-spacing: -0.01em;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.project-link:hover {
+  color: #333333;
+  text-decoration: underline;
+}
+
 
 /* --- ANIMATION STATES --- */
 .flip-in {

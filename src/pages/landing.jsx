@@ -1,5 +1,6 @@
 // LandingPage.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import FeatureSection from '../components/FeatureSection';
 import HeroTitle from '../components/HeroTitle';
 import BlackHole from '../components/Black_Hole';
@@ -10,10 +11,34 @@ import Contact from '../components/Contact';
 import ObsidianNetwork from '../components/ObsidianNetwork';
 import '../components/component_styles/LandingPage.css';
 import FeatureText from '../components/FeatureText.jsx';
+
 const LandingPage = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Kill all p5.js sketches every time landing page is visited (including back button)
+    if (window.p5 && window.p5.instance) {
+      window.p5.instance.forEach(instance => {
+        try {
+          instance.remove();
+        } catch (e) {
+          console.warn('Error removing p5 instance:', e);
+        }
+      });
+    }
+
+    // Clear all canvas wrappers
+    document.querySelectorAll('.black-hole-wrapper, .neural-net-wrapper, .obsidian-network-wrapper').forEach(el => {
+      // Remove all canvas elements
+      const canvases = el.querySelectorAll('canvas');
+      canvases.forEach(canvas => canvas.remove());
+      el.innerHTML = '';
+    });
+  }, [location.pathname]); // Fires every time location changes, including back button
+
   return (
     <main className="landing-page">
-<div className="grid-bg"></div>
+      <div className="grid-bg"></div>
       <div style={{ position: 'relative' }}>
         <FeatureSection
           content={

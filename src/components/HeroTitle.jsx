@@ -1,30 +1,47 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './component_styles/HeroTitle.css';
 
 const DEFAULT_DATA = [
   {
-    specialty: 'React',
-    skills: ['Interactive Web Applications', 'Component Architecture', 'Real-time Dashboards']
-  },
-  {
-    specialty: 'AI & ML',
-    skills: ['Neural Networks & Deep Learning', 'LLM Agents & Workflows', 'Computer Vision Systems']
+    specialty: 'React & Web',
+    projects: [
+      { name: 'Portfolio Website', path: '/projects/web' },
+      { name: 'Interactive UI Systems', path: '/projects/web' },
+      { name: 'Responsive Design', path: '/projects/web' }
+    ]
   },
   {
     specialty: 'Data Visualization',
-    skills: ['p5.js Physics Simulations', 'Interactive D3.js Visualizations', 'WebGL Rendering']
+    projects: [
+      { name: 'FRC Championship Flow Field', path: '/projects/frc' },
+      { name: 'p5.js Physics Simulations', path: '/projects/p5js' },
+      { name: 'Neural Network Visualizer', path: '/projects/p5js' }
+    ]
   },
   {
-    specialty: 'Robotics',
-    skills: ['VEX Autonomous Programming', 'FRC Team Systems', 'Control Algorithms']
-  },
-  {
-    specialty: 'C++',
-    skills: ['High-Performance Systems', 'Physics Engines', 'Embedded Programming']
+    specialty: 'Robotics & Control',
+    projects: [
+      { name: 'FRC 2026 Team Systems', path: '/projects/frc' },
+      { name: 'VEX Autonomous Programming', path: '/projects/vex' },
+      { name: 'Control Algorithms', path: '/projects/vex' }
+    ]
   },
   {
     specialty: 'Quantum Computing',
-    skills: ['Quantum Algorithms', 'Circuit Design & Simulation', 'Bloch Sphere Visualization']
+    projects: [
+      { name: 'Quantum Circuit Simulator', path: '/projects/quantum' },
+      { name: 'Bloch Sphere Visualization', path: '/projects/quantum' },
+      { name: 'Algorithm Implementation', path: '/projects/quantum' }
+    ]
+  },
+  {
+    specialty: 'CAD & Modeling',
+    projects: [
+      { name: '3D Robot Designs', path: '/projects/modeling' },
+      { name: 'VEX Competition Bot', path: '/projects/modeling' },
+      { name: 'Engineering Simulations', path: '/projects/modeling' }
+    ]
   }
 ];
 
@@ -36,7 +53,7 @@ const HeroTitle = ({
   const [activeDataIndex, setActiveDataIndex] = useState(0);
   const [specialtyVisible, setSpecialtyVisible] = useState(true);
   const [skillsVisible, setSkillsVisible] = useState(
-    new Array(data[0].skills.length).fill(true)
+    new Array(data[0].projects.length).fill(true)
   );
   const [currentDisplay, setCurrentDisplay] = useState(data[0]);
 
@@ -47,7 +64,7 @@ const HeroTitle = ({
 
       setSpecialtyVisible(false);
 
-      currentDisplay.skills.forEach((_, i) => {
+      currentDisplay.projects.forEach((_, i) => {
         setTimeout(() => {
           setSkillsVisible((prev) => {
             const updated = [...prev];
@@ -57,16 +74,16 @@ const HeroTitle = ({
         }, 100 + i * 100);
       });
 
-      const fadeOutDuration = 100 + currentDisplay.skills.length * 100 + 200;
+      const fadeOutDuration = 100 + currentDisplay.projects.length * 100 + 200;
 
       setTimeout(() => {
         setActiveDataIndex(nextIndex);
         setCurrentDisplay(nextData);
-        setSkillsVisible(new Array(nextData.skills.length).fill(false));
+        setSkillsVisible(new Array(nextData.projects.length).fill(false));
 
         setSpecialtyVisible(true);
 
-        nextData.skills.forEach((_, i) => {
+        nextData.projects.forEach((_, i) => {
           setTimeout(() => {
             setSkillsVisible((prev) => {
               const updated = [...prev];
@@ -101,13 +118,15 @@ const HeroTitle = ({
 
       {/* Skills List */}
       <ul className="skills-list">
-        {currentDisplay.skills.map((skill, idx) => (
+        {currentDisplay.projects.map((project, idx) => (
           <li
             key={idx}
             className={`skill-item ${skillsVisible[idx] ? 'flip-in' : 'flip-out'}`}
           >
             <span className="list-marker">&gt;</span>
-            <span className="skill-title">{skill}</span>
+            <Link to={project.path} className="project-link">
+              {project.name}
+            </Link>
           </li>
         ))}
       </ul>
