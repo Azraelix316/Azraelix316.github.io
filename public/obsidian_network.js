@@ -1,252 +1,292 @@
-// public/obsidian_network.js - FRC 2026 Championship Interactive Network
+// public/obsidian_network.js - FRC 2026 Flow Field Visualization
 
 window.initObsidianNetwork = function (containerEl) {
   return new p5((p) => {
-    let nodes = [];
-    let connections = [];
-    let hoveredNode = null;
+    let teams = [];
+    let particles = [];
     let dataLoaded = false;
-    let loadingMessage = "Loading FRC 2026 Championship data...";
+    let hoveredTeam = null;
+    
+    // Graphics buffers for flow field trails
+    let flowBuffer;
+    let mainBuffer;
+    
+    // Camera
+    let camX = 0;
+    let camY = 0;
+    let camZoom = 1;
+    let targetZoom = 1;
+    let isDragging = false;
+    let lastMouseX = 0;
+    let lastMouseY = 0;
+    let isOverCanvas = false;
 
+    const divisions = ['Archimedes', 'Curie', 'Daly', 'Galileo', 'Hopper', 'Johnson', 'Milstein', 'Newton'];
+    
     class Team {
-      constructor(teamKey, teamNumber, x, y) {
-        this.teamKey = teamKey;
-        this.teamNumber = teamNumber;
-        this.x = x;
-        this.y = y;
-        this.targetX = x;
-        this.targetY = y;
-        this.vx = 0;
-        this.vy = 0;
-        this.wins = 0;
-        this.losses = 0;
-        this.ties = 0;
-        this.radius = 8;
-        this.targetRadius = 8;
-        this.strength = 0; // Win rate
-      }
-
-      calculateRadius() {
-        // Size based on wins (minimum 6, maximum 20)
-        this.targetRadius = p.map(this.wins, 0, 12, 6, 20);
-      }
-
-      calculateStrength() {
-        // 0 to 1, based on win rate
-        const total = this.wins + this.losses + this.ties;
-        if (total === 0) return 0;
-        return this.wins / total;
-      }
-
-      update(w, h) {
-        // Smooth movement towards target position
-        this.vx += (this.targetX - this.x) * 0.05;
-        this.vy += (this.targetY - this.y) * 0.05;
+      constructor(data) {
+        this.number = data.number;
+        this.wins = data.wins;
+        this.losses = data.losses;
+        this.division = data.division || 'Einstein';
         
-        // Damping
-        this.vx *= 0.85;
-        this.vy *= 0.85;
+        const winRate = this.wins / Math.max(this.wins + this.losses, 1);
+        this.score = winRate * (this.wins + this.losses) + this.wins * 2;
         
-        this.x += this.vx;
-        this.y += this.vy;
-
-        // Smooth radius changes
-        this.radius += (this.targetRadius - this.radius) * 0.1;
-
-        // Keep within bounds
-        this.x = p.constrain(this.x, this.radius, w - this.radius);
-        this.y = p.constrain(this.y, this.radius, h - this.radius);
-      }
-
-      draw(isHovered) {
-        // Glow for hovered node
-        if (isHovered) {
-          p.noStroke();
-          p.fill(0, 100, 200, 60);
-          p.circle(this.x, this.y, this.radius * 3);
+        // Position based on division
+        if (this.division === 'Einstein') {
+          this.x = p.random(-80, 80);
+          this.y = p.random(-80, 80);
+        } else {
+          const divIndex = divisions.indexOf(this.division);
+          if (divIndex >= 0) {
+            const angleStart = (divIndex / divisions.length) * Math.PI * 2;
+            const angleEnd = ((divIndex + 1) / divisions.length) * Math.PI * 2;
+            const angle = p.random(angleStart, angleEnd);
+            const radius = p.random(250, 400);
+            
+            this.x = Math.cos(angle) * radius;
+            this.y = Math.sin(angle) * radius;
+          } else {
+            this.x = p.random(-300, 300);
+            this.y = p.random(-300, 300);
+          }
         }
-
-        // Node body - size represents wins
-        p.stroke(30, 40, 50);
-        p.strokeWeight(1.0);
         
-        // Color based on win rate (strength)
-        let fillColor = p.lerpColor(
-          p.color(180, 180, 180), 
-          p.color(50, 150, 100), 
-          this.strength
-        );
-        p.fill(fillColor);
-        p.circle(this.x, this.y, this.radius * 2);
+        this.size = p.map(this.score, 0, 30, 1.5, 14);
+        this.gravity = p.map(this.score, 0, 30, 80, 600);
+      }
 
-        // Inner highlight
+      draw(isHighlighted, isDimmed) {
+        const alpha = isDimmed ? 30 : 255;
+        
+        if (isHighlighted && !isDimmed) {
+          p.noStroke();
+          for (let i = 3; i > 0; i--) {
+            p.fill(0, 8);
+            p.circle(this.x, this.y, this.size * 2 * i * 1.5);
+          }
+        }
+        
         p.noStroke();
-        p.fill(255, 255, 255, 100);
-        p.circle(this.x - this.radius * 0.3, this.y - this.radius * 0.3, this.radius * 0.5);
-
-        // Show team number on hover or for larger nodes
-        if (isHovered || this.radius > 12) {
-          p.fill(0);
+        p.fill(0, alpha);
+        p.circle(this.x, this.y, this.size * 2);
+        
+        if (camZoom > 0.6 || isHighlighted) {
+          p.fill(0, isDimmed ? 50 : 160);
           p.noStroke();
           p.textAlign(p.CENTER, p.CENTER);
-          p.textSize(10);
-          p.text(this.teamNumber, this.x, this.y + this.radius * 2 + 12);
+          p.textFont('Figtree');
+          p.textSize(6);
+          p.text(this.number, this.x, this.y + this.size * 2.5);
         }
-      }
-
-      distanceTo(other) {
-        let dx = this.x - other.x;
-        let dy = this.y - other.y;
-        return p.sqrt(dx * dx + dy * dy);
       }
 
       isMouseOver(mx, my) {
-        let d = p.dist(mx, my, this.x, this.y);
-        return d < this.radius;
+        const worldMouse = screenToWorld(mx, my);
+        const d = p.dist(worldMouse.x, worldMouse.y, this.x, this.y);
+        return d < Math.max(this.size, 10);
       }
     }
 
-    class Connection {
-      constructor(winner, loser) {
-        this.winner = winner;
-        this.loser = loser;
-      }
-
-      draw(isHighlighted) {
-        let dist = this.winner.distanceTo(this.loser);
-        let alpha = p.map(dist, 0, 300, 100, 20);
+    class FlowParticle {
+      constructor() {
+        const angle = p.random(Math.PI * 2);
+        const radius = p.random(100, 700);
+        this.x = Math.cos(angle) * radius;
+        this.y = Math.sin(angle) * radius;
+        this.prevX = this.x;
+        this.prevY = this.y;
         
-        if (isHighlighted) {
-          alpha = 120;
-          p.strokeWeight(2);
-          p.stroke(50, 100, 200, alpha);
-        } else {
-          p.strokeWeight(1);
-          p.stroke(100, 120, 140, alpha);
+        this.vx = 0;
+        this.vy = 0;
+        
+        this.alpha = p.random(100, 180);
+      }
+
+      update() {
+        this.prevX = this.x;
+        this.prevY = this.y;
+        
+        // Sample flow field from teams
+        let forceX = 0;
+        let forceY = 0;
+        
+        for (let team of teams) {
+          const dx = team.x - this.x;
+          const dy = team.y - this.y;
+          const distSq = dx * dx + dy * dy;
+          const dist = Math.sqrt(distSq);
+          
+          if (dist < 3) continue;
+          if (dist > 500) continue;
+          
+          const force = team.gravity / (distSq + 200);
+          forceX += (dx / dist) * force;
+          forceY += (dy / dist) * force;
         }
-
-        p.line(this.winner.x, this.winner.y, this.loser.x, this.loser.y);
-
-        // Draw arrow pointing from loser to winner
-        if (isHighlighted) {
-          let angle = p.atan2(this.winner.y - this.loser.y, this.winner.x - this.loser.x);
-          let arrowSize = 6;
-          let midX = p.lerp(this.loser.x, this.winner.x, 0.5);
-          let midY = p.lerp(this.loser.y, this.winner.y, 0.5);
-
-          p.push();
-          p.translate(midX, midY);
-          p.rotate(angle);
-          p.fill(0, 0, 0, alpha);
-          p.noStroke();
-          p.triangle(0, 0, -arrowSize, -arrowSize / 2, -arrowSize, arrowSize / 2);
-          p.pop();
+        
+        // Apply forces
+        this.vx += forceX * 0.05;
+        this.vy += forceY * 0.05;
+        
+        // Damping
+        this.vx *= 0.94;
+        this.vy *= 0.94;
+        
+        // Speed limit for clean trails
+        const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+        const maxSpeed = 2.5;
+        if (speed > maxSpeed) {
+          this.vx = (this.vx / speed) * maxSpeed;
+          this.vy = (this.vy / speed) * maxSpeed;
+        }
+        
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        // Boundary
+        const maxDist = 1000;
+        const dist = Math.sqrt(this.x * this.x + this.y * this.y);
+        if (dist > maxDist) {
+          const angle = p.random(Math.PI * 2);
+          const radius = p.random(100, 600);
+          this.x = Math.cos(angle) * radius;
+          this.y = Math.sin(angle) * radius;
+          this.prevX = this.x;
+          this.prevY = this.y;
+          this.vx = 0;
+          this.vy = 0;
         }
       }
+
+      draw(buffer) {
+        const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+        const alpha = p.map(speed, 0, 2.5, 20, this.alpha);
+        
+        buffer.stroke(0, alpha);
+        buffer.strokeWeight(0.8);
+        buffer.line(this.prevX, this.prevY, this.x, this.y);
+      }
+    }
+
+    function screenToWorld(sx, sy) {
+      const wx = (sx - p.width / 2 - camX) / camZoom;
+      const wy = (sy - p.height / 2 - camY) / camZoom;
+      return { x: wx, y: wy };
     }
 
     async function fetchChampionshipData() {
       try {
-        // Fetch from preloaded CSV
         const response = await fetch('/frc_2026_data.csv');
-        
-        if (!response.ok) {
-          throw new Error(`Failed to load CSV: ${response.status}`);
-        }
+        if (!response.ok) throw new Error('CSV failed');
 
         const csvText = await response.text();
         const lines = csvText.trim().split('\n');
         
         if (lines.length < 2) {
-          loadingMessage = "No FRC data available. Using demo data...";
           createDemoData();
           return;
         }
 
-        let w = containerEl.clientWidth || 500;
-        let h = containerEl.clientHeight || 400;
-        let centerX = w / 2;
-        let centerY = h / 2;
-
-        // Parse CSV and create nodes
         for (let i = 1; i < lines.length; i++) {
-          const [teamKey, teamNumber, wins, losses, ties] = lines[i].split(',');
+          const parts = lines[i].split(',');
+          if (parts.length < 5) continue;
           
-          let team = new Team(teamKey, teamNumber, centerX, centerY);
-          team.wins = parseInt(wins) || 0;
-          team.losses = parseInt(losses) || 0;
-          team.ties = parseInt(ties) || 0;
-          team.calculateRadius();
-          team.strength = team.calculateStrength();
-          
-          nodes.push(team);
+          const number = parts[1].trim();
+          const wins = parseInt(parts[2]) || 0;
+          const losses = parseInt(parts[3]) || 0;
+          const total = wins + losses;
+
+          if (total === 0) continue;
+
+          let division;
+          if (wins >= 9) {
+            division = 'Einstein';
+          } else {
+            division = divisions[Math.floor(Math.random() * divisions.length)];
+          }
+
+          teams.push(new Team({ number, wins, losses, division }));
         }
 
-        if (nodes.length === 0) {
-          createDemoData();
-          return;
-        }
+        teams.sort((a, b) => a.score - b.score);
 
-        // Position nodes: strongest in center, weakest at edges
-        // Sort by strength (win rate)
-        const sortedNodes = [...nodes].sort((a, b) => b.strength - a.strength);
-        
-        // Use spiral positioning from center outward
-        sortedNodes.forEach((node, index) => {
-          // Normalize index to 0-1
-          const normalized = index / (sortedNodes.length - 1 || 1);
-          
-          // Create spiral pattern: strong teams near center, weak at edges
-          const distance = normalized * Math.min(w, h) * 0.4; // Max radius 40% of smallest dimension
-          const angle = (index * 2.4) % (Math.PI * 2); // Golden angle spiral
-          
-          node.targetX = centerX + distance * Math.cos(angle);
-          node.targetY = centerY + distance * Math.sin(angle);
-          node.x = node.targetX;
-          node.y = node.targetY;
-        });
+        for (let i = 0; i < 1500; i++) {
+          particles.push(new FlowParticle());
+        }
 
         dataLoaded = true;
-        loadingMessage = "";
 
       } catch (error) {
-        console.error('Error fetching FRC data:', error);
-        loadingMessage = "Using demo data...";
+        console.error('Data error:', error);
         createDemoData();
       }
     }
 
     function createDemoData() {
-      // Demo data if CSV not available
-      let w = containerEl.clientWidth || 500;
-      let h = containerEl.clientHeight || 400;
-      let centerX = w / 2;
-      let centerY = h / 2;
-      
-      for (let i = 0; i < 30; i++) {
-        let team = new Team(`frc${1000 + i}`, `${1000 + i}`, centerX, centerY);
-        team.wins = p.floor(p.random(0, 12));
-        team.losses = p.floor(p.random(0, 12));
-        team.ties = 0;
-        team.calculateRadius();
-        team.strength = team.calculateStrength();
-        nodes.push(team);
+      for (let i = 0; i < 100; i++) {
+        const wins = Math.floor(Math.random() * 12);
+        const losses = Math.floor(Math.random() * 12);
+        
+        let division;
+        if (wins >= 9) {
+          division = 'Einstein';
+        } else {
+          division = divisions[Math.floor(Math.random() * divisions.length)];
+        }
+        
+        teams.push(new Team({
+          number: `${1000 + i}`,
+          wins,
+          losses,
+          division
+        }));
       }
 
-      // Position with spiral
-      nodes.sort((a, b) => b.strength - a.strength);
-      nodes.forEach((node, index) => {
-        const normalized = index / (nodes.length - 1 || 1);
-        const distance = normalized * Math.min(w, h) * 0.4;
-        const angle = (index * 2.4) % (Math.PI * 2);
-        
-        node.targetX = centerX + distance * Math.cos(angle);
-        node.targetY = centerY + distance * Math.sin(angle);
-        node.x = node.targetX;
-        node.y = node.targetY;
-      });
+      teams.sort((a, b) => a.score - b.score);
+
+      for (let i = 0; i < 1500; i++) {
+        particles.push(new FlowParticle());
+      }
       
       dataLoaded = true;
+    }
+
+    function drawDivisionSectors(buffer) {
+      buffer.noFill();
+      buffer.stroke(0, 15);
+      buffer.strokeWeight(0.5);
+      
+      for (let i = 0; i < divisions.length; i++) {
+        const angle = (i / divisions.length) * Math.PI * 2 - Math.PI / 2;
+        const x = Math.cos(angle) * 600;
+        const y = Math.sin(angle) * 600;
+        buffer.line(0, 0, x, y);
+      }
+      
+      buffer.circle(0, 0, 160);
+      buffer.circle(0, 0, 500);
+      buffer.circle(0, 0, 800);
+      
+      if (camZoom > 0.4) {
+        buffer.fill(0, 60);
+        buffer.noStroke();
+        buffer.textAlign(p.CENTER, p.CENTER);
+        buffer.textFont('Figtree');
+        buffer.textSize(8);
+        
+        for (let i = 0; i < divisions.length; i++) {
+          const angle = ((i + 0.5) / divisions.length) * Math.PI * 2 - Math.PI / 2;
+          const x = Math.cos(angle) * 350;
+          const y = Math.sin(angle) * 350;
+          buffer.text(divisions[i].toUpperCase(), x, y);
+        }
+        
+        buffer.textSize(10);
+        buffer.fill(0, 100);
+        buffer.text('EINSTEIN', 0, 0);
+      }
     }
 
     p.setup = () => {
@@ -254,12 +294,21 @@ window.initObsidianNetwork = function (containerEl) {
       let h = containerEl.clientHeight || 400;
 
       let canvas = p.createCanvas(w, h);
-      canvas.style('position', 'relative');
+      canvas.parent(containerEl);
       canvas.style('display', 'block');
-      canvas.style('width', '100%');
-      canvas.style('height', '100%');
+      
+      // Create buffers for flow field
+      flowBuffer = p.createGraphics(2400, 2400);
+      mainBuffer = p.createGraphics(2400, 2400);
+      
+      canvas.elt.addEventListener('mouseenter', () => { isOverCanvas = true; });
+      canvas.elt.addEventListener('mouseleave', () => { 
+        isOverCanvas = false; 
+        hoveredTeam = null;
+        p.cursor('default');
+      });
 
-      // Fetch data from CSV
+      p.frameRate(30);
       fetchChampionshipData();
     };
 
@@ -267,79 +316,154 @@ window.initObsidianNetwork = function (containerEl) {
       p.background(255);
 
       if (!dataLoaded) {
-        // Show loading message
         p.fill(0);
         p.noStroke();
         p.textAlign(p.CENTER, p.CENTER);
-        p.textSize(14);
-        p.text(loadingMessage, p.width / 2, p.height / 2);
+        p.textFont('Figtree');
+        p.textSize(10);
+        p.text('INITIALIZING FLOW FIELD', p.width / 2, p.height / 2);
         return;
       }
 
-      // Check for hovered node
-      hoveredNode = null;
-      for (let node of nodes) {
-        if (node.isMouseOver(p.mouseX, p.mouseY)) {
-          hoveredNode = node;
-          break;
-        }
-      }
+      camZoom += (targetZoom - camZoom) * 0.15;
 
-      // Update nodes
-      for (let node of nodes) {
-        node.update(p.width, p.height);
-      }
+      // Fade flow buffer for trails
+      flowBuffer.push();
+      flowBuffer.background(255, 255, 255, 12);
+      flowBuffer.pop();
 
-      // Draw connections
-      for (let connection of connections) {
-        let isHighlighted = hoveredNode && 
-          (connection.winner === hoveredNode || connection.loser === hoveredNode);
-        connection.draw(isHighlighted);
+      // Update and draw particles to flow buffer
+      flowBuffer.push();
+      flowBuffer.translate(flowBuffer.width / 2, flowBuffer.height / 2);
+      
+      for (let particle of particles) {
+        particle.update();
+        particle.draw(flowBuffer);
       }
+      
+      flowBuffer.pop();
 
-      // Draw nodes
-      for (let node of nodes) {
-        node.draw(node === hoveredNode);
+      // Draw structure and teams to main buffer
+      mainBuffer.clear();
+      mainBuffer.push();
+      mainBuffer.translate(mainBuffer.width / 2, mainBuffer.height / 2);
+      
+      drawDivisionSectors(mainBuffer);
+      
+      for (let team of teams) {
+        const isHighlighted = team === hoveredTeam;
+        team.draw(isHighlighted, false);
       }
+      
+      mainBuffer.pop();
 
-      // Draw info panel for hovered node
-      if (hoveredNode) {
-        drawInfoPanel(hoveredNode);
+      // Composite to screen with camera
+      p.push();
+      p.translate(p.width / 2 + camX, p.height / 2 + camY);
+      p.scale(camZoom);
+      
+      // Draw flow field
+      p.imageMode(p.CENTER);
+      p.image(flowBuffer, 0, 0);
+      
+      // Draw teams on top
+      p.image(mainBuffer, 0, 0);
+      
+      p.pop();
+
+      // HUD
+      p.fill(0, 150);
+      p.noStroke();
+      p.textAlign(p.LEFT, p.TOP);
+      p.textFont('Figtree');
+      p.textSize(8);
+      p.text('FRC 2026 FLOW FIELD', 12, 12);
+      p.textSize(7);
+      p.fill(0, 100);
+      p.text(`${teams.length} TEAMS • ${particles.length} PARTICLES`, 12, 26);
+      p.text('DRAG PAN • SCROLL ZOOM', 12, 38);
+
+      if (hoveredTeam && !isDragging) {
+        const px = p.constrain(p.mouseX + 15, 0, p.width - 160);
+        const py = p.constrain(p.mouseY - 90, 0, p.height - 95);
+
+        p.fill(255);
+        p.stroke(0);
+        p.strokeWeight(1);
+        p.rect(px, py, 150, 90);
+
+        p.noStroke();
+        p.fill(0);
+        p.textAlign(p.LEFT, p.TOP);
+        p.textFont('Figtree');
+        p.textSize(11);
+        p.text(`TEAM ${hoveredTeam.number}`, px + 10, py + 10);
+        
+        p.textSize(8);
+        p.fill(0, 180);
+        p.text(`DIVISION: ${hoveredTeam.division}`, px + 10, py + 30);
+        p.text(`WINS: ${hoveredTeam.wins}`, px + 10, py + 45);
+        p.text(`LOSSES: ${hoveredTeam.losses}`, px + 10, py + 60);
+        p.text(`GRAVITY: ${Math.round(hoveredTeam.gravity)}`, px + 10, py + 75);
       }
     };
 
-    function drawInfoPanel(node) {
-      let panelX = 10;
-      let panelY = 10;
-      let panelW = 180;
-      let panelH = 100;
+    p.mouseMoved = () => {
+      if (!dataLoaded || !isOverCanvas || isDragging) return;
 
-      // Background
-      p.fill(255, 255, 255, 240);
-      p.stroke(0, 0, 0, 100);
-      p.strokeWeight(1);
-      p.rect(panelX, panelY, panelW, panelH);
+      hoveredTeam = null;
+      for (let team of teams) {
+        if (team.isMouseOver(p.mouseX, p.mouseY)) {
+          hoveredTeam = team;
+          p.cursor('pointer');
+          return;
+        }
+      }
+      p.cursor('grab');
+    };
 
-      // Text
-      p.fill(0);
-      p.noStroke();
-      p.textAlign(p.LEFT, p.TOP);
-      p.textSize(14);
-      p.text(`Team ${node.teamNumber}`, panelX + 10, panelY + 10);
-      p.textSize(12);
-      p.text(`Wins: ${node.wins}`, panelX + 10, panelY + 30);
-      p.text(`Losses: ${node.losses}`, panelX + 10, panelY + 48);
-      p.text(`Ties: ${node.ties}`, panelX + 10, panelY + 66);
+    p.mousePressed = () => {
+      if (!dataLoaded || !isOverCanvas) return;
+
+      isDragging = true;
+      lastMouseX = p.mouseX;
+      lastMouseY = p.mouseY;
+      p.cursor('grabbing');
+    };
+
+    p.mouseDragged = () => {
+      if (isDragging && isOverCanvas) {
+        const dx = p.mouseX - lastMouseX;
+        const dy = p.mouseY - lastMouseY;
+        camX += dx;
+        camY += dy;
+        lastMouseX = p.mouseX;
+        lastMouseY = p.mouseY;
+      }
+    };
+
+    p.mouseReleased = () => {
+      isDragging = false;
+      if (isOverCanvas) {
+        p.cursor('grab');
+      }
+    };
+
+    p.mouseWheel = (event) => {
+      if (!dataLoaded || !isOverCanvas) return true;
       
-      let winRate = (node.strength * 100).toFixed(1);
-      p.text(`Win Rate: ${winRate}%`, panelX + 10, panelY + 84);
-    }
+      event.preventDefault();
+      
+      const zoomFactor = 1 - event.delta * 0.0008;
+      targetZoom *= zoomFactor;
+      targetZoom = p.constrain(targetZoom, 0.2, 2.5);
+      
+      return false;
+    };
 
     p.windowResized = () => {
-      if (containerEl) {
-        let w = containerEl.clientWidth;
-        let h = containerEl.clientHeight;
-        p.resizeCanvas(w, h);
+      if (containerEl && containerEl.clientWidth > 0) {
+        p.resizeCanvas(containerEl.clientWidth, containerEl.clientHeight);
       }
     };
   }, containerEl);

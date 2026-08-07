@@ -14,15 +14,16 @@ async function fetchFRCData() {
   console.log('Fetching FRC 2026 Championship data...');
   
   const events = [
+
     '2026arc', // Archimedes
-    '2026cars', // Carson
     '2026cur', // Curie
     '2026dal', // Daly
     '2026gal', // Galileo
     '2026hop', // Hopper
+    '2026joh', // Johnson
     '2026new', // Newton
-    '2026roe', // Roebling
-    '2026einstein' // Einstein (Championship finals)
+    '2026mil', // milstein
+    '2026cmptx' // Einstein (Championship finals)
   ];
 
   let teamStats = {}; // { teamKey: { wins, losses, ties } }
