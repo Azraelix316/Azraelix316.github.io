@@ -7,9 +7,13 @@ window.initObsidianNetwork = function (containerEl) {
     let dataLoaded = false;
     let hoveredTeam = null;
     
-    // Graphics buffers for flow field trails
+    // Pre-computed vector field
+    let vectorField = [];
+    const fieldResolution = 20; // Grid spacing
+    let fieldWidth, fieldHeight;
+    
+    // Graphics buffer for flow field trails
     let flowBuffer;
-    let mainBuffer;
     
     // Camera
     let camX = 0;
@@ -53,8 +57,8 @@ window.initObsidianNetwork = function (containerEl) {
           }
         }
         
-        this.size = p.map(this.score, 0, 30, 1.5, 14);
-        this.gravity = p.map(this.score, 0, 30, 80, 600);
+        this.size = p.map(this.score, 0, 30, 0.5, 6);
+        this.gravity = p.map(this.score, 0, 30, 50, 400); // Reduced force
       }
 
       draw(isHighlighted, isDimmed) {
@@ -68,17 +72,19 @@ window.initObsidianNetwork = function (containerEl) {
           }
         }
         
+        // Pure black node - smaller and subtler
         p.noStroke();
         p.fill(0, alpha);
-        p.circle(this.x, this.y, this.size * 2);
+        p.circle(this.x, this.y, this.size);
         
-        if (camZoom > 0.6 || isHighlighted) {
-          p.fill(0, isDimmed ? 50 : 160);
+        // Only show text for larger teams when zoomed or highlighted
+        if ((this.size > 5 && camZoom > 0.7) || isHighlighted) {
+          p.fill(0, isDimmed ? 50 : 140);
           p.noStroke();
           p.textAlign(p.CENTER, p.CENTER);
           p.textFont('Figtree');
-          p.textSize(6);
-          p.text(this.number, this.x, this.y + this.size * 2.5);
+          p.textSize(5.5);
+          p.text(this.number, this.x, this.y + this.size * 2.2);
         }
       }
 
@@ -92,7 +98,7 @@ window.initObsidianNetwork = function (containerEl) {
     class FlowParticle {
       constructor() {
         const angle = p.random(Math.PI * 2);
-        const radius = p.random(100, 700);
+        const radius = p.random(100, 550);
         this.x = Math.cos(angle) * radius;
         this.y = Math.sin(angle) * radius;
         this.prevX = this.x;
@@ -101,42 +107,33 @@ window.initObsidianNetwork = function (containerEl) {
         this.vx = 0;
         this.vy = 0;
         
-        this.alpha = p.random(100, 180);
+        this.alpha = p.random(120, 200); // More visible
       }
 
       update() {
         this.prevX = this.x;
         this.prevY = this.y;
         
-        // Sample flow field from teams
-        let forceX = 0;
-        let forceY = 0;
+        // Sample from pre-computed vector field
+        const fieldX = Math.floor((this.x + 1200) / fieldResolution);
+        const fieldY = Math.floor((this.y + 1200) / fieldResolution);
         
-        for (let team of teams) {
-          const dx = team.x - this.x;
-          const dy = team.y - this.y;
-          const distSq = dx * dx + dy * dy;
-          const dist = Math.sqrt(distSq);
-          
-          if (dist < 3) continue;
-          if (dist > 500) continue;
-          
-          const force = team.gravity / (distSq + 200);
-          forceX += (dx / dist) * force;
-          forceY += (dy / dist) * force;
+        if (fieldX >= 0 && fieldX < fieldWidth && fieldY >= 0 && fieldY < fieldHeight) {
+          const index = fieldY * fieldWidth + fieldX;
+          if (vectorField[index]) {
+            const force = vectorField[index];
+            this.vx += force.x * 0.02; // Reduced from 0.05
+            this.vy += force.y * 0.02;
+          }
         }
         
-        // Apply forces
-        this.vx += forceX * 0.05;
-        this.vy += forceY * 0.05;
-        
         // Damping
-        this.vx *= 0.94;
-        this.vy *= 0.94;
+        this.vx *= 0.98; // Less damping for more fluid motion
+        this.vy *= 0.98;
         
-        // Speed limit for clean trails
+        // Speed limit
         const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-        const maxSpeed = 2.5;
+        const maxSpeed = 3.5; // Increased from 2.5
         if (speed > maxSpeed) {
           this.vx = (this.vx / speed) * maxSpeed;
           this.vy = (this.vy / speed) * maxSpeed;
@@ -145,7 +142,7 @@ window.initObsidianNetwork = function (containerEl) {
         this.x += this.vx;
         this.y += this.vy;
         
-        // Boundary
+        // Boundary respawn
         const maxDist = 1000;
         const dist = Math.sqrt(this.x * this.x + this.y * this.y);
         if (dist > maxDist) {
@@ -162,11 +159,45 @@ window.initObsidianNetwork = function (containerEl) {
 
       draw(buffer) {
         const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-        const alpha = p.map(speed, 0, 2.5, 20, this.alpha);
+        const alpha = p.map(speed, 0, 3.5, 30, this.alpha);
         
         buffer.stroke(0, alpha);
-        buffer.strokeWeight(0.8);
+        buffer.strokeWeight(1.2); // Thicker lines
         buffer.line(this.prevX, this.prevY, this.x, this.y);
+      }
+    }
+
+    function computeVectorField() {
+      // Create static vector field from team positions
+      fieldWidth = Math.ceil(2400 / fieldResolution);
+      fieldHeight = Math.ceil(2400 / fieldResolution);
+      vectorField = new Array(fieldWidth * fieldHeight);
+      
+      for (let y = 0; y < fieldHeight; y++) {
+        for (let x = 0; x < fieldWidth; x++) {
+          const worldX = x * fieldResolution - 1200;
+          const worldY = y * fieldResolution - 1200;
+          
+          let forceX = 0;
+          let forceY = 0;
+          
+          for (let team of teams) {
+            const dx = team.x - worldX;
+            const dy = team.y - worldY;
+            const distSq = dx * dx + dy * dy;
+            const dist = Math.sqrt(distSq);
+            
+            if (dist < 3) continue;
+            if (dist > 500) continue;
+            
+            const force = team.gravity / (distSq + 250); // Reduced from 200
+            forceX += (dx / dist) * force;
+            forceY += (dy / dist) * force;
+          }
+          
+          const index = y * fieldWidth + x;
+          vectorField[index] = { x: forceX, y: forceY };
+        }
       }
     }
 
@@ -212,7 +243,11 @@ window.initObsidianNetwork = function (containerEl) {
 
         teams.sort((a, b) => a.score - b.score);
 
-        for (let i = 0; i < 1500; i++) {
+        // Compute static vector field
+        computeVectorField();
+
+        // More particles for denser flow field
+        for (let i = 0; i < 3000; i++) {
           particles.push(new FlowParticle());
         }
 
@@ -246,7 +281,9 @@ window.initObsidianNetwork = function (containerEl) {
 
       teams.sort((a, b) => a.score - b.score);
 
-      for (let i = 0; i < 1500; i++) {
+      computeVectorField();
+
+      for (let i = 0; i < 3000; i++) {
         particles.push(new FlowParticle());
       }
       
@@ -255,7 +292,7 @@ window.initObsidianNetwork = function (containerEl) {
 
     function drawDivisionSectors(buffer) {
       buffer.noFill();
-      buffer.stroke(0, 15);
+      buffer.stroke(0, 50); // Much more subtle
       buffer.strokeWeight(0.5);
       
       for (let i = 0; i < divisions.length; i++) {
@@ -269,12 +306,13 @@ window.initObsidianNetwork = function (containerEl) {
       buffer.circle(0, 0, 500);
       buffer.circle(0, 0, 800);
       
-      if (camZoom > 0.4) {
-        buffer.fill(0, 60);
+      // Only show labels at higher zoom
+      if (camZoom > 0.6) {
+        buffer.fill(0, 40);
         buffer.noStroke();
         buffer.textAlign(p.CENTER, p.CENTER);
         buffer.textFont('Figtree');
-        buffer.textSize(8);
+        buffer.textSize(7);
         
         for (let i = 0; i < divisions.length; i++) {
           const angle = ((i + 0.5) / divisions.length) * Math.PI * 2 - Math.PI / 2;
@@ -283,8 +321,8 @@ window.initObsidianNetwork = function (containerEl) {
           buffer.text(divisions[i].toUpperCase(), x, y);
         }
         
-        buffer.textSize(10);
-        buffer.fill(0, 100);
+        buffer.textSize(9);
+        buffer.fill(0, 60);
         buffer.text('EINSTEIN', 0, 0);
       }
     }
@@ -293,13 +331,12 @@ window.initObsidianNetwork = function (containerEl) {
       let w = containerEl.clientWidth || 500;
       let h = containerEl.clientHeight || 400;
 
-      let canvas = p.createCanvas(w, h);
+      let canvas = p.createCanvas(w, h, p.P2D); // Use P2D for GPU acceleration
       canvas.parent(containerEl);
       canvas.style('display', 'block');
       
-      // Create buffers for flow field
-      flowBuffer = p.createGraphics(2400, 2400);
-      mainBuffer = p.createGraphics(2400, 2400);
+      // Create buffer for flow field
+      flowBuffer = p.createGraphics(2400, 2400, p.P2D);
       
       canvas.elt.addEventListener('mouseenter', () => { isOverCanvas = true; });
       canvas.elt.addEventListener('mouseleave', () => { 
@@ -321,18 +358,16 @@ window.initObsidianNetwork = function (containerEl) {
         p.textAlign(p.CENTER, p.CENTER);
         p.textFont('Figtree');
         p.textSize(10);
-        p.text('INITIALIZING FLOW FIELD', p.width / 2, p.height / 2);
+        p.text('COMPUTING VECTOR FIELD', p.width / 2, p.height / 2);
         return;
       }
 
       camZoom += (targetZoom - camZoom) * 0.15;
 
-      // Fade flow buffer for trails
-      flowBuffer.push();
-      flowBuffer.background(255, 255, 255, 12);
-      flowBuffer.pop();
+      // Fade flow buffer for trails effect
+      flowBuffer.background(255, 255, 255, 5); // Slower fade for longer trails
 
-      // Update and draw particles to flow buffer
+      // Update particles and draw trails to flow buffer
       flowBuffer.push();
       flowBuffer.translate(flowBuffer.width / 2, flowBuffer.height / 2);
       
@@ -343,46 +378,38 @@ window.initObsidianNetwork = function (containerEl) {
       
       flowBuffer.pop();
 
-      // Draw structure and teams to main buffer
-      mainBuffer.clear();
-      mainBuffer.push();
-      mainBuffer.translate(mainBuffer.width / 2, mainBuffer.height / 2);
-      
-      drawDivisionSectors(mainBuffer);
-      
-      for (let team of teams) {
-        const isHighlighted = team === hoveredTeam;
-        team.draw(isHighlighted, false);
-      }
-      
-      mainBuffer.pop();
-
       // Composite to screen with camera
       p.push();
       p.translate(p.width / 2 + camX, p.height / 2 + camY);
       p.scale(camZoom);
       
-      // Draw flow field
+      // Draw flow field trails prominently
       p.imageMode(p.CENTER);
       p.image(flowBuffer, 0, 0);
       
-      // Draw teams on top
-      p.image(mainBuffer, 0, 0);
+      // Draw subtle division structure
+      drawDivisionSectors(p);
+      
+      // Draw teams subtly - flow field is the star
+      for (let team of teams) {
+        const isHighlighted = team === hoveredTeam;
+        team.draw(isHighlighted, false);
+      }
       
       p.pop();
 
-      // HUD
-      p.fill(0, 150);
+      // Minimal HUD
+      p.fill(0, 120);
       p.noStroke();
       p.textAlign(p.LEFT, p.TOP);
       p.textFont('Figtree');
-      p.textSize(8);
-      p.text('FRC 2026 FLOW FIELD', 12, 12);
       p.textSize(7);
-      p.fill(0, 100);
-      p.text(`${teams.length} TEAMS • ${particles.length} PARTICLES`, 12, 26);
-      p.text('DRAG PAN • SCROLL ZOOM', 12, 38);
+      p.text('FRC 2026 FLOW FIELD', 12, 12);
+      p.textSize(6);
+      p.fill(0, 80);
+      p.text(`${teams.length} TEAMS • ${particles.length} FLOW LINES`, 12, 24);
 
+      // Team info on hover
       if (hoveredTeam && !isDragging) {
         const px = p.constrain(p.mouseX + 15, 0, p.width - 160);
         const py = p.constrain(p.mouseY - 90, 0, p.height - 95);
