@@ -374,11 +374,11 @@ window.initObsidianNetwork = function (containerEl) {
       p.noStroke();
       p.textAlign(p.LEFT, p.TOP);
       p.textFont('Figtree');
-      p.textSize(7);
+      p.textSize(16);
       p.text('FRC 2026 FLOW FIELD', 12, 12);
-      p.textSize(6);
+      p.textSize(12);
       p.fill(0, 80);
-      p.text(`${teams.length} TEAMS • ${particles.length} FLOW LINES`, 12, 24);
+      p.text(`${teams.length} TEAMS • ${particles.length} FLOW LINES`, 12, 36);
 
       // Team info on hover
       if (hoveredTeam && !isDragging) {
