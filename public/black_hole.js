@@ -1,5 +1,6 @@
 window.initBlackHole = function (containerEl) {
   return new p5((p) => {
+    p5.disableFriendlyErrors = true;
     let Disk = [];
 
     // --- REAL WORLD VALUES ---

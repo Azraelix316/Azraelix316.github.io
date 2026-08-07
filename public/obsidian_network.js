@@ -2,6 +2,7 @@
 
 window.initObsidianNetwork = function (containerEl) {
   return new p5((p) => {
+    p5.disableFriendlyErrors = true;
     let teams = [];
     let particles = [];
     let dataLoaded = false;
@@ -247,7 +248,7 @@ window.initObsidianNetwork = function (containerEl) {
         computeVectorField();
 
         // More particles for denser flow field
-        for (let i = 0; i < 3000; i++) {
+        for (let i = 0; i < 2000; i++) {
           particles.push(new FlowParticle());
         }
 
@@ -259,36 +260,6 @@ window.initObsidianNetwork = function (containerEl) {
       }
     }
 
-    function createDemoData() {
-      for (let i = 0; i < 100; i++) {
-        const wins = Math.floor(Math.random() * 12);
-        const losses = Math.floor(Math.random() * 12);
-        
-        let division;
-        if (wins >= 9) {
-          division = 'Einstein';
-        } else {
-          division = divisions[Math.floor(Math.random() * divisions.length)];
-        }
-        
-        teams.push(new Team({
-          number: `${1000 + i}`,
-          wins,
-          losses,
-          division
-        }));
-      }
-
-      teams.sort((a, b) => a.score - b.score);
-
-      computeVectorField();
-
-      for (let i = 0; i < 3000; i++) {
-        particles.push(new FlowParticle());
-      }
-      
-      dataLoaded = true;
-    }
 
     function drawDivisionSectors(buffer) {
       buffer.noFill();

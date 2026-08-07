@@ -2,6 +2,7 @@
 
 window.initNeuralNet = function (containerEl) {
   return new p5((p) => {
+    p5.disableFriendlyErrors = true;
     let layers = [];
     const layerSizes = [4, 6, 6, 3]; // Input (4), Hidden (6, 6), Output (3)
     let pulses = [];
