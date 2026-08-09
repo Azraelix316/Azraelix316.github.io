@@ -524,10 +524,14 @@
 }
 
 @media (max-width: 768px) {
+  .project-page {
+    padding: 0 2vw;
+  }
+
   .project-hero {
     height: auto;
     max-height: none;
-    padding: 3rem 0;
+    padding: 2rem 0;
   }
 
   .hero-container {
@@ -538,24 +542,99 @@
 
   .hero-title-vertical {
     width: 100%;
-    min-height: auto;
-    padding: 1.25rem;
+    flex: none;
+    padding: 1rem;
+    height: auto;
   }
 
   .project-title-vertical {
     writing-mode: horizontal-tb;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
 
   .hero-image-section {
-    min-height: 350px;
+    min-height: 300px;
   }
 
   .hero-divider {
     display: none;
   }
 
+  .project-features {
+    padding: 3rem 0 2rem 0;
+  }
+
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .features-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .features-header h2 {
+    font-size: 0.95rem;
+  }
+
+  .card-image {
+    height: 140px;
+  }
+
+  .card-description {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-page {
+    padding: 0 1vw;
+  }
+
+  .project-hero {
+    padding: 1.5rem 0;
+  }
+
+  .hero-container {
+    gap: 1rem;
+  }
+
+  .hero-title-vertical {
+    padding: 0.75rem;
+  }
+
+  .project-title-vertical {
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+  }
+
+  .hero-image-section {
+    min-height: 250px;
+  }
+
+  .hero-image-frame::before {
+    font-size: 0.55rem;
+    top: 8px;
+    right: 8px;
+  }
+
+  .project-features {
+    padding: 2rem 0 1.5rem 0;
+  }
+
+  .features-grid {
+    gap: 0.75rem;
+  }
+
+  .card-image {
+    height: 120px;
+  }
+
+  .card-title {
+    font-size: 0.75rem;
+  }
+
+  .card-description {
+    font-size: 0.7rem;
   }
 }
