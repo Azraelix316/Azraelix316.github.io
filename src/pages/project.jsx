@@ -32,19 +32,35 @@ const ProjectPage = ({
     <main className="project-page">
       <div className="grid-bg"></div>
       
-      {/* Hero Section */}
+      {/* Hero Section - Image with overlay text + TOC */}
       <section className="project-hero">
-        <div className="hero-container">
-          <div className="project-text-box">
-            <span className="project-index">{subtitle}</span>
-            <h1 className="project-title">{title}</h1>
-            <p className="project-description">{description}</p>
-          </div>
-          
-          <div className="project-image-container">
-            <div className="graph-paper-frame">
-              <img src={image} alt={imageAlt} className="project-image" />
+        <div className="hero-wrapper">
+          {/* Hero with stacked layout (75% width) */}
+          <div className="hero-main">
+            {/* Hero Image Background */}
+            <div className="hero-image-background">
+              <img src={image} alt={imageAlt} className="hero-bg-image" />
             </div>
+            
+            {/* Hero Content Overlay */}
+            <div className="hero-content-overlay">
+              <span className="project-index">{subtitle}</span>
+              <h1 className="project-title">{title}</h1>
+              <p className="project-description">{description}</p>
+            </div>
+          </div>
+
+          {/* Table of Contents (25% width) */}
+          <div className="toc-sidebar">
+            <h3 className="toc-title">Contents</h3>
+            <nav className="toc-list">
+              {features.map((feature, index) => (
+                <a key={index} href={`#feature-${index}`} className="toc-item">
+                  <span className="toc-number">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="toc-text">{feature.title}</span>
+                </a>
+              ))}
+            </nav>
           </div>
         </div>
       </section>
@@ -59,7 +75,7 @@ const ProjectPage = ({
           
           <div className="features-grid">
             {features.map((feature, index) => (
-              <div key={index} className="feature-card">
+              <div key={index} id={`feature-${index}`} className="feature-card">
                 {feature.featureImage && (
                   <div className="card-image">
                     <img src={feature.featureImage} alt={feature.title} />
