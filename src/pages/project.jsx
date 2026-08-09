@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../components/component_styles/ProjectPage.css';
 
 const ProjectPage = ({ 
@@ -28,39 +28,38 @@ const ProjectPage = ({
     }
   ]
 }) => {
+  const [isImageHovered, setIsImageHovered] = useState(false);
+
   return (
     <main className="project-page">
       <div className="grid-bg"></div>
       
-      {/* Hero Section - Image with overlay text + TOC */}
+      {/* Hero Section */}
       <section className="project-hero">
-        <div className="hero-wrapper">
-          {/* Hero with stacked layout (75% width) */}
-          <div className="hero-main">
-            {/* Hero Image Background */}
-            <div className="hero-image-background">
-              <img src={image} alt={imageAlt} className="hero-bg-image" />
-            </div>
-            
-            {/* Hero Content Overlay */}
-            <div className="hero-content-overlay">
-              <span className="project-index">{subtitle}</span>
-              <h1 className="project-title">{title}</h1>
-              <p className="project-description">{description}</p>
-            </div>
+        <div className="hero-container">
+          {/* Project Title - Vertical */}
+          <div className="hero-title-vertical">
+            <h1 className="project-title-vertical">{title}</h1>
           </div>
 
-          {/* Table of Contents (25% width) */}
-          <div className="toc-sidebar">
-            <h3 className="toc-title">Contents</h3>
-            <nav className="toc-list">
-              {features.map((feature, index) => (
-                <a key={index} href={`#feature-${index}`} className="toc-item">
-                  <span className="toc-number">{String(index + 1).padStart(2, '0')}</span>
-                  <span className="toc-text">{feature.title}</span>
-                </a>
-              ))}
-            </nav>
+          {/* Divider Line */}
+          <div className="hero-divider"></div>
+
+          {/* Image Container */}
+          <div 
+            className="hero-image-section"
+            onMouseEnter={() => setIsImageHovered(true)}
+            onMouseLeave={() => setIsImageHovered(false)}
+          >
+            <div className={`hero-image-frame ${isImageHovered ? 'hovered' : ''}`}>
+              <img src={image} alt={imageAlt} className="hero-image" />
+            </div>
+
+            {/* Text Overlay - Appears on hover */}
+            <div className={`hero-text-overlay ${isImageHovered ? 'visible' : ''}`}>
+              <span className="overlay-subtitle">{subtitle}</span>
+              <p className="overlay-description">{description}</p>
+            </div>
           </div>
         </div>
       </section>
@@ -69,24 +68,29 @@ const ProjectPage = ({
       <section className="project-features">
         <div className="features-container">
           <div className="features-header">
-            <h2>Key Features</h2>
-            <div className="header-line"></div>
+            <h2>KEY FEATURES</h2>
           </div>
           
           <div className="features-grid">
             {features.map((feature, index) => (
-              <div key={index} id={`feature-${index}`} className="feature-card">
-                {feature.featureImage && (
-                  <div className="card-image">
-                    <img src={feature.featureImage} alt={feature.title} />
+              <div key={index} className="feature-card">
+                <div className="feature-card-inner">
+                  {/* Card Number */}
+                  <div className="card-number">{String(index + 1).padStart(2, '0')}</div>
+                  
+                  {/* Card Content */}
+                  <div className="card-body">
+                    {feature.featureImage && (
+                      <div className="card-image">
+                        <img src={feature.featureImage} alt={feature.title} />
+                      </div>
+                    )}
+                    
+                    <div className="card-text">
+                      <h3 className="card-title">{feature.title}</h3>
+                      <p className="card-description">{feature.description}</p>
+                    </div>
                   </div>
-                )}
-                <div className="card-content">
-                  <div className="card-header">
-                    <span className="feature-icon">{feature.icon}</span>
-                    <h3>{feature.title}</h3>
-                  </div>
-                  <p className="card-description">{feature.description}</p>
                 </div>
               </div>
             ))}
