@@ -1,8 +1,8 @@
 import React from 'react';
 import '../components/component_styles/ContactPage.css';
-import discordSvg from '/assets/Discord-Symbol-White-min.png';
-import githubSvg from '/assets/github-mark-white-min.png';
-import instagramSvg from '/assets/instagram.svg';
+import discordSvg from '/assets/share/Discord-Symbol-White-min.png';
+import githubSvg from '/assets/share/github-mark-white-min.png';
+import instagramSvg from '/assets/share/instagram.svg';
 
 const ContactPage = () => {
   return (
