@@ -1,0 +1,37 @@
+/* Page Transition Curtain - Slides from right to left */
+.page-transition-curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 9999;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: none;
+}
+
+.page-transition-curtain.active {
+  animation: curtainTransition 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Curtain: waits, slides in from right, stays covering screen, then exits left */
+@keyframes curtainTransition {
+  /* 0-16.7%: delay while staying off-screen */
+  0% {
+    transform: translateX(100%);
+  }
+  16.7% {
+    transform: translateX(100%);
+  }
+  /* 16.7-66.7%: slide in and cover screen */
+  66.7% {
+    transform: translateX(0);
+  }
+  /* 66.7-100%: exit to left */
+  100% {
+    transform: translateX(-100%);
+  }
+}
+

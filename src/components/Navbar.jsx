@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { triggerTransition } from '../App';
 import Contact from './Contact';
 import './component_styles/Navbar.css';
 
@@ -12,8 +13,24 @@ const MENU_ITEMS = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleMenuLinkClick = (e, href) => {
+    e.preventDefault();
+    
+    // Close menu immediately
+    setIsOpen(false);
+    
+    // Trigger curtain transition
+    triggerTransition();
+    
+    // Navigate after curtain covers screen (600ms into the 1.2s animation)
+    setTimeout(() => {
+      navigate(href);
+    }, 600);
+  };
 
   return (
     <>
@@ -42,11 +59,11 @@ const Navbar = () => {
           <ul className="menu-list">
             {MENU_ITEMS.map((item, index) => (
               <li key={item.label} className="menu-item">
-                <Link 
-                  to={item.href}
+                <a 
+                  href={item.href}
                   className={`menu-link ${isOpen ? 'reveal' : ''}`}
                   style={{ animationDelay: `${0.15 + index * 0.08}s` }}
-                  onClick={toggleMenu}
+                  onClick={(e) => handleMenuLinkClick(e, item.href)}
                 >
                   {/* The horizontal bar overlay that slides away to unveil the text */}
                   <span 
@@ -54,7 +71,7 @@ const Navbar = () => {
                     style={{ animationDelay: `${0.15 + index * 0.08}s` }}
                   />
                   <span className="link-text">{item.label}</span>
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
