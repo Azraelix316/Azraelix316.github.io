@@ -1,8 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { triggerTransition } from '../App';
 import '../components/component_styles/ProjectsIndex.css';
 
 const ProjectsIndex = () => {
+  const navigate = useNavigate();
+
   const projects = [
     {
       id: 'vex',
@@ -48,6 +51,13 @@ const ProjectsIndex = () => {
     }
   ];
 
+  const handleProjectClick = (projectId) => {
+    triggerTransition();
+    setTimeout(() => {
+      navigate(`/project/${projectId}`);
+    }, 600);
+  };
+
   return (
     <main className="projects-index">
       <div className="grid-bg"></div>
@@ -59,7 +69,12 @@ const ProjectsIndex = () => {
 
       <section className="projects-list">
         {projects.map((project) => (
-          <Link key={project.id} to={`/project/${project.id}`} className="project-card-link">
+          <button 
+            key={project.id} 
+            onClick={() => handleProjectClick(project.id)} 
+            className="project-card-link"
+            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+          >
             <article className="project-card">
               <div className="card-icon">{project.icon}</div>
               <div className="card-content">
@@ -69,7 +84,7 @@ const ProjectsIndex = () => {
               </div>
               <div className="card-arrow">→</div>
             </article>
-          </Link>
+          </button>
         ))}
       </section>
     </main>
