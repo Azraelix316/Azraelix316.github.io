@@ -7,7 +7,7 @@ const P5JSProject = () => {
       title="p5.js Interactive Visualizations"
       subtitle="PORTFOLIO > DATA VISUALIZATION"
       description="Creative coding projects using p5.js to build interactive, generative art and data visualizations. Exploring physics simulations, particle systems, and real-time visual effects."
-      image="/assets/attractors.png"
+      image="/assets/p5js/attractors.png"
       imageAlt="p5.js Visualization"
       features={[
         {

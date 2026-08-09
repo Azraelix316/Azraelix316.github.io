@@ -7,7 +7,7 @@ const WebProject = () => {
       title="Web Design & Development"
       subtitle="PORTFOLIO > WEB"
       description="Full-stack web applications and responsive design projects. Building performant, accessible, and visually engaging web experiences using modern frameworks and best practices."
-      image="assets/Screenshot 2025-06-15 185634-min.png"
+      image="assets/web_design/Screenshot 2025-06-15 185634-min.png"
       imageAlt="Web Design Project"
       features={[
         {

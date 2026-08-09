@@ -7,7 +7,7 @@ const ModelingProject = () => {
       title="Mathematical Modeling"
       subtitle="PORTFOLIO > RESEARCH"
       description="Competition-level mathematical modeling projects tackling real-world problems through rigorous mathematical analysis and computational approaches. Published research in applied mathematics."
-      image="/assets/MCM_screenshot_summary.png"
+      image="/assets/MCM/MCM_screenshot_summary.png"
       imageAlt="Mathematical Model"
       features={[
         {
