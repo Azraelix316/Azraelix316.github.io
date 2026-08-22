@@ -8,7 +8,7 @@
   height: 100%;
   pointer-events: none;
   z-index: 100;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* Diagonal inversion from bottom-left to top-right */
@@ -16,17 +16,18 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 200%;
   height: 100%;
   background: transparent;
   pointer-events: none;
   backdrop-filter: invert(1);
   -webkit-backdrop-filter: invert(1);
+  z-index: 9999;
 }
 
-/* Tooltip content - fixed position, only shows where curtain overlaps */
+/* Tooltip content - absolute position within each section, only shows where curtain overlaps */
 .curtain-tooltip {
-  position: fixed;
+  position: absolute;
   width: 320px;
   max-height: 600px;
   padding: 20px;
@@ -92,6 +93,7 @@
   height: 6px;
   margin: 2px 0;
 }
+
 
 /* Responsive */
 @media (max-width: 640px) {

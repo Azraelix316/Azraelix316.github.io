@@ -90,19 +90,19 @@ const RevealCurtain = ({ activeSection = 'black-hole' }) => {
       ref={curtainRef}
       className="reveal-curtain-container"
     >
-      {/* Diagonal trapezoid curtain - everything inside is inverted and clipped */}
+      {/* Diagonal trapezoid curtain with padding - everything inside is inverted and clipped */}
       <div 
         className="curtain-rect-invert"
         style={{
-          clipPath: `polygon(${mouseX-window.innerHeight}px ${window.innerHeight}px, ${mouseX}px 0%, 100% 0%, 100% ${window.innerHeight}px)`
+          clipPath: `polygon(-2000px ${window.innerHeight}px, ${mouseX * ((window.innerWidth + window.innerHeight) / window.innerWidth) - window.innerHeight}px ${window.innerHeight}px, ${mouseX * ((window.innerWidth + window.innerHeight) / window.innerWidth)}px 0px, ${window.innerWidth + 1000}px 0px, ${window.innerWidth + 1000}px ${window.innerHeight}px, -2000px ${window.innerHeight}px)`      
         }}
-      >
+          >
         {/* Tooltip rendered inside curtain - automatically clipped by curtain's clip-path */}
         <div 
           className="curtain-tooltip"
           style={{
             left: `${window.innerWidth * 0.75}px`,
-            top: `${window.innerHeight * 0.1}px`,
+            top: `${window.innerHeight * 0.25}px`,
           }}
         >
           <div className="tooltip-header">{tooltip.title}</div>
