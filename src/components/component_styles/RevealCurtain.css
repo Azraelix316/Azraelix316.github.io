@@ -22,7 +22,7 @@
   pointer-events: none;
   backdrop-filter: invert(1);
   -webkit-backdrop-filter: invert(1);
-  z-index: 9999;
+  z-index: 999999;
 }
 
 /* Tooltip content - absolute position within each section, only shows where curtain overlaps */
