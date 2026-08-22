@@ -248,7 +248,7 @@ window.initObsidianNetwork = function (containerEl) {
         computeVectorField();
 
         // More particles for denser flow field
-        for (let i = 0; i < 2000; i++) {
+        for (let i = 0; i < 1600; i++) {
           particles.push(new FlowParticle());
         }
 

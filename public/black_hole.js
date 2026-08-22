@@ -85,7 +85,7 @@ window.initBlackHole = function (containerEl) {
       canvas.style('height', '100%');
 
       Disk = [];
-      for (let i = 0; i < 300; i++) {
+      for (let i = 0; i < 150; i++) {
         let angle = p.random(p.TWO_PI);
         let radius = p.random(235, 350);
         let x = radius * p.cos(angle);

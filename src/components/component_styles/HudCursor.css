@@ -1,134 +1,29 @@
-/* HudCursor.css */
+/* HudCursor.css - Simple Circle/Dot Cursor */
 
-/* Hide default cursor globally when HUD cursor is active */
-body, a, button {
+/* Hide default cursor on all elements */
+* {
   cursor: none !important;
 }
 
 .hud-cursor-wrapper {
   position: fixed;
-  top: -25px;
-  left: -25px;
-  width: 50px;
-  height: 50px;
   pointer-events: none;
   z-index: 99999;
-  will-change: transform;
-  transition: transform 0.05s ease-out;
+  will-change: left, top;
+  /* Offset to center the dot on cursor */
+  margin-left: -6px;
+  margin-top: -6px;
 }
 
-/* --- CENTER PRECISION DOT --- */
-.hud-center-dot {
+/* Simple 12px black dot cursor */
+.hud-cursor-dot {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 4px;
-  height: 4px;
+  width: 12px;
+  height: 12px;
   background-color: #000000;
   border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease;
-}
-
-/* --- OUTER DOTTED CIRCLE --- */
-.hud-dotted-ring {
-  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
 }
 
-.hud-dotted-ring circle {
-  fill: none;
-  stroke: rgba(0, 0, 0, 0.35);
-  stroke-width: 1.2;
-  stroke-dasharray: 2 4; /* Dotted effect */
-}
 
-/* --- ROTATING ARC CONTAINERS --- */
-.hud-arc-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-.hud-arc-container svg {
-  width: 100%;
-  height: 100%;
-}
-
-.hud-arc-container path {
-  stroke: #000000;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-}
-
-/* Outer Arc Rotation */
-.arc-outer {
-  animation: hudRotateCW 4s linear infinite;
-}
-
-/* Inner Arc Rotation (Reverse) */
-.arc-inner {
-  animation: hudRotateCCW 2.8s linear infinite;
-}
-
-/* --- TRAILING DOTS BEHIND ARCS --- */
-.arc-trail-dot {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background-color: #000000;
-  border-radius: 50%;
-}
-
-/* Position dot at the trailing edge of Outer Arc (top center) */
-.dot-outer {
-  top: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Position dot at the trailing edge of Inner Arc (bottom center) */
-.dot-inner {
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* --- ROTATION KEYFRAMES --- */
-@keyframes hudRotateCW {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes hudRotateCCW {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
-}
-
-/* --- INTERACTIVE STATES (HOVER / CLICK) --- */
-.hud-cursor-wrapper.hovered .hud-dotted-ring circle {
-  stroke: #000000;
-  stroke-dasharray: 4 2;
-}
-
-.hud-cursor-wrapper.hovered .hud-center-dot {
-  transform: translate(-50%, -50%) scale(1.8);
-}
-
-.hud-cursor-wrapper.clicked {
-  transform: translate3d(var(--x), var(--y), 0) scale(0.85);
-}
