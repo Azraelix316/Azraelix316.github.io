@@ -1,5 +1,5 @@
 // LandingPage.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import FeatureSection from '../components/FeatureSection';
 import HeroTitle from '../components/HeroTitle';
@@ -9,11 +9,13 @@ import Navbar from '../components/Navbar';
 import NeuralNet from '../components/Neural_Net.jsx';
 import Contact from '../components/Contact';
 import ObsidianNetwork from '../components/ObsidianNetwork';
+import RevealCurtain from '../components/RevealCurtain';
 import '../components/component_styles/LandingPage.css';
 import FeatureText from '../components/FeatureText.jsx';
 
 const LandingPage = () => {
   const location = useLocation();
+  const [activeSection, setActiveSection] = useState('black-hole');
 
   useEffect(() => {
     // Kill all p5.js sketches every time landing page is visited (including back button)
@@ -36,8 +38,31 @@ const LandingPage = () => {
     });
   }, [location.pathname]); // Fires every time location changes, including back button
 
+  const handleSectionScroll = () => {
+    // Detect which section is in view based on scroll position
+    const sections = document.querySelectorAll('.feature-row');
+    let currentSection = 'black-hole';
+    
+    sections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight / 2) {
+        if (index === 0) currentSection = 'black-hole';
+        else if (index === 1) currentSection = 'neural-net';
+        else if (index === 2) currentSection = 'flow-field';
+      }
+    });
+    
+    setActiveSection(currentSection);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleSectionScroll);
+    return () => window.removeEventListener('scroll', handleSectionScroll);
+  }, []);
+
   return (
     <main className="landing-page">
+      <RevealCurtain activeSection={activeSection} />
       <div className="grid-bg"></div>
       <div style={{ position: 'relative' }}>
         <FeatureSection

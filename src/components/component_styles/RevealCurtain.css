@@ -1,0 +1,130 @@
+/* RevealCurtain.css */
+
+.reveal-curtain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+/* Diagonal inversion from bottom-left to top-right */
+.curtain-rect-invert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  pointer-events: none;
+  backdrop-filter: invert(1);
+  -webkit-backdrop-filter: invert(1);
+}
+
+/* Tooltip content - fixed position, only shows where curtain overlaps */
+.curtain-tooltip {
+  position: fixed;
+  width: 320px;
+  max-height: 600px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 101;
+  pointer-events: none;
+  backdrop-filter: blur(2px);
+}
+
+.curtain-tooltip::-webkit-scrollbar {
+  width: 6px;
+}
+
+.curtain-tooltip::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.curtain-tooltip::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.curtain-tooltip::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.tooltip-header {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #000;
+  border-bottom: 2px solid #000;
+  padding-bottom: 8px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tooltip-equations {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.equation-line {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #333;
+  white-space: pre-wrap;
+  word-break: break-word;
+  letter-spacing: 0.5px;
+}
+
+.equation-line.spacer {
+  height: 6px;
+  margin: 2px 0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .curtain-tooltip {
+    width: 280px;
+    font-size: 10px;
+  }
+
+  .tooltip-header {
+    font-size: 12px;
+  }
+
+  .equation-line {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .curtain-tooltip {
+    width: 260px;
+    max-height: 400px;
+    padding: 15px;
+    font-size: 9px;
+  }
+
+  .tooltip-header {
+    font-size: 11px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+  }
+
+  .equation-line {
+    font-size: 8px;
+    line-height: 1.4;
+  }
+}
